@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
 
 
-//////////////////
-//NAVIGATION MENU
+////////////////////////
+//NAVIGATION MENU SLIDER
 let menuTrigger = false
 let menuCounter = -220
 const navigationMenu = () => {
@@ -48,8 +48,7 @@ const navigationMenu = () => {
         if (menuTrigger === false && menuCounter <= 0) {
             menuCounter = menuCounter + 0.5
             menu.style.left = menuCounter + 'px'
-            console.log(menuCounter)
-            console.log(menuTrigger)
+
         }
 
         if (menuTrigger === true && menuCounter >= -220) {
@@ -59,7 +58,6 @@ const navigationMenu = () => {
         }
         if (menuCounter === 0) {
             menuTrigger = true
-            console.log(menuTrigger)
             clearInterval(interval)
         }
         if (menuCounter === -220) {
@@ -68,6 +66,4 @@ const navigationMenu = () => {
         }
 
     }, 1)
-
-
 }
