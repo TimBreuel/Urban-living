@@ -20,20 +20,29 @@
 
 
 
+
+
 //////////////////
 //ALL UI SELECTORS
 const UIselectors = {
     navMenu: '#navMenu',
-    menu: '#menu'
+    menu: '#menu',
+    shoppingCartBtn: '#shoppingCart',
+    shoppingCartContainer: '#shoping-card'
 }
 
 ///////////////////
 //EVENTS LISTENERS
 document.addEventListener('DOMContentLoaded', (e) => {
 
-    //NAVIGATION MENU CALL
+    //NAVIGATION MENU SLIDER CALL
     const navMenu = document.querySelector(UIselectors.navMenu)
     navMenu.addEventListener('click', navigationMenu)
+
+    //SHOPING CARD CONTAINER CALL
+    const shopingCardBtn = document.querySelector(UIselectors.shoppingCartBtn)
+    shopingCardBtn.addEventListener('click', shoppingCardContainer)
+
 })
 
 
@@ -50,11 +59,9 @@ const navigationMenu = () => {
             menu.style.left = menuCounter + 'px'
 
         }
-
         if (menuTrigger === true && menuCounter >= -220) {
             menu.style.left = menuCounter + 'px'
             menuCounter = menuCounter - 0.5
-            console.log(menuCounter)
         }
         if (menuCounter === 0) {
             menuTrigger = true
@@ -65,5 +72,33 @@ const navigationMenu = () => {
             clearInterval(interval)
         }
 
-    }, 1)
+    }, 0.5)
+}
+
+/////////////////////////
+//SHOPINGCARD MENU SLIDE
+let shoppingCardTrigger = false
+let shoppingCardCounter = -300
+const shoppingCardContainer = () => {
+    const cardContainer = document.querySelector(UIselectors.shoppingCartContainer)
+    let interval = setInterval(() => {
+        if (shoppingCardTrigger === false && shoppingCardCounter <= 0) {
+            shoppingCardCounter = shoppingCardCounter + 1
+            cardContainer.style.right = shoppingCardCounter + 'px'
+
+        }
+        if (shoppingCardTrigger === true && shoppingCardCounter >= -300) {
+            cardContainer.style.right = shoppingCardCounter + 'px'
+            shoppingCardCounter = shoppingCardCounter - 1
+        }
+        if (shoppingCardCounter === 0) {
+            shoppingCardTrigger = true
+            clearInterval(interval)
+        }
+        if (shoppingCardCounter === -300) {
+            shoppingCardTrigger = false
+            clearInterval(interval)
+        }
+
+    }, 0.1)
 }

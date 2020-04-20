@@ -12,6 +12,10 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+.fl-r {
+    float: right;
+}
+
 
 
 /* ===== HEADER ===== */
@@ -139,6 +143,64 @@
 }
 
 /* ===== END MENU ===== */
+
+/* ===== SHOPPING CARD ===== */
+
+#shoping-card {
+    width: 300px;
+    height: 100vh;
+    background-color: #4d4954;
+    position: absolute;
+    right: -300px;
+    top: 75px;
+
+}
+
+#shoping-card>h3 {
+    padding: 15px 0 15px 15px;
+    font-size: 26px;
+    color: #ffe5db;
+    border-bottom: 2px solid #ffe5db;
+
+}
+
+#total {
+    color: #ffe5db;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 0px;
+    border-top: 1px solid #ffe5db;
+    /* border-bottom: 1px solid #ffe5db; */
+}
+
+
+.buy-now {
+    position: relative;
+    left: 15px;
+}
+
+.btn {
+    width: 265px;
+    height: 50px;
+    background-color: #4d4954;
+    color: #ffe5db;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn:hover {
+    transition-duration: 1s;
+    background-color: #ffe5db;
+    color: #4d4954;
+}
+
+.shopping-card-container>li {
+    list-style: none;
+}
+
+
+/* ===== END SHOPPING CARD ====== */
 
 /* ===== CONTAINER ===== */
 
