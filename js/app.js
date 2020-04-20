@@ -19,9 +19,6 @@
 //     .then(data => console.log(data[0].imageS))
 
 
-
-
-
 //////////////////
 //ALL UI SELECTORS
 const UIselectors = {
@@ -55,13 +52,13 @@ const navigationMenu = () => {
     const menu = document.querySelector(UIselectors.menu)
     let interval = setInterval(() => {
         if (menuTrigger === false && menuCounter <= 0) {
-            menuCounter = menuCounter + 0.5
+            menuCounter++
             menu.style.left = menuCounter + 'px'
 
         }
         if (menuTrigger === true && menuCounter >= -220) {
             menu.style.left = menuCounter + 'px'
-            menuCounter = menuCounter - 0.5
+            menuCounter--
         }
         if (menuCounter === 0) {
             menuTrigger = true
@@ -72,7 +69,7 @@ const navigationMenu = () => {
             clearInterval(interval)
         }
 
-    }, 0.5)
+    }, 0.1)
 }
 
 /////////////////////////
@@ -83,13 +80,13 @@ const shoppingCardContainer = () => {
     const cardContainer = document.querySelector(UIselectors.shoppingCartContainer)
     let interval = setInterval(() => {
         if (shoppingCardTrigger === false && shoppingCardCounter <= 0) {
-            shoppingCardCounter = shoppingCardCounter + 1
+            shoppingCardCounter++
             cardContainer.style.right = shoppingCardCounter + 'px'
 
         }
         if (shoppingCardTrigger === true && shoppingCardCounter >= -300) {
             cardContainer.style.right = shoppingCardCounter + 'px'
-            shoppingCardCounter = shoppingCardCounter - 1
+            shoppingCardCounter--
         }
         if (shoppingCardCounter === 0) {
             shoppingCardTrigger = true
