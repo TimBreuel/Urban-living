@@ -133,7 +133,7 @@ const printProducts = () => {
             <img src="${product.imageS}" class="image-small"/>
             <h4 class="article-name">${product.name}</h4>
             <div class="article-price">
-            price: <span class="article-price-num">${product.price}</span>$
+            price: <span class="article-price-num">${product.price}</span> $
             <button class="btn-card btn-add">
             <i class="fas fa-cart-plus"></i>
             </button>
@@ -162,7 +162,7 @@ const printProductsCategory = (category) => {
                 <img src="${product.imageS}" class="image-small"/>
                 <h4 class="article-name">${product.name}</h4>
                 <div class="article-price">
-                price: <span class="article-price-num">${product.price}</span>$
+                price: <span class="article-price-num">${product.price}</span> $
                 <button class="btn-card btn-add">
                 <i class="fas fa-cart-plus"></i>
                 </button>
