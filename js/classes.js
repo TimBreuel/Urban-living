@@ -1,6 +1,6 @@
-class ArticlesCtr {
-    constructor(articelNumber, name, category, price, color, imageL, imageS, description) {
-        this.articelNumber = articelNumber
+class ProductsCtr {
+    constructor(productNumber, name, category, price, color, imageL, imageS, description) {
+        this.productNumber = productNumber
         this.name = name
         this.category = category
         this.price = price
@@ -11,9 +11,11 @@ class ArticlesCtr {
     }
 
     //FETCH API
-    async getArticles() {
-        const response = await fetch('http://localhost:3000/articles')
+    async getProducts() {
+        const response = await fetch('http://localhost:3000/products')
         const resData = await response.json()
         return resData
     }
+
+    //GET 
 }

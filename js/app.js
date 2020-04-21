@@ -82,11 +82,11 @@ const shoppingCardContainer = () => {
 ////////////////////////
 //GET ARTICLES FROM API
 
-let articles = new ArticlesCtr
+const products = new ProductsCtr
 
-function getArticles() {
-    articles.getArticles().then(article => {
-        console.log(article)
+function getProducts() {
+    products.getProducts().then(product => {
+        console.log(product)
     }).catch(err => console.log('ERROR', err))
 }
-getArticles()
+getProducts()
