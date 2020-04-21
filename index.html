@@ -1,175 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Urban-living</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- NAVIGATION BAR -->
     <nav class="navBar">
-        <div id="navMenu"><i class="fas fa-bars"></i></div>
-        <div class="logo">
-            <img src="./img/logo/UrbanLiving-Logo.png" alt="">
-        </div>
-        <div id="shoppingCart"><i class="fas fa-shopping-cart"></i></div>
+      <div id="navMenu"><i class="fas fa-bars"></i></div>
+      <div class="logo">
+        <img src="./img/logo/UrbanLiving-Logo.png" alt="" />
+      </div>
+      <div id="shoppingCart"><i class="fas fa-shopping-cart"></i></div>
     </nav>
 
     <!-- FIXED MENU -->
     <div id="menu">
-        <div class="searchBar"><i class="fas fa-search"></i></div>
-        <ul>
-            <li>
-                <a href="#">Categorie</a>
-            </li>
-            <li id="chairs">
-                <a href="#">Chairs</a>
-            </li>
-            <li id="couches">
-                <a href="#">Couches</a>
-            </li>
-            <li id="lamps">
-                <a href="#">Lamps</a>
-            </li>
-            <li id="tables">
-                <a href="#">Tables</a>
-            </li>
-            <li>
-                <a href="#">Terms</a>
-            </li>
-            <li id="register">
-                <a href="#">Register</a>
-            </li>
-            <li id="about-us">
-                <a href="#">About Us</a>
-            </li>
-            <li id="pay-and-del">
-                <a href="#">Payment & Deliverie</a>
-            </li>
-            <li id="impressum">
-                <a href="#">Impressum</a>
-            </li>
-        </ul>
+      <div class="searchBar"><i class="fas fa-search"></i></div>
+      <ul>
+        <li>
+          <a href="#">Categorie</a>
+        </li>
+        <li id="chairs">
+          <a href="#">Chairs</a>
+        </li>
+        <li id="couches">
+          <a href="#">Couches</a>
+        </li>
+        <li id="lamps">
+          <a href="#">Lamps</a>
+        </li>
+        <li id="tables">
+          <a href="#">Tables</a>
+        </li>
+        <li>
+          <a href="#">Terms</a>
+        </li>
+        <li id="register">
+          <a href="#">Register</a>
+        </li>
+        <li id="about-us">
+          <a href="#">About Us</a>
+        </li>
+        <li id="pay-and-del">
+          <a href="#">Payment & Deliverie</a>
+        </li>
+        <li id="impressum">
+          <a href="#">Impressum</a>
+        </li>
+      </ul>
     </div>
 
     <!-- FIXED SHOPING CARD -->
     <div id="shoping-card">
-        <h3>Shoping Card</h3>
-        <ul class="shopping-card-container">
-            <li></li>
-        </ul>
-        <div id="total"><span>Total cost: </span><span class="fl-r">0$</span></div>
-        <button class="buy-now btn">BUY NOW!</button>
+      <h3>Shoping Card</h3>
+      <ul class="shopping-card-container">
+        <li></li>
+      </ul>
+      <div id="total">
+        <span>Total cost: </span><span class="fl-r">0$</span>
+      </div>
+      <button class="buy-now btn">BUY NOW!</button>
     </div>
-
-
 
     <!-- END NAVOGATION BAR -->
     <!-- CONTAINER -->
     <div class="container container-flex">
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">1200</span>$
-                <button class="btn-card btn-add"><i class="fas fa-cart-plus"></i></button></div>
+      <div class="card">
+        <img
+          src="./products/chairs/chair-1-s-200x200.jpg"
+          class="image-small"
+        />
+        <h4 class="article-name">Chair Thomas</h4>
+        <div class="article-price">
+          price: <span class="article-price-num">1200</span>$
+          <button class="btn-card btn-add">
+            <i class="fas fa-cart-plus"></i>
+          </button>
         </div>
-
-        <!-- <i class="fas fa-cart-plus"></i> -->
-
-
-
-        <!-- TEST CARDS -->
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">1200</span>$
-                <button class="btn-card fl-r btn-test"><i class="fas fa-cart-plus"></i></button></div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-        <div class="card">
-            <img src="./products/chairs/chair-1-s-200x200.jpg" class="image-small">
-            <h4 class="article-name">Chair Thomas</h4>
-            <div class="article-price">price: <span class="article-price-num">0</span>$</div>
-        </div>
-
+      </div>
     </div>
 
-
-
-
-
-
-
+    <script src="./js/classes.js"></script>
     <script src="./js/app.js"></script>
-</body>
-
+  </body>
 </html>

@@ -1,0 +1,16 @@
+GET ALL Articles
+http://localhost:3000/articles/
+
+FILTER Article BY NAME
+http://localhost:3000/articles?name=Chair-1
+http://localhost:3000/articles?name=Chair1&name=Chair-2
+
+PAGINATION & LIMIT
+http://localhost:3000/articles?_page=1&_limit=2
+
+SORTING
+http://localhost:3000/articles?_sort=name&_order=asc
+
+
+FULL TEXT SEARCH
+http://localhost:3000/articles?q=Paul
