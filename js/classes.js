@@ -17,5 +17,5 @@ class ProductsCtr {
         return resData
     }
 
-    //GET 
+
 }

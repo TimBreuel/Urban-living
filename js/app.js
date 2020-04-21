@@ -4,20 +4,61 @@ const UIselectors = {
     navMenu: '#navMenu',
     menu: '#menu',
     shoppingCartBtn: '#shoppingCart',
-    shoppingCartContainer: '#shoping-card'
+    shoppingCartContainer: '#shoping-card',
+    productContainer: '#product-container',
+    chairs: '#chairs',
+    couches: '#couches',
+    lamps: '#lamps',
+    tables: '#tables'
 }
+
+/////////////////////
+//GET HTML SELECTORS
+const navMenu = document.querySelector(UIselectors.navMenu)
+const shopingCardBtn = document.querySelector(UIselectors.shoppingCartBtn)
+const productContainer = document.querySelector(UIselectors.productContainer)
+
+//GET HTML CATEGORYS
+const categoryChairs = document.querySelector(UIselectors.chairs)
+const categoryCouches = document.querySelector(UIselectors.couches)
+const categoryLamps = document.querySelector(UIselectors.lamps)
+const categoryTables = document.querySelector(UIselectors.tables)
+
 
 ///////////////////
 //EVENTS LISTENERS
 document.addEventListener('DOMContentLoaded', (e) => {
 
     //NAVIGATION MENU SLIDER CALL
-    const navMenu = document.querySelector(UIselectors.navMenu)
     navMenu.addEventListener('click', navigationMenu)
 
     //SHOPING CARD CONTAINER CALL
-    const shopingCardBtn = document.querySelector(UIselectors.shoppingCartBtn)
     shopingCardBtn.addEventListener('click', shoppingCardContainer)
+
+    //PRODUCTS CALL
+    printProducts()
+
+    ////////////////////////
+    //CATEGORY PRODUCTS CALL
+    categoryChairs.addEventListener('click', (e) => {
+        e.preventDefault()
+        printProductsCategory('chair')
+    })
+
+    categoryCouches.addEventListener('click', (e) => {
+        e.preventDefault()
+        printProductsCategory('couch')
+    })
+
+    categoryLamps.addEventListener('click', (e) => {
+        e.preventDefault()
+        printProductsCategory('lamp')
+    })
+
+    categoryTables.addEventListener('click', (e) => {
+        e.preventDefault()
+        printProductsCategory('table')
+    })
 
 })
 
@@ -81,12 +122,57 @@ const shoppingCardContainer = () => {
 
 ////////////////////////
 //GET ARTICLES FROM API
-
 const products = new ProductsCtr
-
-function getProducts() {
+const printProducts = () => {
     products.getProducts().then(product => {
-        console.log(product)
+
+        product.forEach(product => {
+            let card = document.createElement('div')
+            card.classList.add('card')
+            card.innerHTML = `
+            <img src="${product.imageS}" class="image-small"/>
+            <h4 class="article-name">${product.name}</h4>
+            <div class="article-price">
+            price: <span class="article-price-num">${product.price}</span>$
+            <button class="btn-card btn-add">
+            <i class="fas fa-cart-plus"></i>
+            </button>
+            </div>
+            `
+
+            productContainer.append(card)
+
+        })
     }).catch(err => console.log('ERROR', err))
 }
-getProducts()
+
+
+const printProductsCategory = (category) => {
+    productContainer.innerHTML = ''
+
+
+    products.getProducts().then(product => {
+
+        product.forEach(product => {
+            if (product.category === category) {
+
+                let card = document.createElement('div')
+                card.classList.add('card')
+                card.innerHTML = `
+                <img src="${product.imageS}" class="image-small"/>
+                <h4 class="article-name">${product.name}</h4>
+                <div class="article-price">
+                price: <span class="article-price-num">${product.price}</span>$
+                <button class="btn-card btn-add">
+                <i class="fas fa-cart-plus"></i>
+                </button>
+                </div>
+                `
+
+                productContainer.append(card)
+            }
+
+        })
+    }).catch(err => console.log('ERROR', err))
+
+}
