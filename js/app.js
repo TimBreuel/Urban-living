@@ -68,6 +68,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
       let arrName = Array.from(e.target.parentElement.parentElement.children);
       addToShoppingCard(arrName[1].innerText);
     }
+    if (e.target.classList.contains("cart-remove")) {
+      e.target.parentElement.parentElement.parentElement.remove();
+    }
   });
 });
 
