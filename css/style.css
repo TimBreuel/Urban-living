@@ -44,6 +44,10 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 5px solid #ffe5db;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
 #navMenu {
@@ -93,7 +97,7 @@
 /* ===== MENU ===== */
 
 #menu {
-  position: absolute;
+  position: fixed;
   top: 75px;
   height: 100vh;
   width: 219px;
@@ -158,7 +162,7 @@
   width: 299px;
   height: 100vh;
   background-color: #4d4954;
-  position: absolute;
+  position: fixed;
   right: -300px;
   top: 75px;
   z-index: 999;
@@ -173,7 +177,7 @@
 
 #total {
   color: #ffe5db;
-  padding: 15px;
+  padding: 20px;
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 0px;
@@ -210,7 +214,7 @@
 /* ===== CONTAINER ===== */
 
 .container {
-  padding: 120px 50px 50px 50px;
+  padding: 160px 50px 50px 50px;
 }
 
 .container-flex {
@@ -229,7 +233,7 @@
   margin: 15px 15px;
   background-color: #4d4954;
   border-radius: 5px;
-  box-shadow: 0 10px 10px -5px;
+  box-shadow: 0 10px 10px #4d4954;
 }
 
 .article-name {

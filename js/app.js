@@ -1,16 +1,17 @@
 //////////////////
 //ALL UI SELECTORS
 const UIselectors = {
-  navMenu: "#navMenu",
-  menu: "#menu",
-  shoppingCartBtn: "#shoppingCart",
-  shoppingCartContainer: "#shoping-card",
-  productContainer: "#product-container",
-  chairs: "#chairs",
-  couches: "#couches",
-  lamps: "#lamps",
-  tables: "#tables",
-  shoppingCardList: ".shopping-card-container",
+    navMenu: "#navMenu",
+    menu: "#menu",
+    shoppingCartBtn: "#shoppingCart",
+    shoppingCartContainer: "#shoping-card",
+    productContainer: "#product-container",
+    chairs: "#chairs",
+    couches: "#couches",
+    lamps: "#lamps",
+    tables: "#tables",
+    shoppingCardList: ".shopping-card-container",
+    totalCost: "#totalCost",
 };
 
 /////////////////////
@@ -27,51 +28,55 @@ const categoryTables = document.querySelector(UIselectors.tables);
 
 //GET SHOPPING CART
 const shoppingCardList = document.querySelector(UIselectors.shoppingCardList);
+const totalCost = document.querySelector(UIselectors.totalCost);
 
 ///////////////////
 //EVENTS LISTENERS
 document.addEventListener("DOMContentLoaded", (e) => {
-  //NAVIGATION MENU SLIDER CALL
-  navMenu.addEventListener("click", navigationMenu);
+    //NAVIGATION MENU SLIDER CALL
+    navMenu.addEventListener("click", navigationMenu);
 
-  //SHOPING CARD CONTAINER CALL
-  shopingCardBtn.addEventListener("click", shoppingCardContainer);
+    //SHOPING CARD CONTAINER CALL
+    shopingCardBtn.addEventListener("click", shoppingCardContainer);
 
-  //PRODUCTS CALL
-  printProducts();
+    //PRODUCTS CALL
+    printProducts();
 
-  ////////////////////////
-  //CATEGORY PRODUCTS CALL
-  categoryChairs.addEventListener("click", (e) => {
-    e.preventDefault();
-    printProductsCategory("chair");
-  });
+    ////////////////////////
+    //CATEGORY PRODUCTS CALL
+    categoryChairs.addEventListener("click", (e) => {
+        e.preventDefault();
+        printProductsCategory("chair");
+    });
 
-  categoryCouches.addEventListener("click", (e) => {
-    e.preventDefault();
-    printProductsCategory("couch");
-  });
+    categoryCouches.addEventListener("click", (e) => {
+        e.preventDefault();
+        printProductsCategory("couch");
+    });
 
-  categoryLamps.addEventListener("click", (e) => {
-    e.preventDefault();
-    printProductsCategory("lamp");
-  });
+    categoryLamps.addEventListener("click", (e) => {
+        e.preventDefault();
+        printProductsCategory("lamp");
+    });
 
-  categoryTables.addEventListener("click", (e) => {
-    e.preventDefault();
-    printProductsCategory("table");
-  });
+    categoryTables.addEventListener("click", (e) => {
+        e.preventDefault();
+        printProductsCategory("table");
+    });
 
-  document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("btn-add")) {
-      //console.log(e.target.parentElement.parentElement.children);
-      let arrName = Array.from(e.target.parentElement.parentElement.children);
-      addToShoppingCard(arrName[1].innerText);
-    }
-    if (e.target.classList.contains("cart-remove")) {
-      e.target.parentElement.parentElement.parentElement.remove();
-    }
-  });
+    ///////////////////////////////////////////////////////////////
+    //CLICK EVENTS FOR ADD CART AND REMOVE CART FROM SHOPPING CART
+    document.addEventListener("click", (e) => {
+        if (e.target.classList.contains("btn-add")) {
+            let arrName = Array.from(e.target.parentElement.parentElement.children);
+            addToShoppingCard(arrName[1].innerText);
+            totalCostCalc();
+        }
+        if (e.target.classList.contains("cart-remove")) {
+            e.target.parentElement.parentElement.parentElement.remove();
+            totalCostCalc();
+        }
+    });
 });
 
 ////////////////////////
@@ -79,25 +84,25 @@ document.addEventListener("DOMContentLoaded", (e) => {
 let menuTrigger = false;
 let menuCounter = -220;
 const navigationMenu = () => {
-  const menu = document.querySelector(UIselectors.menu);
-  let interval = setInterval(() => {
-    if (menuTrigger === false && menuCounter <= 0) {
-      menuCounter++;
-      menu.style.left = menuCounter + "px";
-    }
-    if (menuTrigger === true && menuCounter >= -220) {
-      menu.style.left = menuCounter + "px";
-      menuCounter--;
-    }
-    if (menuCounter === 0) {
-      menuTrigger = true;
-      clearInterval(interval);
-    }
-    if (menuCounter === -220) {
-      menuTrigger = false;
-      clearInterval(interval);
-    }
-  }, 0.1);
+    const menu = document.querySelector(UIselectors.menu);
+    let interval = setInterval(() => {
+        if (menuTrigger === false && menuCounter <= 0) {
+            menuCounter++;
+            menu.style.left = menuCounter + "px";
+        }
+        if (menuTrigger === true && menuCounter >= -220) {
+            menu.style.left = menuCounter + "px";
+            menuCounter--;
+        }
+        if (menuCounter === 0) {
+            menuTrigger = true;
+            clearInterval(interval);
+        }
+        if (menuCounter === -220) {
+            menuTrigger = false;
+            clearInterval(interval);
+        }
+    }, 0.1);
 };
 
 /////////////////////////
@@ -105,41 +110,40 @@ const navigationMenu = () => {
 let shoppingCardTrigger = false;
 let shoppingCardCounter = -300;
 const shoppingCardContainer = () => {
-  const cardContainer = document.querySelector(
-    UIselectors.shoppingCartContainer
-  );
-  let interval = setInterval(() => {
-    if (shoppingCardTrigger === false && shoppingCardCounter <= 0) {
-      shoppingCardCounter++;
-      cardContainer.style.right = shoppingCardCounter + "px";
-    }
-    if (shoppingCardTrigger === true && shoppingCardCounter >= -300) {
-      cardContainer.style.right = shoppingCardCounter + "px";
-      shoppingCardCounter--;
-    }
-    if (shoppingCardCounter === 0) {
-      shoppingCardTrigger = true;
-      clearInterval(interval);
-    }
-    if (shoppingCardCounter === -300) {
-      shoppingCardTrigger = false;
-      clearInterval(interval);
-    }
-  }, 0.1);
+    const cardContainer = document.querySelector(
+        UIselectors.shoppingCartContainer
+    );
+    let interval = setInterval(() => {
+        if (shoppingCardTrigger === false && shoppingCardCounter <= 0) {
+            shoppingCardCounter++;
+            cardContainer.style.right = shoppingCardCounter + "px";
+        }
+        if (shoppingCardTrigger === true && shoppingCardCounter >= -300) {
+            cardContainer.style.right = shoppingCardCounter + "px";
+            shoppingCardCounter--;
+        }
+        if (shoppingCardCounter === 0) {
+            shoppingCardTrigger = true;
+            clearInterval(interval);
+        }
+        if (shoppingCardCounter === -300) {
+            shoppingCardTrigger = false;
+            clearInterval(interval);
+        }
+    }, 0.1);
 };
 
 ////////////////////////
 //GET ARTICLES FROM API
 const products = new ProductsCtr();
-
 const printProducts = () => {
-  products
-    .getProducts()
-    .then((product) => {
-      product.forEach((product) => {
-        let card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `
+    products
+        .getProducts()
+        .then((product) => {
+            product.forEach((product) => {
+                let card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
             <img src="${product.imageS}" class="image-small"/>
             <h4 class="article-name">${product.name}</h4>
             <div class="article-price">
@@ -150,23 +154,25 @@ const printProducts = () => {
             </div>
             `;
 
-        productContainer.append(card);
-      });
-    })
-    .catch((err) => console.log("ERROR", err));
+                productContainer.append(card);
+            });
+        })
+        .catch((err) => console.log("ERROR", err));
 };
 
+///////////////////////////////////
+//PRINT PRODUCTS CATEGORY FROM API
 const printProductsCategory = (category) => {
-  productContainer.innerHTML = "";
+    productContainer.innerHTML = "";
 
-  products
-    .getProducts()
-    .then((product) => {
-      product.forEach((product) => {
-        if (product.category === category) {
-          let card = document.createElement("div");
-          card.classList.add("card");
-          card.innerHTML = `
+    products
+        .getProducts()
+        .then((product) => {
+            product.forEach((product) => {
+                if (product.category === category) {
+                    let card = document.createElement("div");
+                    card.classList.add("card");
+                    card.innerHTML = `
                 <img src="${product.imageS}" class="image-small"/>
                 <h4 class="article-name">${product.name}</h4>
                 <div class="article-price">
@@ -177,20 +183,22 @@ const printProductsCategory = (category) => {
                 </div>
                 `;
 
-          productContainer.append(card);
-        }
-      });
-    })
-    .catch((err) => console.log("ERROR", err));
+                    productContainer.append(card);
+                }
+            });
+        })
+        .catch((err) => console.log("ERROR", err));
 };
 
+//////////////////////
+//ADD TO SHOPPING CAT
 const addToShoppingCard = (name) => {
-  products.getProducts().then((product) => {
-    product.forEach((product) => {
-      if (product.name === name) {
-        let cartLi = document.createElement("li");
-        cartLi.classList = "cart-li cart-remove";
-        cartLi.innerHTML = `
+    products.getProducts().then((product) => {
+        product.forEach((product) => {
+            if (product.name === name) {
+                let cartLi = document.createElement("li");
+                cartLi.classList = "cart-li cart-remove";
+                cartLi.innerHTML = `
                 <img class="cart-img"src="${product.imageS}"alt=""/>
                 <div class="cart-name-num-container">
                 <div class="cart-name">${product.name}<i class="fas fa-times fl-r cart-remove"></i>
@@ -203,8 +211,26 @@ const addToShoppingCard = (name) => {
                 </div>
                 </div>
                 `;
-        shoppingCardList.append(cartLi);
-      }
+                shoppingCardList.append(cartLi);
+            }
+        });
     });
-  });
+};
+
+/////////////////
+//ADD TOTAL COST
+const totalCostCalc = () => {
+    totalCost.innerHTML = 0;
+    let totalprice = parseFloat(totalCost.innerHTML);
+    let allPrices = document.querySelectorAll(".cart-price");
+    console.log(allPrices);
+    allPrices = Array.from(allPrices);
+    console.log(allPrices);
+    allPrices.forEach((item) => {
+        let price = parseFloat(item.innerHTML);
+        console.log(totalprice);
+        console.log(price);
+        totalprice += price;
+    });
+    totalCost.innerHTML = totalprice;
 };
