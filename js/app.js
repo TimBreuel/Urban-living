@@ -12,6 +12,7 @@ const UIselectors = {
     tables: "#tables",
     shoppingCardList: ".shopping-card-container",
     totalCost: "#totalCost",
+    btnDetails: '#btn-details'
 };
 
 /////////////////////
@@ -135,7 +136,7 @@ const shoppingCardContainer = () => {
 
 ////////////////////////
 //GET ARTICLES FROM API
-const products = new ProductsCtr();
+const products = new ProductsCtr;
 const printProducts = () => {
     products
         .getProducts()
@@ -144,6 +145,7 @@ const printProducts = () => {
                 let card = document.createElement("div");
                 card.classList.add("card");
                 card.innerHTML = `
+            
             <img src="${product.imageS}" class="image-small"/>
             <h4 class="article-name">${product.name}</h4>
             <div class="article-price">
@@ -152,6 +154,7 @@ const printProducts = () => {
             <i class="fas fa-cart-plus"></i>
             </button>
             </div>
+            <div class="open-details details"><i id="btn-details" class="fas fa-plus"></i></div>
             `;
 
                 productContainer.append(card);
@@ -181,6 +184,7 @@ const printProductsCategory = (category) => {
                 <i class="fas fa-cart-plus"></i>
                 </button>
                 </div>
+                <div class="open-details details"><i id="btn-details" class="fas fa-plus"></i></div>
                 `;
 
                     productContainer.append(card);
@@ -225,12 +229,16 @@ const totalCostCalc = () => {
     totalCost.innerHTML = 0;
     let totalprice = parseFloat(totalCost.innerHTML);
     let allPrices = document.querySelectorAll(".cart-price");
-    console.log(allPrices);
     allPrices = Array.from(allPrices);
-    console.log(allPrices);
     allPrices.forEach((item) => {
         let price = parseFloat(item.innerHTML);
         totalprice += price;
     });
     totalCost.innerHTML = totalprice;
 };
+
+//////////////////////
+//GET DETAILS PRODUCT
+const getDetailsProducts = () => {
+
+}
