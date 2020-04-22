@@ -71,6 +71,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
         if (e.target.classList.contains("btn-add")) {
             let arrName = Array.from(e.target.parentElement.parentElement.children);
             addToShoppingCard(arrName[1].innerText);
+            console.log(e.target)
+            succesAdded(e.target)
 
         }
         if (e.target.classList.contains("cart-remove")) {
@@ -156,7 +158,7 @@ const printProducts = () => {
             <div class="article-price">
             price: <span class="article-price-num">${product.price}</span> $
             <button class="btn-card btn-add">
-            <i class="fas fa-cart-plus"></i>
+            <i class="fas fa-cart-plus btn-success"></i>
             </button>
             </div>
             <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
@@ -277,8 +279,24 @@ const getDetailsProducts = (name) => {
                     btnRemoveDetails.addEventListener('click', () => {
                         detailsBG.remove()
                     })
+                    const btnAddDetailsToCart = document.querySelector('.details-add-btn')
+                    btnAddDetailsToCart.addEventListener('click', (e) => {
+                        addToShoppingCard(product.name)
+                        succesAdded(e.target)
+                    })
                 }
             });
         })
         .catch((err) => console.log("ERROR", err));
+}
+
+//////////////////
+//SUCCESS FUNCTION
+const succesAdded = (selector) => {
+    selector.classList.add('successAdd')
+    shopingCardBtn.classList.add('successAdd')
+    setTimeout(() => {
+        selector.classList.remove('successAdd')
+        shopingCardBtn.classList.remove('successAdd')
+    }, 2000)
 }

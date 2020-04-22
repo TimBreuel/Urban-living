@@ -205,6 +205,12 @@
   color: #4d4954;
 }
 
+.shopping-card-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 70vh;
+}
+
 .shopping-card-container>li {
   list-style: none;
 }
@@ -325,7 +331,7 @@
 
 .cart-name {
   font-size: 19px;
-  width: 180px;
+  width: 170px;
 }
 
 .cart-price-cost {
@@ -404,3 +410,10 @@
 }
 
 /* ===== END DETAILS ===== */
+
+
+/* ===== SUCCES ===== */
+
+.successAdd {
+  background-color: #2bb673;
+}
