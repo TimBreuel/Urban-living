@@ -77,6 +77,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
             e.target.parentElement.parentElement.parentElement.remove();
             totalCostCalc();
         }
+
+        if (e.target.classList.contains('open-details')) {
+            let arrName = Array.from(e.target.parentElement.parentElement.children);
+            getDetailsProducts(arrName[1].innerText)
+        }
     });
 });
 
@@ -154,7 +159,7 @@ const printProducts = () => {
             <i class="fas fa-cart-plus"></i>
             </button>
             </div>
-            <div class="open-details details"><i id="btn-details" class="fas fa-plus"></i></div>
+            <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
             `;
 
                 productContainer.append(card);
@@ -184,7 +189,7 @@ const printProductsCategory = (category) => {
                 <i class="fas fa-cart-plus"></i>
                 </button>
                 </div>
-                <div class="open-details details"><i id="btn-details" class="fas fa-plus"></i></div>
+                <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
                 `;
 
                     productContainer.append(card);
@@ -239,6 +244,41 @@ const totalCostCalc = () => {
 
 //////////////////////
 //GET DETAILS PRODUCT
-const getDetailsProducts = () => {
+const getDetailsProducts = (name) => {
+    products
+        .getProducts()
+        .then((product) => {
+            product.forEach((product) => {
+                if (product.name === name) {
+                    let detailsBG = document.createElement('div')
+                    detailsBG.classList.add('details-bg')
+                    detailsBG.innerHTML = `
+                <div class="details-cart">
+                <div class="col6">
+                <img class="detals-img" src="${product.imageL}" alt="">
+                </div>
+                <div class="col6 details-font">
+                    <div class="detals-name"><span>Name:</span> ${product.name}</div>
+                    <div class="details-productNum"><span>Product Nr.:</span> ${product.productNumber}</div>
+                    <div class="details-color"><span>Color:</span> ${product.color}</div>
+                    <div class="details-description"><span>Description:</span> ${product.description}</div>
 
+                    <div class="details-price">
+                    Price:<span class="fl-r">$</span><span class="fl-r" id="details-price-num">${product.price}</span>
+                    </div>
+                    <button class="details-add-btn btn">Add to cart</button>
+
+                </div>
+                <i id="btn-remove-details" class="far fa-times-circle"></i>
+                </div>
+                `
+                    productContainer.append(detailsBG)
+                    const btnRemoveDetails = document.getElementById('btn-remove-details')
+                    btnRemoveDetails.addEventListener('click', () => {
+                        detailsBG.remove()
+                    })
+                }
+            });
+        })
+        .catch((err) => console.log("ERROR", err));
 }

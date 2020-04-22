@@ -393,4 +393,14 @@
   width: 100%;
 }
 
+
+
+#btn-remove-details {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 26px;
+  color: #4d4954;
+}
+
 /* ===== END DETAILS ===== */
