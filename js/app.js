@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         if (e.target.classList.contains("btn-add")) {
             let arrName = Array.from(e.target.parentElement.parentElement.children);
             addToShoppingCard(arrName[1].innerText);
-            totalCostCalc();
+
         }
         if (e.target.classList.contains("cart-remove")) {
             e.target.parentElement.parentElement.parentElement.remove();
@@ -214,6 +214,8 @@ const addToShoppingCard = (name) => {
                 shoppingCardList.append(cartLi);
             }
         });
+        //ADD TOTAL COST CALL
+        totalCostCalc();
     });
 };
 
@@ -228,8 +230,6 @@ const totalCostCalc = () => {
     console.log(allPrices);
     allPrices.forEach((item) => {
         let price = parseFloat(item.innerHTML);
-        console.log(totalprice);
-        console.log(price);
         totalprice += price;
     });
     totalCost.innerHTML = totalprice;
