@@ -110,26 +110,29 @@
   color: #ffe5db;
   text-decoration: none;
   padding: 5px;
-  padding-left: 15px;
+  padding-left: 20px;
   text-decoration: none;
+  font-size: 18px;
 }
 
 #menu>ul>li:nth-child(1) {
   color: #ffe5db;
   text-decoration: none;
   padding: 5px;
+  padding-left: 10px;
   border-bottom: 1px solid #ffe5db;
   padding-top: 20px;
-  font-size: 18px;
+  font-size: 21px;
 }
 
 #menu>ul>li:nth-child(6) {
   color: #ffe5db;
   text-decoration: none;
   padding: 5px;
+  padding-left: 10px;
   border-bottom: 1px solid #ffe5db;
   padding-top: 20px;
-  font-size: 18px;
+  font-size: 21px;
 }
 
 #menu>ul>li>a {
