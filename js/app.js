@@ -1,3 +1,40 @@
+class ProductsCtr {
+    constructor(productNumber, name, category, price, color, imageL, imageS, description) {
+        this.productNumber = productNumber
+        this.name = name
+        this.category = category
+        this.price = price
+        this.color = color
+        this.imageL = imageL
+        this.imageS = imageS
+        this.description = description
+    }
+
+    //FETCH API
+    async getProducts() {
+        const response = await fetch('http://localhost:3000/products')
+        const resData = await response.json()
+        return resData
+    }
+
+    // async setLocalStorage(name, image, price) {
+    //     let products;
+    //     if (localStorage.getItem('products') == null) {
+    //         products = []
+    //     } else {
+    //         products = JSON.parse(localStorage.getItem('products'))
+    //     }
+    //     let product = {
+    //         "name": name,
+    //         "image": image,
+    //         "price": price
+    //     }
+    //     products.push(product)
+    //     localStorage.setItem('products', JSON.stringify(products))
+    // }
+
+}
+
 //////////////////
 //ALL UI SELECTORS
 const UIselectors = {
@@ -77,7 +114,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
         if (e.target.classList.contains("btn-add")) {
             let arrName = Array.from(e.target.parentElement.parentElement.children);
             addToShoppingCard(arrName[1].innerText);
-            console.log(e.target)
             succesAdded(e.target)
 
         }
@@ -169,8 +205,8 @@ const printProducts = () => {
             </div>
             <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
             `;
-
                 productContainer.append(card);
+
             });
         })
         .catch((err) => console.log("ERROR", err));
@@ -229,9 +265,14 @@ const addToShoppingCard = (name) => {
                 </div>
                 `;
                 shoppingCardList.append(cartLi);
+                setLocalStorge(product.name, product.imageS, product.price)
+
             }
+
         });
+
         //ADD TOTAL COST CALL
+
         totalCostCalc();
     });
 };
@@ -305,4 +346,22 @@ const succesAdded = (selector) => {
         selector.classList.remove('successAdd')
         shopingCardBtn.classList.remove('successAdd')
     }, 2000)
+}
+
+////////////////////
+//SET LOCAL STORAGE
+const setLocalStorage = (name, image, price) => {
+    let products;
+    if (localStorage.getItem('products') == null) {
+        products = []
+    } else {
+        products = JSON.parse(localStorage.getItem('products'))
+    }
+    let product = {
+        "name": name,
+        "image": image,
+        "price": price
+    }
+    products.push(product)
+    localStorage.setItem('products', JSON.stringify(products))
 }
