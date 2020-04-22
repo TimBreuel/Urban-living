@@ -3,6 +3,7 @@
 const UIselectors = {
     navMenu: "#navMenu",
     menu: "#menu",
+    headline: '#headline',
     shoppingCartBtn: "#shoppingCart",
     shoppingCartContainer: "#shoping-card",
     productContainer: "#product-container",
@@ -20,6 +21,7 @@ const UIselectors = {
 const navMenu = document.querySelector(UIselectors.navMenu);
 const shopingCardBtn = document.querySelector(UIselectors.shoppingCartBtn);
 const productContainer = document.querySelector(UIselectors.productContainer);
+const headline = document.querySelector(UIselectors.headline)
 
 //GET HTML CATEGORYS
 const categoryChairs = document.querySelector(UIselectors.chairs);
@@ -47,21 +49,25 @@ document.addEventListener("DOMContentLoaded", (e) => {
     //CATEGORY PRODUCTS CALL
     categoryChairs.addEventListener("click", (e) => {
         e.preventDefault();
+        headline.innerText = 'Chairs'
         printProductsCategory("chair");
     });
 
     categoryCouches.addEventListener("click", (e) => {
         e.preventDefault();
+        headline.innerText = 'Couches'
         printProductsCategory("couch");
     });
 
     categoryLamps.addEventListener("click", (e) => {
         e.preventDefault();
+        headline.innerText = 'Lamps'
         printProductsCategory("lamp");
     });
 
     categoryTables.addEventListener("click", (e) => {
         e.preventDefault();
+        headline.innerText = 'Tables'
         printProductsCategory("table");
     });
 

@@ -219,8 +219,18 @@
 
 /* ===== CONTAINER ===== */
 
+#headline {
+  margin-top: 200px;
+  margin-left: 100px;
+  margin-right: 100px;
+
+  color: #4d4954;
+  font-size: 40px;
+  border-bottom: 1px solid #4d4954;
+}
+
 .container {
-  padding: 160px 50px 50px 50px;
+  padding: 20px 50px 50px 50px;
 }
 
 .container-flex {
