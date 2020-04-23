@@ -111,21 +111,36 @@ document.addEventListener("DOMContentLoaded", (e) => {
     ///////////////////////////////////////////////////////////////
     //CLICK EVENTS FOR ADD CART AND REMOVE CART FROM SHOPPING CART
     document.addEventListener("click", (e) => {
+
+        //ADDED TO SHOPPING CART
         if (e.target.classList.contains("btn-add")) {
             let arrName = Array.from(e.target.parentElement.parentElement.children);
             addToShoppingCard(arrName[1].innerText);
             succesAdded(e.target)
-
         }
+
+        //TOTAL COST CALCULATION
         if (e.target.classList.contains("cart-remove")) {
             e.target.parentElement.parentElement.parentElement.remove();
             totalCostCalc();
         }
 
+        //OPEN DETAILS FOR ELEMENT THAT IS CLICKED
         if (e.target.classList.contains('open-details')) {
             let arrName = Array.from(e.target.parentElement.parentElement.children);
             getDetailsProducts(arrName[1].innerText)
         }
+
+        //MENU SLIDE BACK
+        if (!e.target.classList.contains('slide-back')) {
+            navigationMenuSlideBack()
+        }
+
+        //SHOPPING CART SLIDE BACK
+        if (!e.target.classList.contains('slide-back-cart')) {
+            shoppingCardContainerSlideBack()
+        }
+
     });
 });
 
@@ -155,6 +170,21 @@ const navigationMenu = () => {
     }, 0.1);
 };
 
+//MENU SLIDE BACK IF CLICK OUTSIDE THE MENU
+const navigationMenuSlideBack = () => {
+    const menu = document.querySelector(UIselectors.menu);
+    let interval = setInterval(() => {
+        if (menuTrigger === true && menuCounter >= -220) {
+            menu.style.left = menuCounter + "px";
+            menuCounter--;
+        }
+        if (menuCounter === -220) {
+            menuTrigger = false;
+            clearInterval(interval);
+        }
+    }, 0.1);
+}
+
 /////////////////////////
 //SHOPINGCARD MENU SLIDE
 let shoppingCardTrigger = false;
@@ -175,6 +205,23 @@ const shoppingCardContainer = () => {
         if (shoppingCardCounter === 0) {
             shoppingCardTrigger = true;
             clearInterval(interval);
+        }
+        if (shoppingCardCounter === -300) {
+            shoppingCardTrigger = false;
+            clearInterval(interval);
+        }
+    }, 0.1);
+};
+
+//SHOPPING CART SLIDE BACK IF CLICK OUTSIDE THE MENU
+const shoppingCardContainerSlideBack = () => {
+    const cardContainer = document.querySelector(
+        UIselectors.shoppingCartContainer
+    );
+    let interval = setInterval(() => {
+        if (shoppingCardTrigger === true && shoppingCardCounter >= -300) {
+            cardContainer.style.right = shoppingCardCounter + "px";
+            shoppingCardCounter--;
         }
         if (shoppingCardCounter === -300) {
             shoppingCardTrigger = false;
