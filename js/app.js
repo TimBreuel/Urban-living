@@ -33,13 +33,11 @@ class ProductsCtr {
     //     localStorage.setItem('products', JSON.stringify(products))
     // }
 
-    async getSearchProducts() {
-        const response = await fetch('http://localhost:3000/products?name=' + name + '&category' + category + '&color=' + color + '&price=' + this.price + '')
-        const resData = await response.json()
-        return resData
-    }
+
 
 }
+
+
 
 //////////////////
 //ALL UI SELECTORS
@@ -61,7 +59,8 @@ const UIselectors = {
     inputCategory: '#input-category',
     inputColor: '#input-color',
     inputPrice: '#input-number',
-    btnSearch: '.btn-search'
+    btnSearch: '.btn-search',
+    searchIcon: '.search-icon'
 };
 
 /////////////////////
@@ -81,6 +80,14 @@ const categoryTables = document.querySelector(UIselectors.tables);
 const shoppingCardList = document.querySelector(UIselectors.shoppingCardList);
 const totalCost = document.querySelector(UIselectors.totalCost);
 
+//GET INPUT VALUES
+const inputName = document.querySelector(UIselectors.inputName)
+const inputCategory = document.querySelector(UIselectors.inputCategory)
+const inputColor = document.querySelector(UIselectors.inputColor)
+const inputPrice = document.querySelector(UIselectors.inputPrice)
+const btnSearch = document.querySelector(UIselectors.btnSearch)
+const searchIcon = document.querySelector(UIselectors.searchIcon)
+
 ///////////////////
 //EVENTS LISTENERS
 document.addEventListener("DOMContentLoaded", (e) => {
@@ -99,24 +106,28 @@ document.addEventListener("DOMContentLoaded", (e) => {
         e.preventDefault();
         headline.innerText = 'Chairs'
         printProductsCategory("chair");
+        navigationMenuSlideBack()
     });
 
     categoryCouches.addEventListener("click", (e) => {
         e.preventDefault();
         headline.innerText = 'Couches'
         printProductsCategory("couch");
+        navigationMenuSlideBack()
     });
 
     categoryLamps.addEventListener("click", (e) => {
         e.preventDefault();
         headline.innerText = 'Lamps'
         printProductsCategory("lamp");
+        navigationMenuSlideBack()
     });
 
     categoryTables.addEventListener("click", (e) => {
         e.preventDefault();
         headline.innerText = 'Tables'
         printProductsCategory("table");
+        navigationMenuSlideBack()
     });
 
     ///////////////////////////////////////////////////////////////
@@ -153,6 +164,20 @@ document.addEventListener("DOMContentLoaded", (e) => {
         // }
 
     });
+
+    //////////////////////////////////
+    //SEARCH INPUT BUTTON CLICK EVENT
+    btnSearch.addEventListener('click', (e) => {
+        headline.innerText = 'Search result'
+        printSearchProducts(inputName.value.trim(), inputCategory.options[inputCategory.selectedIndex].value.trim(), inputColor.options[inputColor.selectedIndex].value.trim(), inputPrice.value.trim())
+        navigationMenuSlideBack()
+    })
+
+    searchIcon.addEventListener('click', () => {
+        navigationMenu()
+        inputName.focus()
+
+    })
 });
 
 ////////////////////////
@@ -323,14 +348,13 @@ const addToShoppingCard = (name) => {
                 </div>
                 `;
                 shoppingCardList.append(cartLi);
-                setLocalStorge(product.name, product.imageS, product.price)
+                //setLocalStorge(product.name, product.imageS, product.price)
 
             }
 
         });
 
         //ADD TOTAL COST CALL
-
         totalCostCalc();
     });
 };
@@ -360,11 +384,11 @@ const getDetailsProducts = (name) => {
                     let detailsBG = document.createElement('div')
                     detailsBG.classList.add('details-bg')
                     detailsBG.innerHTML = `
-                <div class="details-cart">
-                <div class="col6">
-                <img class="detals-img" src="${product.imageL}" alt="">
-                </div>
-                <div class="col6 details-font">
+                    <div class="details-cart">
+                    <div class="col6">
+                    <img class="detals-img" src="${product.imageL}" alt="">
+                    </div>
+                    <div class="col6 details-font">
                     <div class="detals-name"><span>Name:</span> ${product.name}</div>
                     <div class="details-productNum"><span>Product Nr.:</span> ${product.productNumber}</div>
                     <div class="details-color"><span>Color:</span> ${product.color}</div>
@@ -375,10 +399,10 @@ const getDetailsProducts = (name) => {
                     </div>
                     <button class="details-add-btn btn">Add to cart</button>
 
-                </div>
-                <i id="btn-remove-details" class="far fa-times-circle"></i>
-                </div>
-                `
+                    </div>
+                    <i id="btn-remove-details" class="far fa-times-circle"></i>
+                    </div>
+                    `
                     productContainer.append(detailsBG)
                     const btnRemoveDetails = document.getElementById('btn-remove-details')
                     btnRemoveDetails.addEventListener('click', () => {
@@ -393,6 +417,40 @@ const getDetailsProducts = (name) => {
             });
         })
         .catch((err) => console.log("ERROR", err));
+}
+
+
+const printSearchProducts = (name, category, color, price) => {
+    productContainer.innerHTML = "";
+    price = parseFloat(price)
+    products
+        .getProducts()
+        .then((product) => {
+            product.forEach((product) => {
+                //console.log(name, category, color, parseFloat(price))
+                // console.log(product.name, product.category, product.color, product.price)
+                if (product.name.indexOf(name) !== -1 && product.category === category && product.color === color && parseFloat(product.price) <= price) {
+
+                    let card = document.createElement("div");
+                    card.classList.add("card");
+                    card.innerHTML = `
+            <img src="${product.imageS}" class="image-small"/>
+            <h4 class="article-name">${product.name}</h4>
+            <div class="article-price">
+            price: <span class="article-price-num">${product.price}</span> $
+            <button class="btn-card btn-add">
+            <i class="fas fa-cart-plus"></i>
+            </button>
+            </div>
+            <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
+            `;
+
+                    productContainer.append(card);
+                }
+            });
+        })
+        .catch((err) => console.log("ERROR", err));
+
 }
 
 //////////////////
