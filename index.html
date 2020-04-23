@@ -55,6 +55,32 @@
         <a href="#">Impressum</a>
       </li>
     </ul>
+
+    <div class="headline-search">Search</div>
+    <div class="search-block">
+      <label for="">Name</label>
+      <input type="text" id="input-name">
+
+      <label for="Category">Category</label>
+      <select name="Category" id="input-category">
+        <option value="chair">Chairs</option>
+        <option value="couch">Couches</option>
+        <option value="lamp">Lamps</option>
+        <option value="table">Tables</option>
+      </select>
+
+      <label for="Color">Color</label>
+      <select name="Color" id="input-color">
+        <option value="black">Black</option>
+        <option value="white">White</option>
+        <option value="brown">Brown</option>
+        <option value="grey">Grey</option>
+        <option value="gold">Gold</option>
+      </select>
+      <label for="">Maximal price</label>
+      <input type="number" name="" id="input-number" placeholder="max 3000" max="3000">
+      <input class="btn btn-search" type="submit" value="Search">
+    </div>
   </div>
 
   <!-- FIXED SHOPING CARD -->
@@ -71,8 +97,8 @@
 
   <!-- END NAVOGATION BAR -->
   <!-- CONTAINER -->
-  <h1 id="headline">Our Products</h1>
-  <div id="product-container" class="container container-flex">
+  <h1 id="headline" class="slide-back slide-back-cart">Our Products</h1>
+  <div id="product-container" class="container container-flex slide-back slide-back-cart">
   </div>
 
   </div>

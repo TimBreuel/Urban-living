@@ -33,6 +33,12 @@ class ProductsCtr {
     //     localStorage.setItem('products', JSON.stringify(products))
     // }
 
+    async getSearchProducts() {
+        const response = await fetch('http://localhost:3000/products?name=' + name + '&category' + category + '&color=' + color + '&price=' + this.price + '')
+        const resData = await response.json()
+        return resData
+    }
+
 }
 
 //////////////////
@@ -50,7 +56,12 @@ const UIselectors = {
     tables: "#tables",
     shoppingCardList: ".shopping-card-container",
     totalCost: "#totalCost",
-    btnDetails: '#btn-details'
+    btnDetails: '#btn-details',
+    inputName: '#input-name',
+    inputCategory: '#input-category',
+    inputColor: '#input-color',
+    inputPrice: '#input-number',
+    btnSearch: '.btn-search'
 };
 
 /////////////////////
@@ -132,14 +143,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
         }
 
         //MENU SLIDE BACK
-        if (!e.target.classList.contains('slide-back')) {
-            navigationMenuSlideBack()
-        }
+        // if (!e.target.classList.contains('slide-back')) {
+        //     navigationMenuSlideBack()
+        // }
 
         //SHOPPING CART SLIDE BACK
-        if (!e.target.classList.contains('slide-back-cart')) {
-            shoppingCardContainerSlideBack()
-        }
+        // if (!e.target.classList.contains('slide-back-cart')) {
+        //     shoppingCardContainerSlideBack()
+        // }
 
     });
 });
