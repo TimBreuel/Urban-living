@@ -12,10 +12,16 @@ class ProductsCtr {
 
     //FETCH API
     async getProducts() {
-        const response = await fetch('http://localhost:3000/products')
+        const response = await fetch('http://localhost:3000/products?')
         const resData = await response.json()
         return resData
     }
+
+    // async getProducts(pageNumber) {
+    //     const response = await fetch('http://localhost:3000/products?_page=' + pageNumber + '&_limit=15')
+    //     const resData = await response.json()
+    //     return resData
+    // }
 
 }
 
@@ -43,7 +49,12 @@ const UIselectors = {
     btnSearch: '.btn-search',
     searchIcon: '.search-icon',
     seeAll: '#seeAll',
-    logo: '.logo'
+    logo: '.logo',
+    page1: '#page1',
+    page2: '#page2',
+    page3: '#page3',
+    page4: '#page4',
+
 };
 
 /////////////////////
@@ -53,6 +64,12 @@ const shopingCardBtn = document.querySelector(UIselectors.shoppingCartBtn);
 const productContainer = document.querySelector(UIselectors.productContainer);
 const headline = document.querySelector(UIselectors.headline)
 const logo = document.querySelector(UIselectors.logo)
+
+//PAGE SITES
+// const page1 = document.querySelector(UIselectors.page1)
+// const page2 = document.querySelector(UIselectors.page2)
+// const page3 = document.querySelector(UIselectors.page3)
+// const page4 = document.querySelector(UIselectors.page4)
 
 //GET HTML CATEGORYS
 const seeAll = document.querySelector(UIselectors.seeAll)
@@ -83,7 +100,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     shopingCardBtn.addEventListener("click", shoppingCardContainer);
 
     //PRODUCTS CALL
-    printProducts();
+    printProducts(1);
 
     //LOAD LOCAL STORAGE
     getLocalStorage()
@@ -92,11 +109,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
     //CATEGORY PRODUCTS CALL
     logo.addEventListener('click', (e) => {
         e.preventDefault();
-        printProducts()
+        printProducts(1)
     })
     seeAll.addEventListener('click', (e) => {
         e.preventDefault();
-        printProducts()
+        printProducts(1)
         navigationMenuSlideBack()
     })
     categoryChairs.addEventListener("click", (e) => {
@@ -178,6 +195,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     })
 });
+
+
 
 ////////////////////////
 //NAVIGATION MENU SLIDER
@@ -267,12 +286,47 @@ const shoppingCardContainerSlideBack = () => {
 
 ////////////////////////
 //GET ARTICLES FROM API
+
 const products = new ProductsCtr;
-const printProducts = () => {
-    headline.innerText = 'Our Products'
+const printProducts = (pageNumber) => {
+    headline.innerHTML = `Our Products <span class="pageNum fl-r" id="page4">4</span>
+    <span class="fl-r pageNum" id="page3">3</span><span class="fl-r pageNum" id="page2">2</span><span
+      class="fl-r pageNum" id="page1">1</span>`
+
+    //BUTTON PAGE NUMBERS
+    const page1 = document.querySelector(UIselectors.page1)
+    const page2 = document.querySelector(UIselectors.page2)
+    const page3 = document.querySelector(UIselectors.page3)
+    const page4 = document.querySelector(UIselectors.page4)
+
+    //BUTTON PAGE NUMBERS EVENT CLICK
+    page1.addEventListener('click', (e) => {
+        e.preventDefault()
+        printProducts(1)
+
+    })
+    page2.addEventListener('click', (e) => {
+        e.preventDefault()
+        printProducts(2)
+
+    })
+    page3.addEventListener('click', (e) => {
+        e.preventDefault()
+        printProducts(3)
+
+    })
+    page4.addEventListener('click', (e) => {
+        e.preventDefault()
+        printProducts(4)
+
+    })
+
+    //CLEAR PRODUCT CONTAINER
     productContainer.innerHTML = "";
+
+    //FETCH PRODUCTS
     products
-        .getProducts()
+        .getProducts(pageNumber)
         .then((product) => {
             product.forEach((product) => {
                 let card = document.createElement("div");
@@ -298,11 +352,10 @@ const printProducts = () => {
 
 ///////////////////////////////////
 //PRINT PRODUCTS CATEGORY FROM API
-const printProductsCategory = (category) => {
+const printProductsCategory = (category, pageNumber) => {
     productContainer.innerHTML = "";
-
     products
-        .getProducts()
+        .getProducts(pageNumber)
         .then((product) => {
             product.forEach((product) => {
                 if (product.category === category) {
