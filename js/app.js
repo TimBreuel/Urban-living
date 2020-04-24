@@ -17,26 +17,7 @@ class ProductsCtr {
         return resData
     }
 
-    // async setLocalStorage(name, image, price) {
-    //     let products;
-    //     if (localStorage.getItem('products') == null) {
-    //         products = []
-    //     } else {
-    //         products = JSON.parse(localStorage.getItem('products'))
-    //     }
-    //     let product = {
-    //         "name": name,
-    //         "image": image,
-    //         "price": price
-    //     }
-    //     products.push(product)
-    //     localStorage.setItem('products', JSON.stringify(products))
-    // }
-
-
-
 }
-
 
 
 //////////////////
@@ -100,6 +81,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
     //PRODUCTS CALL
     printProducts();
 
+    getLocalStorage()
+
     ////////////////////////
     //CATEGORY PRODUCTS CALL
     categoryChairs.addEventListener("click", (e) => {
@@ -145,6 +128,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         if (e.target.classList.contains("cart-remove")) {
             e.target.parentElement.parentElement.parentElement.remove();
             totalCostCalc();
+            setLocalStorage()
         }
 
         //OPEN DETAILS FOR ELEMENT THAT IS CLICKED
@@ -348,14 +332,15 @@ const addToShoppingCard = (name) => {
                 </div>
                 `;
                 shoppingCardList.append(cartLi);
-                //setLocalStorge(product.name, product.imageS, product.price)
-
             }
 
         });
 
         //ADD TOTAL COST CALL
         totalCostCalc();
+
+        //SET SOCAL STORAGE
+        setLocalStorage()
     });
 };
 
@@ -537,18 +522,39 @@ const succesAdded = (selector) => {
 
 ////////////////////
 //SET LOCAL STORAGE
-const setLocalStorage = (name, image, price) => {
+const setLocalStorage = () => {
     let products;
     if (localStorage.getItem('products') == null) {
         products = []
     } else {
         products = JSON.parse(localStorage.getItem('products'))
+        products = []
     }
-    let product = {
-        "name": name,
-        "image": image,
-        "price": price
-    }
-    products.push(product)
+
+    let allCartLi = document.querySelectorAll('.cart-li')
+    allCartLi = Array.from(allCartLi)
+    allCartLi.forEach(item => {
+        console.log(item.children[0].src)
+        console.log(item.children[1].children[0].innerText)
+        console.log(item.children[1].children[1].children[3].innerText)
+        let product = {
+            "name": item.children[1].children[0].innerText,
+            "image": item.children[0].src,
+            "price": item.children[1].children[1].children[3].innerText
+        }
+        products.push(product)
+    })
+
     localStorage.setItem('products', JSON.stringify(products))
+
+}
+//////////////////////////////////
+//GET LOCAL STORAGE AFTER REFRESH
+const getLocalStorage = () => {
+    let products = JSON.parse(localStorage.getItem('products'))
+
+    products.forEach(product => {
+        addToShoppingCard(product.name)
+    })
+
 }

@@ -476,3 +476,13 @@
 .successAdd {
   background-color: #2bb673;
 }
+
+
+
+/* ==== QUERY SELECTORS ===== */
+
+@media screen and (max-width: 800px) {
+  .col6 {
+    width: 100%;
+  }
+}
