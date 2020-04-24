@@ -168,6 +168,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     //////////////////////////////////
     //SEARCH INPUT BUTTON CLICK EVENT
     btnSearch.addEventListener('click', (e) => {
+        e.preventDefault()
         headline.innerText = 'Search result'
         printSearchProducts(inputName.value.trim(), inputCategory.options[inputCategory.selectedIndex].value.trim(), inputColor.options[inputColor.selectedIndex].value.trim(), inputPrice.value.trim())
         navigationMenuSlideBack()
@@ -423,77 +424,87 @@ const getDetailsProducts = (name) => {
 //PRINT AND SEARCH PRODUCTS
 const printSearchProducts = (name, category, color, price) => {
     productContainer.innerHTML = "";
-    price = parseFloat(price)
+
+    //CHECK DEFAULT VALUES
+    if (name.length === 0) {
+        name = 'false'
+    }
+    if (price == '0') {
+        price = 'false'
+    } else {
+        price = parseFloat(price)
+    }
+
+    //console.log('name: ' + name, 'category: ' + category, 'color: ' + color, 'price: ' + price)
     products
         .getProducts()
         .then((product) => {
             product.forEach((product) => {
 
+                //NAME
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && category === 'false' && color === 'false' && price === 'false') {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //CATEGORY
+                if (product.category === category && color === 'false' && name === 'false' && price === 'false') {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //COLOR
+                if (product.color === color && category === 'false' && name === 'false' && price === 'false') {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //PRICE
+                if (parseFloat(product.price) <= price && category === 'false' && color === 'false' && name === 'false') {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //NAME & CATEGORY
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && color === 'false' && price === 'false') {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //NAME & COLOR
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && category === 'false' && product.color === color && price === 'false') {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //NAME & PRICE
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && category === 'false' && color === 'false' && parseFloat(product.price) <= parseFloat(price)) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //CATEGORY & COLOR
+                if (name === 'false' && product.category === category && product.color === color && price === 'false') {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //CATEGORY & PRICE
+                if (name === 'false' && product.category === category && color === 'false' && parseFloat(product.price) <= parseFloat(price)) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //COLOR & PRICE
+                if (name === 'false' && category === 'false' && product.color === color && parseFloat(product.price) <= parseFloat(price)) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //NAME & CATEGORY & COLOR
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && product.color === color && price === 'false') {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //NAME & CATEGORY & PRICE
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && color === 'false' && parseFloat(product.price) <= parseFloat(price)) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //CATEGORY & COLOR & PRICE
+                if (name === 'false' && product.category === category && product.color === color && parseFloat(product.price) <= parseFloat(price)) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                //NAME & CATEGORY & COLOR & PRICE
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && product.color === color && parseFloat(product.price) <= parseFloat(price)) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
 
-                //NAME AND MORE
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && product.color === color) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && product.color === color) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && product.color === color && parseFloat(product.price) <= price) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
 
-                //WITHOUT NAME
-                if (product.category === category) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-                if (product.category === category && product.color === color) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-
-                if (product.category === category && product.color === color && parseFloat(product.price) <= price) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-                if (product.category === category && parseFloat(product.price) <= price) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-
-                //WITHOUT CATEGORIE
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.color === color && parseFloat(product.price) <= price) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.color === color) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.color === color && parseFloat(product.price) <= price) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-
-                //WITHOUT COLOR
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && parseFloat(product.price) <= price) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && parseFloat(product.price) <= price) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-
-                //WITHOUT PRICE
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && product.color === color) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
-                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.color === color) {
-                    searchProducts(product.imageS, product.name, product.price)
-                }
 
             });
         })
         .catch((err) => console.log("ERROR", err));
 }
-//SEARCH PRODUCT
+//SEARCH PRODUCT CREATER
 const searchProducts = (image, name, price) => {
     let card = document.createElement("div");
     card.classList.add("card");
