@@ -419,7 +419,8 @@ const getDetailsProducts = (name) => {
         .catch((err) => console.log("ERROR", err));
 }
 
-
+////////////////////////////
+//PRINT AND SEARCH PRODUCTS
 const printSearchProducts = (name, category, color, price) => {
     productContainer.innerHTML = "";
     price = parseFloat(price)
@@ -427,30 +428,87 @@ const printSearchProducts = (name, category, color, price) => {
         .getProducts()
         .then((product) => {
             product.forEach((product) => {
-                //console.log(name, category, color, parseFloat(price))
-                // console.log(product.name, product.category, product.color, product.price)
-                if (product.name.indexOf(name) !== -1 && product.category === category && product.color === color && parseFloat(product.price) <= price) {
 
-                    let card = document.createElement("div");
-                    card.classList.add("card");
-                    card.innerHTML = `
-            <img src="${product.imageS}" class="image-small"/>
-            <h4 class="article-name">${product.name}</h4>
-            <div class="article-price">
-            price: <span class="article-price-num">${product.price}</span> $
-            <button class="btn-card btn-add">
-            <i class="fas fa-cart-plus"></i>
-            </button>
-            </div>
-            <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
-            `;
 
-                    productContainer.append(card);
+                //NAME AND MORE
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1) {
+                    searchProducts(product.imageS, product.name, product.price)
                 }
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && product.color === color) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && product.color === color) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && product.color === color && parseFloat(product.price) <= price) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+
+                //WITHOUT NAME
+                if (product.category === category) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                if (product.category === category && product.color === color) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+
+                if (product.category === category && product.color === color && parseFloat(product.price) <= price) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                if (product.category === category && parseFloat(product.price) <= price) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+
+                //WITHOUT CATEGORIE
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.color === color && parseFloat(product.price) <= price) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.color === color) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.color === color && parseFloat(product.price) <= price) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+
+                //WITHOUT COLOR
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && parseFloat(product.price) <= price) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && parseFloat(product.price) <= price) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+
+                //WITHOUT PRICE
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && product.color === color) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+                if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.color === color) {
+                    searchProducts(product.imageS, product.name, product.price)
+                }
+
             });
         })
         .catch((err) => console.log("ERROR", err));
-
+}
+//SEARCH PRODUCT
+const searchProducts = (image, name, price) => {
+    let card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `
+                    <img src="${image}" class="image-small"/>
+                    <h4 class="article-name">${name}</h4>
+                    <div class="article-price">
+                    price: <span class="article-price-num">${price}</span> $
+                    <button class="btn-card btn-add">
+                    <i class="fas fa-cart-plus"></i>
+                    </button>
+                    </div>
+                    <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
+                    `;
+    productContainer.append(card);
 }
 
 //////////////////
