@@ -41,7 +41,9 @@ const UIselectors = {
     inputColor: '#input-color',
     inputPrice: '#input-number',
     btnSearch: '.btn-search',
-    searchIcon: '.search-icon'
+    searchIcon: '.search-icon',
+    seeAll: '#seeAll',
+    logo: '.logo'
 };
 
 /////////////////////
@@ -50,8 +52,10 @@ const navMenu = document.querySelector(UIselectors.navMenu);
 const shopingCardBtn = document.querySelector(UIselectors.shoppingCartBtn);
 const productContainer = document.querySelector(UIselectors.productContainer);
 const headline = document.querySelector(UIselectors.headline)
+const logo = document.querySelector(UIselectors.logo)
 
 //GET HTML CATEGORYS
+const seeAll = document.querySelector(UIselectors.seeAll)
 const categoryChairs = document.querySelector(UIselectors.chairs);
 const categoryCouches = document.querySelector(UIselectors.couches);
 const categoryLamps = document.querySelector(UIselectors.lamps);
@@ -81,10 +85,20 @@ document.addEventListener("DOMContentLoaded", (e) => {
     //PRODUCTS CALL
     printProducts();
 
+    //LOAD LOCAL STORAGE
     getLocalStorage()
 
     ////////////////////////
     //CATEGORY PRODUCTS CALL
+    logo.addEventListener('click', (e) => {
+        e.preventDefault();
+        printProducts()
+    })
+    seeAll.addEventListener('click', (e) => {
+        e.preventDefault();
+        printProducts()
+        navigationMenuSlideBack()
+    })
     categoryChairs.addEventListener("click", (e) => {
         e.preventDefault();
         headline.innerText = 'Chairs'
@@ -112,6 +126,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         printProductsCategory("table");
         navigationMenuSlideBack()
     });
+
 
     ///////////////////////////////////////////////////////////////
     //CLICK EVENTS FOR ADD CART AND REMOVE CART FROM SHOPPING CART
@@ -254,6 +269,8 @@ const shoppingCardContainerSlideBack = () => {
 //GET ARTICLES FROM API
 const products = new ProductsCtr;
 const printProducts = () => {
+    headline.innerText = 'Our Products'
+    productContainer.innerHTML = "";
     products
         .getProducts()
         .then((product) => {
