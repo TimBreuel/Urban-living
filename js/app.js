@@ -171,7 +171,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
         e.preventDefault()
         headline.innerText = 'Search result'
         printSearchProducts(inputName.value.trim(), inputCategory.options[inputCategory.selectedIndex].value.trim(), inputColor.options[inputColor.selectedIndex].value.trim(), inputPrice.value.trim())
-        navigationMenuSlideBack()
     })
 
     searchIcon.addEventListener('click', () => {
@@ -497,9 +496,11 @@ const printSearchProducts = (name, category, color, price) => {
                 if (product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 && product.category === category && product.color === color && parseFloat(product.price) <= parseFloat(price)) {
                     searchProducts(product.imageS, product.name, product.price)
                 }
-
-
-
+                //NAME & CATEGORY & COLOR & PRICE ARE EMPTY
+                if (name === 'false' && category === 'false' && color === 'false' && price === 'false') {
+                    inputName.focus()
+                    headline.innerText = 'Please enter any value to search'
+                }
             });
         })
         .catch((err) => console.log("ERROR", err));
@@ -520,6 +521,7 @@ const searchProducts = (image, name, price) => {
                     <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
                     `;
     productContainer.append(card);
+    navigationMenuSlideBack()
 }
 
 //////////////////
