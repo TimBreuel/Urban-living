@@ -201,6 +201,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
                 e.target.nextElementSibling.innerText = amount
                 e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText = parseFloat(e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText) - originalPrice
                 totalCostCalc()
+                setLocalStorage()
             }
         }
         //AMOUNT PLUS
@@ -212,6 +213,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
                 e.target.previousElementSibling.innerText = amount
                 e.target.nextElementSibling.innerText = parseFloat(e.target.nextElementSibling.innerText) + originalPrice
                 totalCostCalc()
+                setLocalStorage()
             }
         }
 
@@ -484,6 +486,39 @@ const addToShoppingCard = (name) => {
         setLocalStorage()
     });
 };
+//ADD TO SHOPPING CAT FROM LOCAL STORAGE
+const addToShoppingCardFromLocalStorage = (name, amount, price) => {
+    products.getProducts().then((product) => {
+        product.forEach((product) => {
+            if (product.name === name) {
+                let cartLi = document.createElement("li");
+                cartLi.classList = "cart-li cart-remove";
+                cartLi.innerHTML = `
+                <img class="cart-img"src="${product.imageS}"alt=""/>
+                <div class="cart-name-num-container">
+                <div class="cart-name">${product.name}<i class="fas fa-times fl-r cart-remove"></i>
+                </div>
+    
+                <div class="cart-price-cost">
+                  <i class="fas fa-chevron-left arrow-minus"></i><span class="input-num amount">${amount}</span
+                  ><i class="fas fa-chevron-right arrow-plus"></i> price:
+                  <span class="cart-price">${price}</span> $
+                </div>
+                </div>
+                `;
+
+                shoppingCardList.append(cartLi);
+            }
+
+        });
+
+        //ADD TOTAL COST CALL
+        totalCostCalc();
+
+        //SET SOCAL STORAGE
+        setLocalStorage()
+    });
+};
 
 /////////////////
 //ADD TOTAL COST
@@ -681,7 +716,8 @@ const setLocalStorage = () => {
         let product = {
             "name": item.children[1].children[0].innerText,
             "image": item.children[0].src,
-            "price": item.children[1].children[1].children[3].innerText
+            "price": item.children[1].children[1].children[3].innerText,
+            "amount": item.children[1].children[1].children[1].innerText
         }
         products.push(product)
     })
@@ -695,7 +731,8 @@ const getLocalStorage = () => {
     let products = JSON.parse(localStorage.getItem('products'))
 
     products.forEach(product => {
-        addToShoppingCard(product.name)
+        addToShoppingCardFromLocalStorage(product.name, product.amount, product.price)
+
     })
 
 }
@@ -731,26 +768,3 @@ Osterstraße 133c<br />
 </div>
     `
 }
-
-// const amountMinus = (amount, total) => {
-//     console.log(amount)
-//     console.log(total)
-//     amount = parseFloat(amount)
-//     console.log(amount)
-//     if (amount > 1) {
-//         amount--
-//         e.target.nextElementSibling.innerText = amount
-//         e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText = parseFloat(total.innerText) * amount
-//     }
-// }
-
-// const amountPlus = (amount, total) => {
-
-//     amount = parseFloat(amount)
-//     if (amount >= 1) {
-//         amount++
-
-//         e.target.previousElementSibling.innerText = amount
-//         e.target.nextElementSibling.innerText = parseFloat(total.innerText) * amount
-//     }
-// }
