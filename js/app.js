@@ -191,7 +191,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
         //     shoppingCardContainerSlideBack()
         // }
 
-        //AMOUNT PLUS MINUS
+        ////////////////////
+        //AMOUNT MINUS
         if (e.target.classList.contains('arrow-minus')) {
             let amount = parseFloat(e.target.nextElementSibling.innerText)
             let originalPrice = parseFloat(e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText) / amount
@@ -201,22 +202,17 @@ document.addEventListener("DOMContentLoaded", (e) => {
                 e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText = parseFloat(e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText) - originalPrice
                 totalCostCalc()
             }
-
-
         }
-
+        //AMOUNT PLUS
         if (e.target.classList.contains('arrow-plus')) {
             let amount = parseFloat(e.target.previousElementSibling.innerText)
             let originalPrice = parseFloat(e.target.nextElementSibling.innerText) / amount
             if (amount >= 1) {
                 amount++
-
                 e.target.previousElementSibling.innerText = amount
                 e.target.nextElementSibling.innerText = parseFloat(e.target.nextElementSibling.innerText) + originalPrice
                 totalCostCalc()
             }
-
-
         }
 
     });
