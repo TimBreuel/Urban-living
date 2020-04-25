@@ -54,7 +54,10 @@ const UIselectors = {
     page2: '#page2',
     page3: '#page3',
     page4: '#page4',
-    impressum: '#impressum'
+    impressum: '#impressum',
+    arrowMinus: '.arrow-minus',
+    arrowPlus: '.arrow-plus',
+    amount: '.amount'
 
 };
 
@@ -87,6 +90,9 @@ const searchIcon = document.querySelector(UIselectors.searchIcon)
 
 //IMPRESSUM
 const impressum = document.querySelector(UIselectors.impressum)
+
+//AMOUNT
+
 
 ///////////////////
 //EVENTS LISTENERS
@@ -184,6 +190,34 @@ document.addEventListener("DOMContentLoaded", (e) => {
         // if (!e.target.classList.contains('slide-back-cart')) {
         //     shoppingCardContainerSlideBack()
         // }
+
+        //AMOUNT PLUS MINUS
+        if (e.target.classList.contains('arrow-minus')) {
+            let amount = parseFloat(e.target.nextElementSibling.innerText)
+            let originalPrice = parseFloat(e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText) / amount
+            if (amount > 1) {
+                amount--
+                e.target.nextElementSibling.innerText = amount
+                e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText = parseFloat(e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText) - originalPrice
+                totalCostCalc()
+            }
+
+
+        }
+
+        if (e.target.classList.contains('arrow-plus')) {
+            let amount = parseFloat(e.target.previousElementSibling.innerText)
+            let originalPrice = parseFloat(e.target.nextElementSibling.innerText) / amount
+            if (amount >= 1) {
+                amount++
+
+                e.target.previousElementSibling.innerText = amount
+                e.target.nextElementSibling.innerText = parseFloat(e.target.nextElementSibling.innerText) + originalPrice
+                totalCostCalc()
+            }
+
+
+        }
 
     });
 
@@ -435,12 +469,13 @@ const addToShoppingCard = (name) => {
                 </div>
     
                 <div class="cart-price-cost">
-                  <i class="fas fa-chevron-left"></i><span class="input-num">1</span
-                  ><i class="fas fa-chevron-right"></i> price:
+                  <i class="fas fa-chevron-left arrow-minus"></i><span class="input-num amount">1</span
+                  ><i class="fas fa-chevron-right arrow-plus"></i> price:
                   <span class="cart-price">${product.price}</span> $
                 </div>
                 </div>
                 `;
+
                 shoppingCardList.append(cartLi);
             }
 
@@ -700,3 +735,26 @@ Osterstraße 133c<br />
 </div>
     `
 }
+
+// const amountMinus = (amount, total) => {
+//     console.log(amount)
+//     console.log(total)
+//     amount = parseFloat(amount)
+//     console.log(amount)
+//     if (amount > 1) {
+//         amount--
+//         e.target.nextElementSibling.innerText = amount
+//         e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText = parseFloat(total.innerText) * amount
+//     }
+// }
+
+// const amountPlus = (amount, total) => {
+
+//     amount = parseFloat(amount)
+//     if (amount >= 1) {
+//         amount++
+
+//         e.target.previousElementSibling.innerText = amount
+//         e.target.nextElementSibling.innerText = parseFloat(total.innerText) * amount
+//     }
+// }
