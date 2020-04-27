@@ -1044,7 +1044,7 @@ const registerFormCreate = () => {
     //CITY
     const cityName = document.getElementById("city");
     cityName.addEventListener("blur", (e) => {
-        const re = /^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
+        const re = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
         validateRegularExpression(cityName, re, "Cityname is not valid");
     });
 
