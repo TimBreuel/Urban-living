@@ -999,7 +999,6 @@ const registerFormCreate = () => {
     firstName.addEventListener("blur", (e) => {
         const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
 
-        console.log(e)
         validateRegularExpression(
             firstName,
             re,
@@ -1013,11 +1012,15 @@ const registerFormCreate = () => {
     const lastName = document.getElementById("lastName");
     lastName.addEventListener("blur", (e) => {
         const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
+        console.log(e.target)
+
         validateRegularExpression(
             lastName,
             re,
             "Last name must be between 1 and 30 charackters"
         );
+
+
     });
 
     //STREETNUMBER
@@ -1082,7 +1085,7 @@ const registerFormCreate = () => {
     registerBtn.addEventListener("click", (e) => {
         e.preventDefault();
         console.log(firstName)
-        if (firstName.value !== '' && lastName.value !== '' && streetNum.value !== '' && postcode.value !== '' && cityName.value !== '' && phoneNum.value !== '' && email.value !== '' && password.value !== '' && passwordAgain.value !== '') {
+        if (firstName.value !== '' && firstName.classList.contains('true') && lastName.value !== '' && lastName.classList.contains('true') && streetNum.value !== '' && streetNum.classList.contains('true') && postcode.value !== '' && postcode.classList.contains('true') && cityName.value !== '' && cityName.classList.contains('true') && phoneNum.value !== '' && phoneNum.classList.contains('true') && email.value !== '' && email.classList.contains('true') && password.value !== '' && password.classList.contains('true') && passwordAgain.value !== '' && passwordAgain.classList.contains('true')) {
             const member = new RegisterMember(
                 firstName.value,
                 lastName.value,
@@ -1114,13 +1117,18 @@ const validateRegularExpression = (selectorID, reEx, txt) => {
     if (!reEx.test(selectorID.value.trim())) {
         selectorID.classList.remove("is-invalid");
         selectorID.classList.add("invalid-feedback-border");
+        selectorID.classList.remove('true')
         selectorID.nextElementSibling.innerText = txt;
         selectorID.nextElementSibling.classList.add("d-block");
+
 
     } else {
         selectorID.classList.add("form-falid");
         selectorID.classList.remove("invalid-feedback-border");
+
+        selectorID.classList.add('true')
         selectorID.nextElementSibling.classList.remove("d-block");
+        valid = false
     }
 };
 
@@ -1129,11 +1137,13 @@ const passwordAgainCheck = (selectorID, pw, txt) => {
     if (selectorID.value !== pw) {
         selectorID.classList.remove("is-invalid");
         selectorID.classList.add("invalid-feedback-border");
+        selectorID.classList.remove('true')
         selectorID.nextElementSibling.innerText = txt;
         selectorID.nextElementSibling.classList.add("d-block");
     } else {
         selectorID.classList.add("form-falid");
         selectorID.classList.remove("invalid-feedback-border");
+        selectorID.classList.add('true')
         selectorID.nextElementSibling.classList.remove("d-block");
     }
 };
