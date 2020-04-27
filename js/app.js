@@ -1,120 +1,149 @@
 class ProductsCtr {
-  constructor(
-    productNumber,
-    name,
-    category,
-    price,
-    color,
-    imageL,
-    imageS,
-    description
-  ) {
-    this.productNumber = productNumber;
-    this.name = name;
-    this.category = category;
-    this.price = price;
-    this.color = color;
-    this.imageL = imageL;
-    this.imageS = imageS;
-    this.description = description;
-  }
+    constructor(
+        productNumber,
+        name,
+        category,
+        price,
+        color,
+        imageL,
+        imageS,
+        description
+    ) {
+        this.productNumber = productNumber;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.color = color;
+        this.imageL = imageL;
+        this.imageS = imageS;
+        this.description = description;
+    }
 
-  //FETCH API
-  async getProducts() {
-    const response = await fetch("http://localhost:3000/products?");
-    const resData = await response.json();
-    return resData;
-  }
+    //FETCH API
+    async getProducts() {
+        const response = await fetch("http://localhost:3000/products?");
+        const resData = await response.json();
+        return resData;
+    }
 
-  async printProductsPageNum(pageNumber) {
-    const response = await fetch(
-      "http://localhost:3000/products?_page=" + pageNumber + "&_limit=15"
-    );
-    const resData = await response.json();
-    return resData;
-  }
+    async printProductsPageNum(pageNumber) {
+        const response = await fetch(
+            "http://localhost:3000/products?_page=" + pageNumber + "&_limit=15"
+        );
+        const resData = await response.json();
+        return resData;
+    }
 }
 
 class RegisterMember {
-  constructor(
-    firstName,
-    lastName,
-    street,
-    postcode,
-    city,
-    phoneNum,
-    email,
-    password
-  ) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.street = street;
-    this.postcode = postcode;
-    this.city = city;
-    this.phoneNum = phoneNum;
-    this.email = email;
-    this.password = password;
-  }
-
-  setMemberToStorage() {
-    let members;
-    if (localStorage.getItem("members") == null) {
-      members = [];
-    } else {
-      members = JSON.parse(localStorage.getItem("members"));
-      members = [];
+    constructor(
+        firstName,
+        lastName,
+        street,
+        postcode,
+        city,
+        phoneNum,
+        email,
+        password
+    ) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.street = street;
+        this.postcode = postcode;
+        this.city = city;
+        this.phoneNum = phoneNum;
+        this.email = email;
+        this.password = password;
     }
 
-    let member = {
-      Firstname: this.firstName,
-      Lastname: this.lastName,
-      Street: this.street,
-      Postcode: this.postcode,
-      City: this.city,
-      Phonenumber: this.phoneNum,
-      Email: this.email,
-      Password: this.password,
-    };
+    setMemberToStorage() {
+        let members;
+        if (localStorage.getItem("members") == null) {
+            members = [];
+        } else {
+            members = JSON.parse(localStorage.getItem("members"));
 
-    members.push(member);
-    localStorage.setItem("members", JSON.stringify(members));
-  }
+        }
+
+        let member = {
+            Firstname: this.firstName,
+            Lastname: this.lastName,
+            Street: this.street,
+            Postcode: this.postcode,
+            City: this.city,
+            Phonenumber: this.phoneNum,
+            Email: this.email,
+            Password: this.password,
+        };
+
+        let doubleMemberCheck = false
+        members.forEach((memberFromStorage) => {
+            if (
+                memberFromStorage.Firstname === member.Firstname &&
+                memberFromStorage.Lastname === member.Lastname && memberFromStorage.Street === member.Street && memberFromStorage.Postcode === member.Postcode && memberFromStorage.City === member.City && memberFromStorage.Phonenumber === member.Phonenumber && memberFromStorage.Email === member.Email
+            ) {
+                doubleMemberCheck = true
+            }
+        });
+        if (doubleMemberCheck === true) {
+            let message = document.querySelector('.successOrNot')
+            message.classList.add('d-block')
+            message.style.color = '#f08080'
+            message.innerText = 'Member allready exists!'
+            setTimeout(() => {
+                message.classList.remove('d-block')
+                message.classList.add('d-none')
+            }, 3000)
+        } else {
+            let message = document.querySelector('.successOrNot')
+            message.classList.add('d-block')
+            message.style.color = '#90ee90'
+            message.innerText = 'Registration successfull!'
+            setTimeout(() => {
+                message.classList.remove('d-block')
+                message.classList.add('d-none')
+            }, 3000)
+            members.push(member)
+        }
+
+        localStorage.setItem("members", JSON.stringify(members));
+    }
 }
 
 //////////////////
 //ALL UI SELECTORS
 const UIselectors = {
-  navMenu: "#navMenu",
-  menu: "#menu",
-  headline: "#headline",
-  shoppingCartBtn: "#shoppingCart",
-  shoppingCartContainer: "#shoping-card",
-  productContainer: "#product-container",
-  chairs: "#chairs",
-  couches: "#couches",
-  lamps: "#lamps",
-  tables: "#tables",
-  shoppingCardList: ".shopping-card-container",
-  totalCost: "#totalCost",
-  btnDetails: "#btn-details",
-  inputName: "#input-name",
-  inputCategory: "#input-category",
-  inputColor: "#input-color",
-  inputPrice: "#input-number",
-  btnSearch: ".btn-search",
-  searchIcon: ".search-icon",
-  seeAll: "#seeAll",
-  logo: ".logo",
-  page1: "#page1",
-  page2: "#page2",
-  page3: "#page3",
-  page4: "#page4",
-  impressum: "#impressum",
-  arrowMinus: ".arrow-minus",
-  arrowPlus: ".arrow-plus",
-  amount: ".amount",
-  register: "#register",
-  firstName: "#firstName",
+    navMenu: "#navMenu",
+    menu: "#menu",
+    headline: "#headline",
+    shoppingCartBtn: "#shoppingCart",
+    shoppingCartContainer: "#shoping-card",
+    productContainer: "#product-container",
+    chairs: "#chairs",
+    couches: "#couches",
+    lamps: "#lamps",
+    tables: "#tables",
+    shoppingCardList: ".shopping-card-container",
+    totalCost: "#totalCost",
+    btnDetails: "#btn-details",
+    inputName: "#input-name",
+    inputCategory: "#input-category",
+    inputColor: "#input-color",
+    inputPrice: "#input-number",
+    btnSearch: ".btn-search",
+    searchIcon: ".search-icon",
+    seeAll: "#seeAll",
+    logo: ".logo",
+    page1: "#page1",
+    page2: "#page2",
+    page3: "#page3",
+    page4: "#page4",
+    impressum: "#impressum",
+    arrowMinus: ".arrow-minus",
+    arrowPlus: ".arrow-plus",
+    amount: ".amount",
+    register: "#register",
+    firstName: "#firstName",
 };
 
 /////////////////////
@@ -154,157 +183,157 @@ const firstName = document.querySelector(UIselectors.firstName);
 ///////////////////
 //EVENTS LISTENERS
 document.addEventListener("DOMContentLoaded", (e) => {
-  /////////////////////////////
-  //NAVIGATION MENU SLIDER CALL
-  navMenu.addEventListener("click", navigationMenu);
+    /////////////////////////////
+    //NAVIGATION MENU SLIDER CALL
+    navMenu.addEventListener("click", navigationMenu);
 
-  //SHOPING CARD CONTAINER CALL
-  shopingCardBtn.addEventListener("click", shoppingCardContainer);
+    //SHOPING CARD CONTAINER CALL
+    shopingCardBtn.addEventListener("click", shoppingCardContainer);
 
-  //PRODUCTS CALL
-  printProductsPageNum(1);
-
-  //LOAD LOCAL STORAGE
-  getLocalStorage();
-
-  ////////////////////////
-  //CATEGORY PRODUCTS CALL
-  logo.addEventListener("click", (e) => {
-    e.preventDefault();
+    //PRODUCTS CALL
     printProductsPageNum(1);
-  });
-  seeAll.addEventListener("click", (e) => {
-    e.preventDefault();
-    printProductsPageNum(1);
-    navigationMenuSlideBack();
-  });
-  categoryChairs.addEventListener("click", (e) => {
-    e.preventDefault();
-    headline.innerText = "Chairs";
-    printProductsCategory("chair");
-    navigationMenuSlideBack();
-  });
 
-  categoryCouches.addEventListener("click", (e) => {
-    e.preventDefault();
-    headline.innerText = "Couches";
-    printProductsCategory("couch");
-    navigationMenuSlideBack();
-  });
+    //LOAD LOCAL STORAGE
+    getLocalStorage();
 
-  categoryLamps.addEventListener("click", (e) => {
-    e.preventDefault();
-    headline.innerText = "Lamps";
-    printProductsCategory("lamp");
-    navigationMenuSlideBack();
-  });
+    ////////////////////////
+    //CATEGORY PRODUCTS CALL
+    logo.addEventListener("click", (e) => {
+        e.preventDefault();
+        printProductsPageNum(1);
+    });
+    seeAll.addEventListener("click", (e) => {
+        e.preventDefault();
+        printProductsPageNum(1);
+        navigationMenuSlideBack();
+    });
+    categoryChairs.addEventListener("click", (e) => {
+        e.preventDefault();
+        headline.innerText = "Chairs";
+        printProductsCategory("chair");
+        navigationMenuSlideBack();
+    });
 
-  categoryTables.addEventListener("click", (e) => {
-    e.preventDefault();
-    headline.innerText = "Tables";
-    printProductsCategory("table");
-    navigationMenuSlideBack();
-  });
+    categoryCouches.addEventListener("click", (e) => {
+        e.preventDefault();
+        headline.innerText = "Couches";
+        printProductsCategory("couch");
+        navigationMenuSlideBack();
+    });
 
-  //IMPRESSUM
-  impressum.addEventListener("click", () => {
-    setImpressum();
-    navigationMenuSlideBack();
-  });
+    categoryLamps.addEventListener("click", (e) => {
+        e.preventDefault();
+        headline.innerText = "Lamps";
+        printProductsCategory("lamp");
+        navigationMenuSlideBack();
+    });
 
-  //REGISTER FORM
-  register.addEventListener("click", (e) => {
-    registerFormCreate();
-    navigationMenuSlideBack();
-  });
+    categoryTables.addEventListener("click", (e) => {
+        e.preventDefault();
+        headline.innerText = "Tables";
+        printProductsCategory("table");
+        navigationMenuSlideBack();
+    });
 
-  ///////////////////////////////////////////////////////////////
-  //CLICK EVENTS FOR ADD CART AND REMOVE CART FROM SHOPPING CART
-  document.addEventListener("click", (e) => {
-    //ADDED TO SHOPPING CART
-    if (e.target.classList.contains("btn-add")) {
-      let arrName = Array.from(e.target.parentElement.parentElement.children);
-      addToShoppingCard(arrName[1].innerText);
-      succesAdded(e.target);
-    }
+    //IMPRESSUM
+    impressum.addEventListener("click", () => {
+        setImpressum();
+        navigationMenuSlideBack();
+    });
 
-    //TOTAL COST CALCULATION
-    if (e.target.classList.contains("cart-remove")) {
-      e.target.parentElement.parentElement.parentElement.remove();
-      totalCostCalc();
-      setLocalStorage();
-    }
+    //REGISTER FORM
+    register.addEventListener("click", (e) => {
+        registerFormCreate();
+        navigationMenuSlideBack();
+    });
 
-    //OPEN DETAILS FOR ELEMENT THAT IS CLICKED
-    if (e.target.classList.contains("open-details")) {
-      let arrName = Array.from(e.target.parentElement.parentElement.children);
-      getDetailsProducts(arrName[1].innerText);
-    }
+    ///////////////////////////////////////////////////////////////
+    //CLICK EVENTS FOR ADD CART AND REMOVE CART FROM SHOPPING CART
+    document.addEventListener("click", (e) => {
+        //ADDED TO SHOPPING CART
+        if (e.target.classList.contains("btn-add")) {
+            let arrName = Array.from(e.target.parentElement.parentElement.children);
+            addToShoppingCard(arrName[1].innerText);
+            succesAdded(e.target);
+        }
 
-    //MENU SLIDE BACK
-    // if (!e.target.classList.contains('slide-back')) {
-    //     navigationMenuSlideBack()
-    // }
+        //TOTAL COST CALCULATION
+        if (e.target.classList.contains("cart-remove")) {
+            e.target.parentElement.parentElement.parentElement.remove();
+            totalCostCalc();
+            setLocalStorage();
+        }
 
-    //SHOPPING CART SLIDE BACK
-    // if (!e.target.classList.contains('slide-back-cart')) {
-    //     shoppingCardContainerSlideBack()
-    // }
+        //OPEN DETAILS FOR ELEMENT THAT IS CLICKED
+        if (e.target.classList.contains("open-details")) {
+            let arrName = Array.from(e.target.parentElement.parentElement.children);
+            getDetailsProducts(arrName[1].innerText);
+        }
 
-    ////////////////////
-    //AMOUNT MINUS
-    if (e.target.classList.contains("arrow-minus")) {
-      let amount = parseFloat(e.target.nextElementSibling.innerText);
-      let originalPrice =
-        parseFloat(
-          e.target.nextElementSibling.nextElementSibling.nextElementSibling
-            .innerText
-        ) / amount;
-      if (amount > 1) {
-        amount--;
-        e.target.nextElementSibling.innerText = amount;
-        e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText =
-          parseFloat(
-            e.target.nextElementSibling.nextElementSibling.nextElementSibling
-              .innerText
-          ) - originalPrice;
-        totalCostCalc();
-        setLocalStorage();
-      }
-    }
-    //AMOUNT PLUS
-    if (e.target.classList.contains("arrow-plus")) {
-      let amount = parseFloat(e.target.previousElementSibling.innerText);
-      let originalPrice =
-        parseFloat(e.target.nextElementSibling.innerText) / amount;
-      if (amount >= 1) {
-        amount++;
-        e.target.previousElementSibling.innerText = amount;
-        e.target.nextElementSibling.innerText =
-          parseFloat(e.target.nextElementSibling.innerText) + originalPrice;
-        totalCostCalc();
-        setLocalStorage();
-      }
-    }
-  });
+        //MENU SLIDE BACK
+        // if (!e.target.classList.contains('slide-back')) {
+        //     navigationMenuSlideBack()
+        // }
 
-  //////////////////////////////////
-  //SEARCH INPUT BUTTON CLICK EVENT
-  btnSearch.addEventListener("click", (e) => {
-    e.preventDefault();
-    headline.innerText = "Search result";
-    printSearchProducts(
-      inputName.value.trim(),
-      inputCategory.options[inputCategory.selectedIndex].value.trim(),
-      inputColor.options[inputColor.selectedIndex].value.trim(),
-      inputPrice.value.trim()
-    );
-  });
+        //SHOPPING CART SLIDE BACK
+        // if (!e.target.classList.contains('slide-back-cart')) {
+        //     shoppingCardContainerSlideBack()
+        // }
 
-  searchIcon.addEventListener("click", () => {
-    navigationMenu();
-    inputName.focus();
-  });
+        ////////////////////
+        //AMOUNT MINUS
+        if (e.target.classList.contains("arrow-minus")) {
+            let amount = parseFloat(e.target.nextElementSibling.innerText);
+            let originalPrice =
+                parseFloat(
+                    e.target.nextElementSibling.nextElementSibling.nextElementSibling
+                    .innerText
+                ) / amount;
+            if (amount > 1) {
+                amount--;
+                e.target.nextElementSibling.innerText = amount;
+                e.target.nextElementSibling.nextElementSibling.nextElementSibling.innerText =
+                    parseFloat(
+                        e.target.nextElementSibling.nextElementSibling.nextElementSibling
+                        .innerText
+                    ) - originalPrice;
+                totalCostCalc();
+                setLocalStorage();
+            }
+        }
+        //AMOUNT PLUS
+        if (e.target.classList.contains("arrow-plus")) {
+            let amount = parseFloat(e.target.previousElementSibling.innerText);
+            let originalPrice =
+                parseFloat(e.target.nextElementSibling.innerText) / amount;
+            if (amount >= 1) {
+                amount++;
+                e.target.previousElementSibling.innerText = amount;
+                e.target.nextElementSibling.innerText =
+                    parseFloat(e.target.nextElementSibling.innerText) + originalPrice;
+                totalCostCalc();
+                setLocalStorage();
+            }
+        }
+    });
+
+    //////////////////////////////////
+    //SEARCH INPUT BUTTON CLICK EVENT
+    btnSearch.addEventListener("click", (e) => {
+        e.preventDefault();
+        headline.innerText = "Search result";
+        printSearchProducts(
+            inputName.value.trim(),
+            inputCategory.options[inputCategory.selectedIndex].value.trim(),
+            inputColor.options[inputColor.selectedIndex].value.trim(),
+            inputPrice.value.trim()
+        );
+    });
+
+    searchIcon.addEventListener("click", () => {
+        navigationMenu();
+        inputName.focus();
+    });
 });
 
 ////////////////////////
@@ -312,40 +341,40 @@ document.addEventListener("DOMContentLoaded", (e) => {
 let menuTrigger = false;
 let menuCounter = -220;
 const navigationMenu = () => {
-  const menu = document.querySelector(UIselectors.menu);
-  let interval = setInterval(() => {
-    if (menuTrigger === false && menuCounter <= 0) {
-      menuCounter++;
-      menu.style.left = menuCounter + "px";
-    }
-    if (menuTrigger === true && menuCounter >= -220) {
-      menu.style.left = menuCounter + "px";
-      menuCounter--;
-    }
-    if (menuCounter === 0) {
-      menuTrigger = true;
-      clearInterval(interval);
-    }
-    if (menuCounter === -220) {
-      menuTrigger = false;
-      clearInterval(interval);
-    }
-  }, 0.1);
+    const menu = document.querySelector(UIselectors.menu);
+    let interval = setInterval(() => {
+        if (menuTrigger === false && menuCounter <= 0) {
+            menuCounter++;
+            menu.style.left = menuCounter + "px";
+        }
+        if (menuTrigger === true && menuCounter >= -220) {
+            menu.style.left = menuCounter + "px";
+            menuCounter--;
+        }
+        if (menuCounter === 0) {
+            menuTrigger = true;
+            clearInterval(interval);
+        }
+        if (menuCounter === -220) {
+            menuTrigger = false;
+            clearInterval(interval);
+        }
+    }, 0.1);
 };
 
 //MENU SLIDE BACK IF CLICK OUTSIDE THE MENU
 const navigationMenuSlideBack = () => {
-  const menu = document.querySelector(UIselectors.menu);
-  let interval = setInterval(() => {
-    if (menuTrigger === true && menuCounter >= -220) {
-      menu.style.left = menuCounter + "px";
-      menuCounter--;
-    }
-    if (menuCounter === -220) {
-      menuTrigger = false;
-      clearInterval(interval);
-    }
-  }, 0.1);
+    const menu = document.querySelector(UIselectors.menu);
+    let interval = setInterval(() => {
+        if (menuTrigger === true && menuCounter >= -220) {
+            menu.style.left = menuCounter + "px";
+            menuCounter--;
+        }
+        if (menuCounter === -220) {
+            menuTrigger = false;
+            clearInterval(interval);
+        }
+    }, 0.1);
 };
 
 /////////////////////////
@@ -353,61 +382,61 @@ const navigationMenuSlideBack = () => {
 let shoppingCardTrigger = false;
 let shoppingCardCounter = -300;
 const shoppingCardContainer = () => {
-  const cardContainer = document.querySelector(
-    UIselectors.shoppingCartContainer
-  );
-  let interval = setInterval(() => {
-    if (shoppingCardTrigger === false && shoppingCardCounter <= 0) {
-      shoppingCardCounter++;
-      cardContainer.style.right = shoppingCardCounter + "px";
-    }
-    if (shoppingCardTrigger === true && shoppingCardCounter >= -300) {
-      cardContainer.style.right = shoppingCardCounter + "px";
-      shoppingCardCounter--;
-    }
-    if (shoppingCardCounter === 0) {
-      shoppingCardTrigger = true;
-      clearInterval(interval);
-    }
-    if (shoppingCardCounter === -300) {
-      shoppingCardTrigger = false;
-      clearInterval(interval);
-    }
-  }, 0.1);
+    const cardContainer = document.querySelector(
+        UIselectors.shoppingCartContainer
+    );
+    let interval = setInterval(() => {
+        if (shoppingCardTrigger === false && shoppingCardCounter <= 0) {
+            shoppingCardCounter++;
+            cardContainer.style.right = shoppingCardCounter + "px";
+        }
+        if (shoppingCardTrigger === true && shoppingCardCounter >= -300) {
+            cardContainer.style.right = shoppingCardCounter + "px";
+            shoppingCardCounter--;
+        }
+        if (shoppingCardCounter === 0) {
+            shoppingCardTrigger = true;
+            clearInterval(interval);
+        }
+        if (shoppingCardCounter === -300) {
+            shoppingCardTrigger = false;
+            clearInterval(interval);
+        }
+    }, 0.1);
 };
 
 //SHOPPING CART SLIDE BACK IF CLICK OUTSIDE THE MENU
 const shoppingCardContainerSlideBack = () => {
-  const cardContainer = document.querySelector(
-    UIselectors.shoppingCartContainer
-  );
-  let interval = setInterval(() => {
-    if (shoppingCardTrigger === true && shoppingCardCounter >= -300) {
-      cardContainer.style.right = shoppingCardCounter + "px";
-      shoppingCardCounter--;
-    }
-    if (shoppingCardCounter === -300) {
-      shoppingCardTrigger = false;
-      clearInterval(interval);
-    }
-  }, 0.1);
+    const cardContainer = document.querySelector(
+        UIselectors.shoppingCartContainer
+    );
+    let interval = setInterval(() => {
+        if (shoppingCardTrigger === true && shoppingCardCounter >= -300) {
+            cardContainer.style.right = shoppingCardCounter + "px";
+            shoppingCardCounter--;
+        }
+        if (shoppingCardCounter === -300) {
+            shoppingCardTrigger = false;
+            clearInterval(interval);
+        }
+    }, 0.1);
 };
 
 ////////////////////////
 //GET ARTICLES FROM API
 const products = new ProductsCtr();
 const printProducts = () => {
-  //CLEAR PRODUCT CONTAINER
-  productContainer.innerHTML = "";
+    //CLEAR PRODUCT CONTAINER
+    productContainer.innerHTML = "";
 
-  //FETCH PRODUCTS
-  products
-    .getProducts()
-    .then((product) => {
-      product.forEach((product) => {
-        let card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `
+    //FETCH PRODUCTS
+    products
+        .getProducts()
+        .then((product) => {
+            product.forEach((product) => {
+                let card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
             
             <img src="${product.imageS}" class="image-small"/>
             <h4 class="article-name">${product.name}</h4>
@@ -419,54 +448,54 @@ const printProducts = () => {
             </div>
             <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
             `;
-        productContainer.append(card);
-      });
-    })
-    .catch((err) => console.log("ERROR", err));
+                productContainer.append(card);
+            });
+        })
+        .catch((err) => console.log("ERROR", err));
 };
 
 //////////////////////////////////
 //PRINT PRODUCTS WITH PAGE NUMBER
 const printProductsPageNum = (pageNumber) => {
-  headline.innerHTML = `Our Products <span class="pageNum fl-r" id="page4">4</span>
+    headline.innerHTML = `Our Products <span class="pageNum fl-r" id="page4">4</span>
     <span class="fl-r pageNum" id="page3">3</span><span class="fl-r pageNum" id="page2">2</span><span
       class="fl-r pageNum" id="page1">1</span>`;
 
-  //BUTTON PAGE NUMBERS
-  const page1 = document.querySelector(UIselectors.page1);
-  const page2 = document.querySelector(UIselectors.page2);
-  const page3 = document.querySelector(UIselectors.page3);
-  const page4 = document.querySelector(UIselectors.page4);
+    //BUTTON PAGE NUMBERS
+    const page1 = document.querySelector(UIselectors.page1);
+    const page2 = document.querySelector(UIselectors.page2);
+    const page3 = document.querySelector(UIselectors.page3);
+    const page4 = document.querySelector(UIselectors.page4);
 
-  //BUTTON PAGE NUMBERS EVENT CLICK
-  page1.addEventListener("click", (e) => {
-    e.preventDefault();
-    printProductsPageNum(1);
-  });
-  page2.addEventListener("click", (e) => {
-    e.preventDefault();
-    printProductsPageNum(2);
-  });
-  page3.addEventListener("click", (e) => {
-    e.preventDefault();
-    printProductsPageNum(3);
-  });
-  page4.addEventListener("click", (e) => {
-    e.preventDefault();
-    printProductsPageNum(4);
-  });
+    //BUTTON PAGE NUMBERS EVENT CLICK
+    page1.addEventListener("click", (e) => {
+        e.preventDefault();
+        printProductsPageNum(1);
+    });
+    page2.addEventListener("click", (e) => {
+        e.preventDefault();
+        printProductsPageNum(2);
+    });
+    page3.addEventListener("click", (e) => {
+        e.preventDefault();
+        printProductsPageNum(3);
+    });
+    page4.addEventListener("click", (e) => {
+        e.preventDefault();
+        printProductsPageNum(4);
+    });
 
-  //CLEAR PRODUCT CONTAINER
-  productContainer.innerHTML = "";
+    //CLEAR PRODUCT CONTAINER
+    productContainer.innerHTML = "";
 
-  //FETCH PRODUCTS
-  products
-    .printProductsPageNum(pageNumber)
-    .then((product) => {
-      product.forEach((product) => {
-        let card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `
+    //FETCH PRODUCTS
+    products
+        .printProductsPageNum(pageNumber)
+        .then((product) => {
+            product.forEach((product) => {
+                let card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
             
             <img src="${product.imageS}" class="image-small"/>
             <h4 class="article-name">${product.name}</h4>
@@ -478,24 +507,24 @@ const printProductsPageNum = (pageNumber) => {
             </div>
             <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
             `;
-        productContainer.append(card);
-      });
-    })
-    .catch((err) => console.log("ERROR", err));
+                productContainer.append(card);
+            });
+        })
+        .catch((err) => console.log("ERROR", err));
 };
 
 ///////////////////////////////////
 //PRINT PRODUCTS CATEGORY FROM API
 const printProductsCategory = (category) => {
-  productContainer.innerHTML = "";
-  products
-    .getProducts()
-    .then((product) => {
-      product.forEach((product) => {
-        if (product.category === category) {
-          let card = document.createElement("div");
-          card.classList.add("card");
-          card.innerHTML = `
+    productContainer.innerHTML = "";
+    products
+        .getProducts()
+        .then((product) => {
+            product.forEach((product) => {
+                if (product.category === category) {
+                    let card = document.createElement("div");
+                    card.classList.add("card");
+                    card.innerHTML = `
                 <img src="${product.imageS}" class="image-small"/>
                 <h4 class="article-name">${product.name}</h4>
                 <div class="article-price">
@@ -507,22 +536,22 @@ const printProductsCategory = (category) => {
                 <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
                 `;
 
-          productContainer.append(card);
-        }
-      });
-    })
-    .catch((err) => console.log("ERROR", err));
+                    productContainer.append(card);
+                }
+            });
+        })
+        .catch((err) => console.log("ERROR", err));
 };
 
 //////////////////////
 //ADD TO SHOPPING CAT
 const addToShoppingCard = (name) => {
-  products.getProducts().then((product) => {
-    product.forEach((product) => {
-      if (product.name === name) {
-        let cartLi = document.createElement("li");
-        cartLi.classList = "cart-li cart-remove";
-        cartLi.innerHTML = `
+    products.getProducts().then((product) => {
+        product.forEach((product) => {
+            if (product.name === name) {
+                let cartLi = document.createElement("li");
+                cartLi.classList = "cart-li cart-remove";
+                cartLi.innerHTML = `
                 <img class="cart-img"src="${product.imageS}"alt=""/>
                 <div class="cart-name-num-container">
                 <div class="cart-name">${product.name}<i class="fas fa-times fl-r cart-remove"></i>
@@ -536,25 +565,25 @@ const addToShoppingCard = (name) => {
                 </div>
                 `;
 
-        shoppingCardList.append(cartLi);
-      }
+                shoppingCardList.append(cartLi);
+            }
+        });
+
+        //ADD TOTAL COST CALL
+        totalCostCalc();
+
+        //SET SOCAL STORAGE
+        setLocalStorage();
     });
-
-    //ADD TOTAL COST CALL
-    totalCostCalc();
-
-    //SET SOCAL STORAGE
-    setLocalStorage();
-  });
 };
 //ADD TO SHOPPING CAT FROM LOCAL STORAGE
 const addToShoppingCardFromLocalStorage = (name, amount, price) => {
-  products.getProducts().then((product) => {
-    product.forEach((product) => {
-      if (product.name === name) {
-        let cartLi = document.createElement("li");
-        cartLi.classList = "cart-li cart-remove";
-        cartLi.innerHTML = `
+    products.getProducts().then((product) => {
+        product.forEach((product) => {
+            if (product.name === name) {
+                let cartLi = document.createElement("li");
+                cartLi.classList = "cart-li cart-remove";
+                cartLi.innerHTML = `
                 <img class="cart-img"src="${product.imageS}"alt=""/>
                 <div class="cart-name-num-container">
                 <div class="cart-name">${product.name}<i class="fas fa-times fl-r cart-remove"></i>
@@ -568,43 +597,43 @@ const addToShoppingCardFromLocalStorage = (name, amount, price) => {
                 </div>
                 `;
 
-        shoppingCardList.append(cartLi);
-      }
+                shoppingCardList.append(cartLi);
+            }
+        });
+
+        //ADD TOTAL COST CALL
+        totalCostCalc();
+
+        //SET SOCAL STORAGE
+        setLocalStorage();
     });
-
-    //ADD TOTAL COST CALL
-    totalCostCalc();
-
-    //SET SOCAL STORAGE
-    setLocalStorage();
-  });
 };
 
 /////////////////
 //ADD TOTAL COST
 const totalCostCalc = () => {
-  totalCost.innerHTML = 0;
-  let totalprice = parseFloat(totalCost.innerHTML);
-  let allPrices = document.querySelectorAll(".cart-price");
-  allPrices = Array.from(allPrices);
-  allPrices.forEach((item) => {
-    let price = parseFloat(item.innerHTML);
-    totalprice += price;
-  });
-  totalCost.innerHTML = totalprice;
+    totalCost.innerHTML = 0;
+    let totalprice = parseFloat(totalCost.innerHTML);
+    let allPrices = document.querySelectorAll(".cart-price");
+    allPrices = Array.from(allPrices);
+    allPrices.forEach((item) => {
+        let price = parseFloat(item.innerHTML);
+        totalprice += price;
+    });
+    totalCost.innerHTML = totalprice;
 };
 
 //////////////////////
 //GET DETAILS PRODUCT
 const getDetailsProducts = (name) => {
-  products
-    .getProducts()
-    .then((product) => {
-      product.forEach((product) => {
-        if (product.name === name) {
-          let detailsBG = document.createElement("div");
-          detailsBG.classList.add("details-bg");
-          detailsBG.innerHTML = `
+    products
+        .getProducts()
+        .then((product) => {
+            product.forEach((product) => {
+                if (product.name === name) {
+                    let detailsBG = document.createElement("div");
+                    detailsBG.classList.add("details-bg");
+                    detailsBG.innerHTML = `
                     <div class="details-cart">
                     <div class="col6">
                     <img class="detals-img" src="${product.imageL}" alt="">
@@ -624,191 +653,191 @@ const getDetailsProducts = (name) => {
                     <i id="btn-remove-details" class="far fa-times-circle"></i>
                     </div>
                     `;
-          productContainer.append(detailsBG);
-          const btnRemoveDetails = document.getElementById(
-            "btn-remove-details"
-          );
-          btnRemoveDetails.addEventListener("click", () => {
-            detailsBG.remove();
-          });
-          const btnAddDetailsToCart = document.querySelector(
-            ".details-add-btn"
-          );
-          btnAddDetailsToCart.addEventListener("click", (e) => {
-            addToShoppingCard(product.name);
-            succesAdded(e.target);
-          });
-        }
-      });
-    })
-    .catch((err) => console.log("ERROR", err));
+                    productContainer.append(detailsBG);
+                    const btnRemoveDetails = document.getElementById(
+                        "btn-remove-details"
+                    );
+                    btnRemoveDetails.addEventListener("click", () => {
+                        detailsBG.remove();
+                    });
+                    const btnAddDetailsToCart = document.querySelector(
+                        ".details-add-btn"
+                    );
+                    btnAddDetailsToCart.addEventListener("click", (e) => {
+                        addToShoppingCard(product.name);
+                        succesAdded(e.target);
+                    });
+                }
+            });
+        })
+        .catch((err) => console.log("ERROR", err));
 };
 
 ////////////////////////////
 //PRINT AND SEARCH PRODUCTS
 const printSearchProducts = (name, category, color, price) => {
-  productContainer.innerHTML = "";
+    productContainer.innerHTML = "";
 
-  //CHECK DEFAULT VALUES
-  if (name.length === 0) {
-    name = "false";
-  }
-  if (price == "0") {
-    price = "false";
-  } else {
-    price = parseFloat(price);
-  }
+    //CHECK DEFAULT VALUES
+    if (name.length === 0) {
+        name = "false";
+    }
+    if (price == "0") {
+        price = "false";
+    } else {
+        price = parseFloat(price);
+    }
 
-  //console.log('name: ' + name, 'category: ' + category, 'color: ' + color, 'price: ' + price)
-  products
-    .getProducts()
-    .then((product) => {
-      product.forEach((product) => {
-        //NAME
-        if (
-          product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
-          category === "false" &&
-          color === "false" &&
-          price === "false"
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //CATEGORY
-        if (
-          product.category === category &&
-          color === "false" &&
-          name === "false" &&
-          price === "false"
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //COLOR
-        if (
-          product.color === color &&
-          category === "false" &&
-          name === "false" &&
-          price === "false"
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //PRICE
-        if (
-          parseFloat(product.price) <= price &&
-          category === "false" &&
-          color === "false" &&
-          name === "false"
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //NAME & CATEGORY
-        if (
-          product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
-          product.category === category &&
-          color === "false" &&
-          price === "false"
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //NAME & COLOR
-        if (
-          product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
-          category === "false" &&
-          product.color === color &&
-          price === "false"
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //NAME & PRICE
-        if (
-          product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
-          category === "false" &&
-          color === "false" &&
-          parseFloat(product.price) <= parseFloat(price)
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //CATEGORY & COLOR
-        if (
-          name === "false" &&
-          product.category === category &&
-          product.color === color &&
-          price === "false"
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //CATEGORY & PRICE
-        if (
-          name === "false" &&
-          product.category === category &&
-          color === "false" &&
-          parseFloat(product.price) <= parseFloat(price)
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //COLOR & PRICE
-        if (
-          name === "false" &&
-          category === "false" &&
-          product.color === color &&
-          parseFloat(product.price) <= parseFloat(price)
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //NAME & CATEGORY & COLOR
-        if (
-          product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
-          product.category === category &&
-          product.color === color &&
-          price === "false"
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //NAME & CATEGORY & PRICE
-        if (
-          product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
-          product.category === category &&
-          color === "false" &&
-          parseFloat(product.price) <= parseFloat(price)
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //CATEGORY & COLOR & PRICE
-        if (
-          name === "false" &&
-          product.category === category &&
-          product.color === color &&
-          parseFloat(product.price) <= parseFloat(price)
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //NAME & CATEGORY & COLOR & PRICE
-        if (
-          product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
-          product.category === category &&
-          product.color === color &&
-          parseFloat(product.price) <= parseFloat(price)
-        ) {
-          searchProducts(product.imageS, product.name, product.price);
-        }
-        //NAME & CATEGORY & COLOR & PRICE ARE EMPTY
-        if (
-          name === "false" &&
-          category === "false" &&
-          color === "false" &&
-          price === "false"
-        ) {
-          inputName.focus();
-          headline.innerText = "Please enter any value to search";
-        }
-      });
-    })
-    .catch((err) => console.log("ERROR", err));
+    //console.log('name: ' + name, 'category: ' + category, 'color: ' + color, 'price: ' + price)
+    products
+        .getProducts()
+        .then((product) => {
+            product.forEach((product) => {
+                //NAME
+                if (
+                    product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
+                    category === "false" &&
+                    color === "false" &&
+                    price === "false"
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //CATEGORY
+                if (
+                    product.category === category &&
+                    color === "false" &&
+                    name === "false" &&
+                    price === "false"
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //COLOR
+                if (
+                    product.color === color &&
+                    category === "false" &&
+                    name === "false" &&
+                    price === "false"
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //PRICE
+                if (
+                    parseFloat(product.price) <= price &&
+                    category === "false" &&
+                    color === "false" &&
+                    name === "false"
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //NAME & CATEGORY
+                if (
+                    product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
+                    product.category === category &&
+                    color === "false" &&
+                    price === "false"
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //NAME & COLOR
+                if (
+                    product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
+                    category === "false" &&
+                    product.color === color &&
+                    price === "false"
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //NAME & PRICE
+                if (
+                    product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
+                    category === "false" &&
+                    color === "false" &&
+                    parseFloat(product.price) <= parseFloat(price)
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //CATEGORY & COLOR
+                if (
+                    name === "false" &&
+                    product.category === category &&
+                    product.color === color &&
+                    price === "false"
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //CATEGORY & PRICE
+                if (
+                    name === "false" &&
+                    product.category === category &&
+                    color === "false" &&
+                    parseFloat(product.price) <= parseFloat(price)
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //COLOR & PRICE
+                if (
+                    name === "false" &&
+                    category === "false" &&
+                    product.color === color &&
+                    parseFloat(product.price) <= parseFloat(price)
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //NAME & CATEGORY & COLOR
+                if (
+                    product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
+                    product.category === category &&
+                    product.color === color &&
+                    price === "false"
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //NAME & CATEGORY & PRICE
+                if (
+                    product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
+                    product.category === category &&
+                    color === "false" &&
+                    parseFloat(product.price) <= parseFloat(price)
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //CATEGORY & COLOR & PRICE
+                if (
+                    name === "false" &&
+                    product.category === category &&
+                    product.color === color &&
+                    parseFloat(product.price) <= parseFloat(price)
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //NAME & CATEGORY & COLOR & PRICE
+                if (
+                    product.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 &&
+                    product.category === category &&
+                    product.color === color &&
+                    parseFloat(product.price) <= parseFloat(price)
+                ) {
+                    searchProducts(product.imageS, product.name, product.price);
+                }
+                //NAME & CATEGORY & COLOR & PRICE ARE EMPTY
+                if (
+                    name === "false" &&
+                    category === "false" &&
+                    color === "false" &&
+                    price === "false"
+                ) {
+                    inputName.focus();
+                    headline.innerText = "Please enter any value to search";
+                }
+            });
+        })
+        .catch((err) => console.log("ERROR", err));
 };
 //PRINT AND SEARCH PRODUCTS /PRODUCT CREATER
 const searchProducts = (image, name, price) => {
-  let card = document.createElement("div");
-  card.classList.add("card");
-  card.innerHTML = `
+    let card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `
                     <img src="${image}" class="image-small"/>
                     <h4 class="article-name">${name}</h4>
                     <div class="article-price">
@@ -819,63 +848,70 @@ const searchProducts = (image, name, price) => {
                     </div>
                     <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
                     `;
-  productContainer.append(card);
-  navigationMenuSlideBack();
+    productContainer.append(card);
+    navigationMenuSlideBack();
 };
 
 //////////////////
 //SUCCESS FUNCTION
 const succesAdded = (selector) => {
-  selector.classList.add("successAdd");
-  shopingCardBtn.classList.add("successAdd");
-  setTimeout(() => {
-    selector.classList.remove("successAdd");
-    shopingCardBtn.classList.remove("successAdd");
-  }, 2000);
+    selector.classList.add("successAdd");
+    shopingCardBtn.classList.add("successAdd");
+    setTimeout(() => {
+        selector.classList.remove("successAdd");
+        shopingCardBtn.classList.remove("successAdd");
+    }, 2000);
 };
 
 ////////////////////
 //SET LOCAL STORAGE
 const setLocalStorage = () => {
-  let products;
-  if (localStorage.getItem("products") == null) {
-    products = [];
-  } else {
-    products = JSON.parse(localStorage.getItem("products"));
-    products = [];
-  }
+    let products;
+    if (localStorage.getItem("products") == null) {
+        products = [];
+    } else {
+        products = JSON.parse(localStorage.getItem("products"));
+        products = [];
+    }
 
-  let allCartLi = document.querySelectorAll(".cart-li");
-  allCartLi = Array.from(allCartLi);
-  allCartLi.forEach((item) => {
-    let product = {
-      name: item.children[1].children[0].innerText,
-      image: item.children[0].src,
-      price: item.children[1].children[1].children[3].innerText,
-      amount: item.children[1].children[1].children[1].innerText,
-    };
-    products.push(product);
-  });
+    let allCartLi = document.querySelectorAll(".cart-li");
+    allCartLi = Array.from(allCartLi);
+    allCartLi.forEach((item) => {
+        let product = {
+            name: item.children[1].children[0].innerText,
+            image: item.children[0].src,
+            price: item.children[1].children[1].children[3].innerText,
+            amount: item.children[1].children[1].children[1].innerText,
+        };
+        products.push(product);
+    });
 
-  localStorage.setItem("products", JSON.stringify(products));
+    localStorage.setItem("products", JSON.stringify(products));
 };
 //////////////////////////////////
 //GET LOCAL STORAGE AFTER REFRESH
 const getLocalStorage = () => {
-  let products = JSON.parse(localStorage.getItem("products"));
+    let products;
+    if (localStorage.getItem("products") == null) {
+        products = [];
+    } else {
+        products = JSON.parse(localStorage.getItem("products"));
 
-  products.forEach((product) => {
-    addToShoppingCardFromLocalStorage(
-      product.name,
-      product.amount,
-      product.price
-    );
-  });
+    }
+    //let products = JSON.parse(localStorage.getItem("products"));
+
+    products.forEach((product) => {
+        addToShoppingCardFromLocalStorage(
+            product.name,
+            product.amount,
+            product.price
+        );
+    });
 };
 
 const setImpressum = () => {
-  headline.innerText = "Impressum";
-  productContainer.innerHTML = `
+    headline.innerText = "Impressum";
+    productContainer.innerHTML = `
     <div class="impressum" style="padding: 0 50px 0 50px; color:#4d4954;">
 <h2>Angaben gemäß 5 TMG</h2><br>
 <p>Tim Breuel<br />
@@ -908,8 +944,8 @@ Osterstraße 133c<br />
 ////////////////
 //REGISTER FORM
 const registerFormCreate = () => {
-  headline.innerText = "Register now";
-  productContainer.innerHTML = `
+    headline.innerText = "Register now";
+    productContainer.innerHTML = `
     <div class="form-container">
         <form action="" method="">
             <label for="firstName">First name</label>
@@ -950,133 +986,137 @@ const registerFormCreate = () => {
 
 
             <input type="submit" id="registerBtn" class="btn" value="Register">
+            <div class="successOrNot"></div>
         </form>
     </div>
     `;
 
-  ////////////////////////////
-  //REGISTER FORM VALID EVENTS
+    ////////////////////////////
+    //REGISTER FORM VALID EVENTS
 
-  //FIRSTNAME
-  const firstName = document.getElementById("firstName");
-  firstName.addEventListener("blur", (e) => {
-    const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
-    validateRegularExpression(
-      firstName,
-      re,
-      "First name must be between 1 and 30 charackters"
-    );
-  });
+    //FIRSTNAME
+    const firstName = document.getElementById("firstName");
+    firstName.addEventListener("blur", (e) => {
+        const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
+        validateRegularExpression(
+            firstName,
+            re,
+            "First name must be between 1 and 30 charackters"
+        );
+    });
 
-  //LASTNAME
-  const lastName = document.getElementById("lastName");
-  lastName.addEventListener("blur", (e) => {
-    const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
-    validateRegularExpression(
-      lastName,
-      re,
-      "Last name must be between 1 and 30 charackters"
-    );
-  });
+    //LASTNAME
+    const lastName = document.getElementById("lastName");
+    lastName.addEventListener("blur", (e) => {
+        const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
+        validateRegularExpression(
+            lastName,
+            re,
+            "Last name must be between 1 and 30 charackters"
+        );
+    });
 
-  //STREETNUMBER
-  const streetNum = document.getElementById("street");
-  streetNum.addEventListener("blur", (e) => {
-    const re = /^(([a-zA-ZäöüÄÖÜ]\D*)\s+\d+?\s*.*)$/;
-    validateRegularExpression(
-      streetNum,
-      re,
-      "Street or Streetnumber are not valid"
-    );
-  });
+    //STREETNUMBER
+    const streetNum = document.getElementById("street");
+    streetNum.addEventListener("blur", (e) => {
+        const re = /^(([a-zA-ZäöüÄÖÜ]\D*)\s+\d+?\s*.*)$/;
+        validateRegularExpression(
+            streetNum,
+            re,
+            "Street or Streetnumber are not valid"
+        );
+    });
 
-  //POSTCODE
-  const postcode = document.getElementById("postcode");
-  postcode.addEventListener("blur", (e) => {
-    const re = /^(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})$/;
-    validateRegularExpression(postcode, re, "Postcode must have 5 numbers");
-  });
+    //POSTCODE
+    const postcode = document.getElementById("postcode");
+    postcode.addEventListener("blur", (e) => {
+        const re = /^(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})$/;
+        validateRegularExpression(postcode, re, "Postcode must have 5 numbers");
+    });
 
-  //CITY
-  const cityName = document.getElementById("city");
-  cityName.addEventListener("blur", (e) => {
-    const re = /^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
-    validateRegularExpression(cityName, re, "Cityname is not valid");
-  });
+    //CITY
+    const cityName = document.getElementById("city");
+    cityName.addEventListener("blur", (e) => {
+        const re = /^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
+        validateRegularExpression(cityName, re, "Cityname is not valid");
+    });
 
-  //PHONENUMBER
-  const phoneNum = document.getElementById("phoneNum");
-  phoneNum.addEventListener("blur", (e) => {
-    const re = /^(((((((00|\+)49[ \-/]?)|0)[1-9][0-9]{1,4})[ \-/]?)|((((00|\+)49\()|\(0)[1-9][0-9]{1,4}\)[ \-/]?))[0-9]{1,7}([ \-/]?[0-9]{1,5})?)$/;
-    validateRegularExpression(phoneNum, re, "Phone number is not valid");
-  });
+    //PHONENUMBER
+    const phoneNum = document.getElementById("phoneNum");
+    phoneNum.addEventListener("blur", (e) => {
+        const re = /^(((((((00|\+)49[ \-/]?)|0)[1-9][0-9]{1,4})[ \-/]?)|((((00|\+)49\()|\(0)[1-9][0-9]{1,4}\)[ \-/]?))[0-9]{1,7}([ \-/]?[0-9]{1,5})?)$/;
+        validateRegularExpression(phoneNum, re, "Phone number is not valid");
+    });
 
-  //EMAIL
-  const email = document.getElementById("email");
-  email.addEventListener("blur", (e) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    validateRegularExpression(email, re, "Email is not valid");
-  });
+    //EMAIL
+    const email = document.getElementById("email");
+    email.addEventListener("blur", (e) => {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        validateRegularExpression(email, re, "Email is not valid");
+    });
 
-  const password = document.getElementById("password");
-  password.addEventListener("blur", (e) => {
-    const re = /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/;
-    validateRegularExpression(
-      password,
-      re,
-      "- At least 8 characters long - Include at least 1 lowercase letter - 1 capital letter - 1 number - 1 special character => !@#$%^&*"
-    );
-  });
+    //PASSWORD
+    const password = document.getElementById("password");
+    password.addEventListener("blur", (e) => {
+        const re = /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/;
+        validateRegularExpression(
+            password,
+            re,
+            "- At least 8 characters long - Include at least 1 lowercase letter - 1 capital letter - 1 number - 1 special character => !@#$%^&*"
+        );
+    });
 
-  const passwordAgain = document.getElementById("password-again");
-  passwordAgain.addEventListener("blur", (e) => {
-    const pwValue = document.getElementById("password").value.trim();
-    passwordAgainCheck(passwordAgain, pwValue, "Password is not the same");
-  });
+    //PASSWORD AGAIN
+    const passwordAgain = document.getElementById("password-again");
+    passwordAgain.addEventListener("blur", (e) => {
+        const pwValue = document.getElementById("password").value.trim();
+        passwordAgainCheck(passwordAgain, pwValue, "Password is not the same");
+    });
 
-  const registerBtn = document.getElementById("registerBtn");
-  registerBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log("Click btn");
-    const member = new RegisterMember(
-      firstName.value,
-      lastName.value,
-      streetNum.value,
-      postcode.value,
-      cityName.value,
-      phoneNum.value,
-      email.value,
-      password.value
-    );
-    member.setMemberToStorage();
-  });
+    //REGISTER NEW MEMBER TO THE LOCAL STORAGE
+    const registerBtn = document.getElementById("registerBtn");
+    registerBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("Click btn");
+        const member = new RegisterMember(
+            firstName.value,
+            lastName.value,
+            streetNum.value,
+            postcode.value,
+            cityName.value,
+            phoneNum.value,
+            email.value,
+            password.value
+        );
+        member.setMemberToStorage();
+    });
 };
 
 /////////////////////////////////////////
 //VALIDATION REGULAR EXPRESSION FUNCTION
 const validateRegularExpression = (selectorID, reEx, txt) => {
-  if (!reEx.test(selectorID.value.trim())) {
-    selectorID.classList.remove("is-invalid");
-    selectorID.classList.add("invalid-feedback-border");
-    selectorID.nextElementSibling.innerText = txt;
-    selectorID.nextElementSibling.classList.add("d-block");
-  } else {
-    selectorID.classList.add("form-falid");
-    selectorID.classList.remove("invalid-feedback-border");
-    selectorID.nextElementSibling.classList.remove("d-block");
-  }
+    if (!reEx.test(selectorID.value.trim())) {
+        selectorID.classList.remove("is-invalid");
+        selectorID.classList.add("invalid-feedback-border");
+        selectorID.nextElementSibling.innerText = txt;
+        selectorID.nextElementSibling.classList.add("d-block");
+    } else {
+        selectorID.classList.add("form-falid");
+        selectorID.classList.remove("invalid-feedback-border");
+        selectorID.nextElementSibling.classList.remove("d-block");
+    }
 };
 
 //PASSWORD CHECK IF B
 const passwordAgainCheck = (selectorID, pw, txt) => {
-  if (selectorID.value !== pw) {
-    selectorID.classList.remove("is-invalid");
-    selectorID.classList.add("invalid-feedback-border");
-    selectorID.nextElementSibling.innerText = txt;
-    selectorID.nextElementSibling.classList.add("d-block");
-  } else {
-    selectorID.classList.add("form-falid");
-    selectorID.classList.remove("invalid-feedback-border");
-    selectorID.nextElementSibling.classList.remove("d-block");
-  }
+    if (selectorID.value !== pw) {
+        selectorID.classList.remove("is-invalid");
+        selectorID.classList.add("invalid-feedback-border");
+        selectorID.nextElementSibling.innerText = txt;
+        selectorID.nextElementSibling.classList.add("d-block");
+    } else {
+        selectorID.classList.add("form-falid");
+        selectorID.classList.remove("invalid-feedback-border");
+        selectorID.nextElementSibling.classList.remove("d-block");
+    }
 };

@@ -523,11 +523,11 @@
 
 /* ===== ADD FOR VALIDATION ===== */
 .form-falid {
-  border: 1px solid lightgreen !important;
+  border: 1px solid #90ee90 !important;
 }
 
 .invalid-feedback-border {
-  border: 1px solid lightcoral !important;
+  border: 1px solid #f08080 !important;
 }
 
 .invalid-feedback {
@@ -536,6 +536,13 @@
 
 .d-block {
   display: block !important;
+}
+
+.successOrNot {
+  font-size: 30px !important;
+  text-align: center;
+  width: 500px;
+  display: none;
 }
 
 /* ===== END REGISTER FORM ===== */
