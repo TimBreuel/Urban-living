@@ -954,7 +954,7 @@ const registerFormCreate = () => {
   //POSTCODE
   const postcode = document.getElementById("postcode");
   postcode.addEventListener("blur", (e) => {
-    const re = /^((0(1\d\d[1-9])|([2-9]\d\d\d))|(?(?=^(^9{5}))|[1-9]\d{4}))$/;
+    const re = /^(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})$/;
     validateRegularExpression(postcode, re, "Postcode must have 5 numbers");
   });
 
@@ -988,6 +988,12 @@ const registerFormCreate = () => {
       "- At least 8 characters long - Include at least 1 lowercase letter - 1 capital letter - 1 number - 1 special character => !@#$%^&*"
     );
   });
+
+  const passwordAgain = document.getElementById("password-again");
+  passwordAgain.addEventListener("blur", (e) => {
+    const pwValue = document.getElementById("password").value.trim();
+    passwordAgainCheck(passwordAgain, pwValue, "Password is not the same");
+  });
 };
 
 /////////////////////////////////////////
@@ -1005,4 +1011,17 @@ const validateRegularExpression = (selectorID, reEx, txt) => {
   }
 };
 
-//Straße:
+const passwordAgainCheck = (selectorID, pw, txt) => {
+  console.log(selectorID.value);
+  console.log(pw);
+  if (selectorID.value !== pw) {
+    selectorID.classList.remove("is-invalid");
+    selectorID.classList.add("invalid-feedback-border");
+    selectorID.nextElementSibling.innerText = txt;
+    selectorID.nextElementSibling.classList.add("d-block");
+  } else {
+    selectorID.classList.add("form-falid");
+    selectorID.classList.remove("invalid-feedback-border");
+    selectorID.nextElementSibling.classList.remove("d-block");
+  }
+};
