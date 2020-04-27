@@ -179,6 +179,10 @@
 }
 
 
+.search-block input {
+  border: 1px solid #ffe5db
+}
+
 .search-block input,
 .search-block select {
   margin-left: 10px;
@@ -479,6 +483,72 @@
 
 /* ===== END DETAILS ===== */
 
+
+/* ===== REGISTER FORM ===== */
+.form-container {
+  color: #4d4954;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+}
+
+.form-container label {
+  display: block;
+  width: 500px;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.form-container input {
+  display: block;
+  width: 500px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #4d4954;
+  margin-bottom: 15px;
+}
+
+.form-container div {
+  display: block;
+  width: 500px;
+  height: 35px;
+  font-size: 15px;
+  display: none;
+
+}
+
+#street {
+  display: inline-block;
+  width: 335px;
+  margin-right: 10px;
+
+}
+
+#streetNum {
+  display: inline-block;
+  width: 80px;
+  margin-left: 10px;
+}
+
+/* ===== ADD FOR VALIDATION ===== */
+.form-falid {
+  border: 1px solid green;
+}
+
+.invalid-feedback-border {
+  border: 1px solid red;
+}
+
+.invalid-feedback {
+  color: red;
+}
+
+.d-block {
+  display: block;
+}
+
+/* ===== END REGISTER FORM ===== */
 
 /* ===== SUCCES ===== */
 
