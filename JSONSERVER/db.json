@@ -2,7 +2,7 @@
     "products": [
         {
             "productNumber": "0001",
-            "name": "Chair-1",
+            "name": "Chair SALLY",
             "category": "chair",
             "price": "33",
             "color": "black",
@@ -12,7 +12,7 @@
         },
         {
             "productNumber": "0002",
-            "name": "Chair-2",
+            "name": "Chair HUNTER",
             "category": "chair",
             "price": "83",
             "color": "white",
@@ -22,7 +22,7 @@
         },
         {
             "productNumber": "0003",
-            "name": "Chair-3",
+            "name": "Chair GREG",
             "category": "chair",
             "price": "28",
             "color": "white",
@@ -32,7 +32,7 @@
         },
         {
             "productNumber": "0004",
-            "name": "Chair-4",
+            "name": "Chair BLAKE",
             "category": "chair",
             "price": "41",
             "color": "white",
@@ -42,7 +42,7 @@
         },
         {
             "productNumber": "0005",
-            "name": "Chair-5",
+            "name": "Chair HANNA",
             "category": "chair",
             "price": "76",
             "color": "brown",
@@ -52,7 +52,7 @@
         },
         {
             "productNumber": "0006",
-            "name": "Chair-6",
+            "name": "Chair CHRIS",
             "category": "chair",
             "price": "59",
             "color": "white",
@@ -62,7 +62,7 @@
         },
         {
             "productNumber": "0007",
-            "name": "Chair-7",
+            "name": "Chair GREG",
             "category": "chair",
             "price": "23",
             "color": "brown",
@@ -72,7 +72,7 @@
         },
         {
             "productNumber": "0008",
-            "name": "Chair-8",
+            "name": "Chair BLAKE",
             "category": "chair",
             "price": "88",
             "color": "brown",
@@ -81,7 +81,7 @@
         },
         {
             "productNumber": "0009",
-            "name": "Chair-9",
+            "name": "Chair FRED",
             "category": "chair",
             "price": "45",
             "color": "brown",
@@ -91,7 +91,7 @@
         },
         {
             "productNumber": "0010",
-            "name": "Chair-10",
+            "name": "Chair JACK",
             "category": "chair",
             "price": "32",
             "color": "orange",
@@ -101,7 +101,7 @@
         },
         {
             "productNumber": "0011",
-            "name": "Chair-11",
+            "name": "Chair SARA",
             "category": "chair",
             "price": "39",
             "color": "brown",
@@ -111,7 +111,7 @@
         },
         {
             "productNumber": "0012",
-            "name": "Chair-12",
+            "name": "Chair ED",
             "category": "chair",
             "price": "61",
             "color": "brown",
@@ -121,7 +121,7 @@
         },
         {
             "productNumber": "0013",
-            "name": "Chair-13",
+            "name": "Chair FRANK",
             "category": "chair",
             "price": "30",
             "color": "black",
@@ -131,7 +131,7 @@
         },
         {
             "productNumber": "0014",
-            "name": "Chair-14",
+            "name": "Chair INGRID",
             "category": "chair",
             "price": "87",
             "color": "red",
@@ -141,7 +141,7 @@
         },
         {
             "productNumber": "0015",
-            "name": "Chair-15",
+            "name": "Chair KAI",
             "category": "chair",
             "price": "37",
             "color": "black",
@@ -151,7 +151,7 @@
         },
         {
             "productNumber": "0016",
-            "name": "Couch-1",
+            "name": "Couch LIZ",
             "category": "couch",
             "price": "789",
             "color": "black",
@@ -161,7 +161,7 @@
         },
         {
             "productNumber": "0017",
-            "name": "Couch-2",
+            "name": "Couch JULE",
             "category": "couch",
             "price": "1200",
             "color": "grey",
@@ -171,7 +171,7 @@
         },
         {
             "productNumber": "0018",
-            "name": "Couch-3",
+            "name": "Couch MARIA",
             "category": "couch",
             "price": "1632",
             "color": "brown",
@@ -181,7 +181,7 @@
         },
         {
             "productNumber": "0019",
-            "name": "Couch-4",
+            "name": "Couch NICK",
             "category": "couch",
             "price": "588",
             "color": "black",
@@ -191,7 +191,7 @@
         },
         {
             "productNumber": "0020",
-            "name": "Couch-5",
+            "name": "Couch AARON",
             "category": "couch",
             "price": "2300",
             "color": "red",
@@ -201,7 +201,7 @@
         },
         {
             "productNumber": "0021",
-            "name": "Couch-6",
+            "name": "Couch LOUIS",
             "category": "couch",
             "price": "1650",
             "color": "brown",
@@ -211,7 +211,7 @@
         },
         {
             "productNumber": "0022",
-            "name": "Couch-7",
+            "name": "Couch ROSE",
             "category": "couch",
             "price": "732",
             "color": "black",
@@ -221,7 +221,7 @@
         },
         {
             "productNumber": "0023",
-            "name": "Couch-8",
+            "name": "Couch ADELLE",
             "category": "couch",
             "price": "989",
             "color": "grey",
@@ -231,7 +231,7 @@
         },
         {
             "productNumber": "0024",
-            "name": "Couch-9",
+            "name": "Couch CLAUDIA",
             "category": "couch",
             "price": "1018",
             "color": "grey",
@@ -241,7 +241,7 @@
         },
         {
             "productNumber": "0025",
-            "name": "Couch-10",
+            "name": "Couch CORRY",
             "category": "couch",
             "price": "1369",
             "color": "brown",
@@ -251,7 +251,7 @@
         },
         {
             "productNumber": "0026",
-            "name": "Couch-11",
+            "name": "Couch LISA",
             "category": "couch",
             "price": "1110",
             "color": "grey",
@@ -261,7 +261,7 @@
         },
         {
             "productNumber": "0027",
-            "name": "Couch-12",
+            "name": "Couch BRITTA",
             "category": "couch",
             "price": "599",
             "color": "orange",
@@ -271,7 +271,7 @@
         },
         {
             "productNumber": "0028",
-            "name": "Couch-13",
+            "name": "Couch JANINA",
             "category": "couch",
             "price": "1890",
             "color": "black",
@@ -281,7 +281,7 @@
         },
         {
             "productNumber": "0029",
-            "name": "Couch-14",
+            "name": "Couch DORIS",
             "category": "couch",
             "price": "1340",
             "color": "white",
@@ -291,7 +291,7 @@
         },
         {
             "productNumber": "0030",
-            "name": "Couch-15",
+            "name": "Couch BLAIR",
             "category": "couch",
             "price": "850",
             "color": "yellow",
@@ -301,7 +301,7 @@
         },
         {
             "productNumber": "0031",
-            "name": "Lamp-1",
+            "name": "Lamp PETER",
             "category": "lamp",
             "price": "55",
             "color": "black",
@@ -311,7 +311,7 @@
         },
         {
             "productNumber": "0032",
-            "name": "Lamp-2",
+            "name": "Lamp PAUL",
             "category": "lamp",
             "price": "75",
             "color": "black",
@@ -321,7 +321,7 @@
         },
         {
             "productNumber": "0033",
-            "name": "Lamp-3",
+            "name": "Lamp SAM",
             "category": "lamp",
             "price": "23",
             "color": "black",
@@ -331,7 +331,7 @@
         },
         {
             "productNumber": "0034",
-            "name": "Lamp-4",
+            "name": "Lamp FRANKIE",
             "category": "lamp",
             "price": "88",
             "color": "white",
@@ -341,7 +341,7 @@
         },
         {
             "productNumber": "0035",
-            "name": "Lamp-5",
+            "name": "Lamp TIM",
             "category": "lamp",
             "price": "98",
             "color": "black",
@@ -351,7 +351,7 @@
         },
         {
             "productNumber": "0036",
-            "name": "Lamp-6",
+            "name": "Lamp RON",
             "category": "lamp",
             "price": "38",
             "color": "black",
@@ -361,7 +361,7 @@
         },
         {
             "productNumber": "0037",
-            "name": "Lamp-7",
+            "name": "Lamp KELLY",
             "category": "lamp",
             "price": "78",
             "color": "black",
@@ -371,7 +371,7 @@
         },
         {
             "productNumber": "0038",
-            "name": "Lamp-8",
+            "name": "Lamp GRACE",
             "category": "lamp",
             "price": "43",
             "color": "black",
@@ -381,7 +381,7 @@
         },
         {
             "productNumber": "0039",
-            "name": "Lamp-9",
+            "name": "Lamp RAY",
             "category": "lamp",
             "price": "37",
             "color": "black",
@@ -391,7 +391,7 @@
         },
         {
             "productNumber": "0040",
-            "name": "Lamp-10",
+            "name": "Lamp DAN",
             "category": "lamp",
             "price": "67",
             "color": "gold",
@@ -401,7 +401,7 @@
         },
         {
             "productNumber": "0041",
-            "name": "Lamp-11",
+            "name": "Lamp MARC",
             "category": "lamp",
             "price": "33",
             "color": "white",
@@ -411,7 +411,7 @@
         },
         {
             "productNumber": "0042",
-            "name": "Lamp-12",
+            "name": "Lamp PAUL",
             "category": "lamp",
             "price": "49",
             "color": "gold",
@@ -421,7 +421,7 @@
         },
         {
             "productNumber": "0043",
-            "name": "Lamp-13",
+            "name": "Lamp HANNA",
             "category": "lamp",
             "price": "29",
             "color": "black",
@@ -431,7 +431,7 @@
         },
         {
             "productNumber": "0044",
-            "name": "Lamp-14",
+            "name": "Lamp AHMAD",
             "category": "lamp",
             "price": "32",
             "color": "black",
@@ -441,7 +441,7 @@
         },
         {
             "productNumber": "0045",
-            "name": "Lamp-15",
+            "name": "Lamp BARRY",
             "category": "lamp",
             "price": "26",
             "color": "black",
@@ -451,7 +451,7 @@
         },
         {
             "productNumber": "0046",
-            "name": "Lamp-16",
+            "name": "Lamp BOB",
             "category": "lamp",
             "price": "42",
             "color": "white",
@@ -461,7 +461,7 @@
         },
         {
             "productNumber": "0047",
-            "name": "Lamp-17",
+            "name": "Lamp JANE",
             "category": "lamp",
             "price": "49",
             "color": "white",
@@ -471,7 +471,7 @@
         },
         {
             "productNumber": "0048",
-            "name": "Lamp-18",
+            "name": "Lamp JULIA",
             "category": "lamp",
             "price": "57",
             "color": "black",
@@ -481,7 +481,7 @@
         },
         {
             "productNumber": "0049",
-            "name": "Table-1",
+            "name": "Table KATE",
             "category": "table",
             "price": "65",
             "color": "grey",
@@ -491,7 +491,7 @@
         },
         {
             "productNumber": "0050",
-            "name": "Table-2",
+            "name": "Table PHIL",
             "category": "table",
             "price": "88",
             "color": "brown",
@@ -501,7 +501,7 @@
         },
         {
             "productNumber": "0052",
-            "name": "Table-3",
+            "name": "Table RICHARD",
             "category": "table",
             "price": "58",
             "color": "brown",
@@ -511,7 +511,7 @@
         },
         {
             "productNumber": "0053",
-            "name": "Table-4",
+            "name": "Table MEL",
             "category": "table",
             "price": "59",
             "color": "white",
@@ -521,7 +521,7 @@
         },
         {
             "productNumber": "0054",
-            "name": "Table-5",
+            "name": "Table ARIELE",
             "category": "table",
             "price": "78",
             "color": "white",
@@ -531,7 +531,7 @@
         },
         {
             "productNumber": "0055",
-            "name": "Table-6",
+            "name": "Table ELSA",
             "category": "table",
             "price": "65",
             "color": "grey",
@@ -541,7 +541,7 @@
         },
         {
             "productNumber": "0056",
-            "name": "Table-7",
+            "name": "Table ANNA",
             "category": "table",
             "price": "99",
             "color": "brown",
@@ -551,7 +551,7 @@
         },
         {
             "productNumber": "0057",
-            "name": "Table-8",
+            "name": "Table ELIZA",
             "category": "table",
             "price": "115",
             "color": "black",
@@ -561,7 +561,7 @@
         },
         {
             "productNumber": "0058",
-            "name": "Table-9",
+            "name": "Table FRED",
             "category": "table",
             "price": "53",
             "color": "white",
@@ -571,7 +571,7 @@
         },
         {
             "productNumber": "0059",
-            "name": "Table-10",
+            "name": "Table MIA",
             "category": "table",
             "price": "87",
             "color": "brown",
@@ -581,7 +581,7 @@
         },
         {
             "productNumber": "0060",
-            "name": "Table-11",
+            "name": "Table SUSIE",
             "category": "table",
             "price": "99",
             "color": "white",
@@ -591,7 +591,7 @@
         },
         {
             "productNumber": "0061",
-            "name": "Table-12",
+            "name": "Table KARIN",
             "category": "table",
             "price": "130",
             "color": "brown",
@@ -601,7 +601,7 @@
         },
         {
             "productNumber": "0062",
-            "name": "Table-13",
+            "name": "Table WAYNE",
             "category": "table",
             "price": "105",
             "color": "black",
