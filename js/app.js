@@ -35,6 +35,52 @@ class ProductsCtr {
   }
 }
 
+class RegisterMember {
+  constructor(
+    firstName,
+    lastName,
+    street,
+    postcode,
+    city,
+    phoneNum,
+    email,
+    password
+  ) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.street = street;
+    this.postcode = postcode;
+    this.city = city;
+    this.phoneNum = phoneNum;
+    this.email = email;
+    this.password = password;
+  }
+
+  setMemberToStorage() {
+    let members;
+    if (localStorage.getItem("members") == null) {
+      members = [];
+    } else {
+      members = JSON.parse(localStorage.getItem("members"));
+      members = [];
+    }
+
+    let member = {
+      Firstname: this.firstName,
+      Lastname: this.lastName,
+      Street: this.street,
+      Postcode: this.postcode,
+      City: this.city,
+      Phonenumber: this.phoneNum,
+      Email: this.email,
+      Password: this.password,
+    };
+
+    members.push(member);
+    localStorage.setItem("members", JSON.stringify(members));
+  }
+}
+
 //////////////////
 //ALL UI SELECTORS
 const UIselectors = {
@@ -802,9 +848,6 @@ const setLocalStorage = () => {
   let allCartLi = document.querySelectorAll(".cart-li");
   allCartLi = Array.from(allCartLi);
   allCartLi.forEach((item) => {
-    // console.log(item.children[0].src)
-    // console.log(item.children[1].children[0].innerText)
-    // console.log(item.children[1].children[1].children[3].innerText)
     let product = {
       name: item.children[1].children[0].innerText,
       image: item.children[0].src,
@@ -868,7 +911,6 @@ const registerFormCreate = () => {
   headline.innerText = "Register now";
   productContainer.innerHTML = `
     <div class="form-container">
-
         <form action="" method="">
             <label for="firstName">First name</label>
             <input type="text" id="firstName">
@@ -907,11 +949,8 @@ const registerFormCreate = () => {
             <div class="invalid-feedback"></div>
 
 
-            <input type="submit" id="register" class="btn" value="Register">
+            <input type="submit" id="registerBtn" class="btn" value="Register">
         </form>
-
-
-
     </div>
     `;
 
@@ -994,6 +1033,23 @@ const registerFormCreate = () => {
     const pwValue = document.getElementById("password").value.trim();
     passwordAgainCheck(passwordAgain, pwValue, "Password is not the same");
   });
+
+  const registerBtn = document.getElementById("registerBtn");
+  registerBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("Click btn");
+    const member = new RegisterMember(
+      firstName.value,
+      lastName.value,
+      streetNum.value,
+      postcode.value,
+      cityName.value,
+      phoneNum.value,
+      email.value,
+      password.value
+    );
+    member.setMemberToStorage();
+  });
 };
 
 /////////////////////////////////////////
@@ -1011,9 +1067,8 @@ const validateRegularExpression = (selectorID, reEx, txt) => {
   }
 };
 
+//PASSWORD CHECK IF B
 const passwordAgainCheck = (selectorID, pw, txt) => {
-  console.log(selectorID.value);
-  console.log(pw);
   if (selectorID.value !== pw) {
     selectorID.classList.remove("is-invalid");
     selectorID.classList.add("invalid-feedback-border");
