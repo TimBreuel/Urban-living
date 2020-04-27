@@ -507,6 +507,8 @@
   border-radius: 5px;
   border: 1px solid #4d4954;
   margin-bottom: 15px;
+  font-size: 15px;
+  padding-left: 10px;
 }
 
 .form-container div {
@@ -518,34 +520,22 @@
 
 }
 
-#street {
-  display: inline-block;
-  width: 335px;
-  margin-right: 10px;
-
-}
-
-#streetNum {
-  display: inline-block;
-  width: 80px;
-  margin-left: 10px;
-}
 
 /* ===== ADD FOR VALIDATION ===== */
 .form-falid {
-  border: 1px solid green;
+  border: 1px solid lightgreen !important;
 }
 
 .invalid-feedback-border {
-  border: 1px solid red;
+  border: 1px solid lightcoral !important;
 }
 
 .invalid-feedback {
-  color: red;
+  color: lightcoral;
 }
 
 .d-block {
-  display: block;
+  display: block !important;
 }
 
 /* ===== END REGISTER FORM ===== */
@@ -553,7 +543,8 @@
 /* ===== SUCCES ===== */
 
 .successAdd {
-  background-color: #2bb673;
+  background-color: lightgreen;
+  /* background-color: #2bb673; */
 }
 
 

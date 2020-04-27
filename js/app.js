@@ -68,6 +68,7 @@ const UIselectors = {
   arrowPlus: ".arrow-plus",
   amount: ".amount",
   register: "#register",
+  firstName: "#firstName",
 };
 
 /////////////////////
@@ -102,6 +103,7 @@ const impressum = document.querySelector(UIselectors.impressum);
 
 //REGISTER
 const register = document.querySelector(UIselectors.register);
+const firstName = document.querySelector(UIselectors.firstName);
 
 ///////////////////
 //EVENTS LISTENERS
@@ -870,39 +872,39 @@ const registerFormCreate = () => {
         <form action="" method="">
             <label for="firstName">First name</label>
             <input type="text" id="firstName">
-            <div class="invalid-feedback">First name must be between 2 and 30 charackters</div>
+            <div class="invalid-feedback"></div>
 
             <label for="lastName">Last name</label>
-            <input type="text" id="LastName">
-            <div class="invalid-feedback">Last name must be between 2 and 30 charackters</div>
+            <input type="text" id="lastName">
+            <div class="invalid-feedback"></div>
 
-            <label for="street">Street</label>
-            <input type="text" id="street">Number:<input type="number" id="streetNum">
-            <div class="invalid-feedback">Last name must be between 2 and 30 charackters</div>
+            <label for="street">Street & Number</label>
+            <input type="text" id="street">
+            <div class="invalid-feedback"></div>
 
             <label for="postcode">Postcode</label>
-            <input type="number" id="postcode">
-            <div class="invalid-feedback">Last name must be between 2 and 30 charackters</div>
+            <input type="text" id="postcode">
+            <div class="invalid-feedback"></div>
 
             <label for="city">City</label>
             <input type="text" id="city">
-            <div class="invalid-feedback">Last name must be between 2 and 30 charackters</div>
+            <div class="invalid-feedback"></div>
 
             <label for="phoneNum">Phone number</label>
             <input type="number" id="phoneNum">
-            <div class="invalid-feedback">Last name must be between 2 and 30 charackters</div>
+            <div class="invalid-feedback"></div>
 
             <label for="email">Email</label>
             <input type="email" id="email">
-            <div class="invalid-feedback">Last name must be between 2 and 30 charackters</div>
+            <div class="invalid-feedback"></div>
 
             <label for="password">Password</label>
             <input type="text" id="password">
-            <div class="invalid-feedback">Last name must be between 2 and 30 charackters</div>
+            <div class="invalid-feedback"></div>
 
             <label for="password-again">Password again</label>
             <input type="text" id="password-again">
-            <div class="invalid-feedback">Last name must be between 2 and 30 charackters</div>
+            <div class="invalid-feedback"></div>
 
 
             <input type="submit" id="register" class="btn" value="Register">
@@ -912,4 +914,95 @@ const registerFormCreate = () => {
 
     </div>
     `;
+
+  ////////////////////////////
+  //REGISTER FORM VALID EVENTS
+
+  //FIRSTNAME
+  const firstName = document.getElementById("firstName");
+  firstName.addEventListener("blur", (e) => {
+    const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
+    validateRegularExpression(
+      firstName,
+      re,
+      "First name must be between 1 and 30 charackters"
+    );
+  });
+
+  //LASTNAME
+  const lastName = document.getElementById("lastName");
+  lastName.addEventListener("blur", (e) => {
+    const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
+    validateRegularExpression(
+      lastName,
+      re,
+      "Last name must be between 1 and 30 charackters"
+    );
+  });
+
+  //STREETNUMBER
+  const streetNum = document.getElementById("street");
+  streetNum.addEventListener("blur", (e) => {
+    const re = /^(([a-zA-ZäöüÄÖÜ]\D*)\s+\d+?\s*.*)$/;
+    validateRegularExpression(
+      streetNum,
+      re,
+      "Street or Streetnumber are not valid"
+    );
+  });
+
+  //POSTCODE
+  const postcode = document.getElementById("postcode");
+  postcode.addEventListener("blur", (e) => {
+    const re = /^((0(1\d\d[1-9])|([2-9]\d\d\d))|(?(?=^(^9{5}))|[1-9]\d{4}))$/;
+    validateRegularExpression(postcode, re, "Postcode must have 5 numbers");
+  });
+
+  //CITY
+  const cityName = document.getElementById("city");
+  cityName.addEventListener("blur", (e) => {
+    const re = /^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
+    validateRegularExpression(cityName, re, "Cityname is not valid");
+  });
+
+  //PHONENUMBER
+  const phoneNum = document.getElementById("phoneNum");
+  phoneNum.addEventListener("blur", (e) => {
+    const re = /^(((((((00|\+)49[ \-/]?)|0)[1-9][0-9]{1,4})[ \-/]?)|((((00|\+)49\()|\(0)[1-9][0-9]{1,4}\)[ \-/]?))[0-9]{1,7}([ \-/]?[0-9]{1,5})?)$/;
+    validateRegularExpression(phoneNum, re, "Phone number is not valid");
+  });
+
+  //EMAIL
+  const email = document.getElementById("email");
+  email.addEventListener("blur", (e) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    validateRegularExpression(email, re, "Email is not valid");
+  });
+
+  const password = document.getElementById("password");
+  password.addEventListener("blur", (e) => {
+    const re = /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/;
+    validateRegularExpression(
+      password,
+      re,
+      "- At least 8 characters long - Include at least 1 lowercase letter - 1 capital letter - 1 number - 1 special character => !@#$%^&*"
+    );
+  });
 };
+
+/////////////////////////////////////////
+//VALIDATION REGULAR EXPRESSION FUNCTION
+const validateRegularExpression = (selectorID, reEx, txt) => {
+  if (!reEx.test(selectorID.value.trim())) {
+    selectorID.classList.remove("is-invalid");
+    selectorID.classList.add("invalid-feedback-border");
+    selectorID.nextElementSibling.innerText = txt;
+    selectorID.nextElementSibling.classList.add("d-block");
+  } else {
+    selectorID.classList.add("form-falid");
+    selectorID.classList.remove("invalid-feedback-border");
+    selectorID.nextElementSibling.classList.remove("d-block");
+  }
+};
+
+//Straße:
