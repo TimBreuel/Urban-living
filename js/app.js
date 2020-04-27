@@ -998,11 +998,15 @@ const registerFormCreate = () => {
     const firstName = document.getElementById("firstName");
     firstName.addEventListener("blur", (e) => {
         const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
+
+        console.log(e)
         validateRegularExpression(
             firstName,
             re,
             "First name must be between 1 and 30 charackters"
         );
+
+
     });
 
     //LASTNAME
@@ -1077,18 +1081,30 @@ const registerFormCreate = () => {
     const registerBtn = document.getElementById("registerBtn");
     registerBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log("Click btn");
-        const member = new RegisterMember(
-            firstName.value,
-            lastName.value,
-            streetNum.value,
-            postcode.value,
-            cityName.value,
-            phoneNum.value,
-            email.value,
-            password.value
-        );
-        member.setMemberToStorage();
+        console.log(firstName)
+        if (firstName.value !== '' && lastName.value !== '' && streetNum.value !== '' && postcode.value !== '' && cityName.value !== '' && phoneNum.value !== '' && email.value !== '' && password.value !== '' && passwordAgain.value !== '') {
+            const member = new RegisterMember(
+                firstName.value,
+                lastName.value,
+                streetNum.value,
+                postcode.value,
+                cityName.value,
+                phoneNum.value,
+                email.value,
+                password.value
+            );
+            member.setMemberToStorage();
+        } else {
+            let message = document.querySelector('.successOrNot')
+            message.classList.add('d-block')
+            message.style.color = '#f08080'
+            message.innerText = 'Please fill out all fields!'
+            setTimeout(() => {
+                message.classList.remove('d-block')
+                message.classList.add('d-none')
+            }, 3000)
+        }
+
     });
 };
 
@@ -1100,6 +1116,7 @@ const validateRegularExpression = (selectorID, reEx, txt) => {
         selectorID.classList.add("invalid-feedback-border");
         selectorID.nextElementSibling.innerText = txt;
         selectorID.nextElementSibling.classList.add("d-block");
+
     } else {
         selectorID.classList.add("form-falid");
         selectorID.classList.remove("invalid-feedback-border");
