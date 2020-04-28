@@ -336,6 +336,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
         navigationMenu();
         inputName.focus();
     });
+
+    const btnClear = document.querySelector('.btn-clear')
+    btnClear.addEventListener('click', (e) => {
+        e.preventDefault()
+        clearSearchInputs()
+    })
 });
 
 ////////////////////////
@@ -552,9 +558,23 @@ const addToShoppingCard = (name) => {
     products.getProducts().then((product) => {
         product.forEach((product) => {
             if (product.name === name) {
-                let cartLi = document.createElement("li");
-                cartLi.classList = "cart-li cart-remove";
-                cartLi.innerHTML = `
+
+                let cardLi = document.querySelectorAll('.cart-li')
+                let listCheckTrigger = false
+                cardLi.forEach(card => {
+                    if (product.name === card.children[1].children[0].innerText) {
+                        let amount = parseFloat(card.children[1].children[1].children[1].innerText)
+                        let orginalPrice = parseFloat(card.children[1].children[1].children[3].innerText) / amount
+                        card.children[1].children[1].children[1].innerText = parseFloat(card.children[1].children[1].children[1].innerText) + 1
+                        card.children[1].children[1].children[3].innerText = orginalPrice * (amount + 1)
+                        listCheckTrigger = true
+                        totalCostCalc();
+                    }
+                })
+                if (listCheckTrigger === false) {
+                    let cartLi = document.createElement("li");
+                    cartLi.classList = "cart-li cart-remove";
+                    cartLi.innerHTML = `
                 <img class="cart-img"src="${product.imageS}"alt=""/>
                 <div class="cart-name-num-container">
                 <div class="cart-name">${product.name}<i class="fas fa-times fl-r cart-remove"></i>
@@ -568,7 +588,9 @@ const addToShoppingCard = (name) => {
                 </div>
                 `;
 
-                shoppingCardList.append(cartLi);
+                    shoppingCardList.append(cartLi);
+                }
+
             }
         });
 
@@ -854,6 +876,14 @@ const searchProducts = (image, name, price) => {
     productContainer.append(card);
     navigationMenuSlideBack();
 };
+
+//CLEAR SEARCH INPUTS
+const clearSearchInputs = () => {
+    inputName.value = ''
+    inputCategory.getElementsByTagName('option')[0].selected = 'selected'
+    inputColor.getElementsByTagName('option')[0].selected = 'selected'
+    inputPrice.value = 0
+}
 
 //////////////////
 //SUCCESS FUNCTION
