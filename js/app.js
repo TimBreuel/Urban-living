@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     //SEARCH INPUT BUTTON CLICK EVENT
     btnSearch.addEventListener("click", (e) => {
         e.preventDefault();
-        headline.innerText = "Search result";
+        headline.innerText = "Search Results";
         printSearchProducts(
             inputName.value.trim(),
             inputCategory.options[inputCategory.selectedIndex].value.trim(),
@@ -441,7 +441,7 @@ const printProducts = () => {
             <img src="${product.imageS}" class="image-small"/>
             <h4 class="article-name">${product.name}</h4>
             <div class="article-price">
-            price: <span class="article-price-num">${product.price}</span> $
+            Price: <span class="article-price-num">${product.price}</span> €
             <button class="btn-card btn-add">
             <i class="fas fa-cart-plus btn-success"></i>
             </button>
@@ -500,7 +500,7 @@ const printProductsPageNum = (pageNumber) => {
             <img src="${product.imageS}" class="image-small"/>
             <h4 class="article-name">${product.name}</h4>
             <div class="article-price">
-            price: <span class="article-price-num">${product.price}</span> $
+            Price: <span class="article-price-num">${product.price}</span> €
             <button class="btn-card btn-add">
             <i class="fas fa-cart-plus btn-success"></i>
             </button>
@@ -528,7 +528,7 @@ const printProductsCategory = (category) => {
                 <img src="${product.imageS}" class="image-small"/>
                 <h4 class="article-name">${product.name}</h4>
                 <div class="article-price">
-                price: <span class="article-price-num">${product.price}</span> $
+                Price: <span class="article-price-num">${product.price}</span> €
                 <button class="btn-card btn-add">
                 <i class="fas fa-cart-plus"></i>
                 </button>
@@ -559,8 +559,8 @@ const addToShoppingCard = (name) => {
     
                 <div class="cart-price-cost">
                   <i class="fas fa-chevron-left arrow-minus"></i><span class="input-num amount">1</span
-                  ><i class="fas fa-chevron-right arrow-plus"></i> price:
-                  <span class="cart-price">${product.price}</span> $
+                  ><i class="fas fa-chevron-right arrow-plus"></i> Price:
+                  <span class="cart-price">${product.price}</span> €
                 </div>
                 </div>
                 `;
@@ -591,8 +591,8 @@ const addToShoppingCardFromLocalStorage = (name, amount, price) => {
     
                 <div class="cart-price-cost">
                   <i class="fas fa-chevron-left arrow-minus"></i><span class="input-num amount">${amount}</span
-                  ><i class="fas fa-chevron-right arrow-plus"></i> price:
-                  <span class="cart-price">${price}</span> $
+                  ><i class="fas fa-chevron-right arrow-plus"></i> Price:
+                  <span class="cart-price">${price}</span> €
                 </div>
                 </div>
                 `;
@@ -645,9 +645,9 @@ const getDetailsProducts = (name) => {
                     <div class="details-description"><span>Description:</span> ${product.description}</div>
 
                     <div class="details-price">
-                    Price:<span class="fl-r">$</span><span class="fl-r" id="details-price-num">${product.price}</span>
+                    Price:<span class="fl-r">€</span><span class="fl-r" id="details-price-num">${product.price}</span>
                     </div>
-                    <button class="details-add-btn btn">Add to cart</button>
+                    <button class="details-add-btn btn">ADD TO CART</button>
 
                     </div>
                     <i id="btn-remove-details" class="far fa-times-circle"></i>
@@ -841,7 +841,7 @@ const searchProducts = (image, name, price) => {
                     <img src="${image}" class="image-small"/>
                     <h4 class="article-name">${name}</h4>
                     <div class="article-price">
-                    price: <span class="article-price-num">${price}</span> $
+                    Price: <span class="article-price-num">${price}</span> €
                     <button class="btn-card btn-add">
                     <i class="fas fa-cart-plus"></i>
                     </button>
@@ -944,15 +944,15 @@ Osterstraße 133c<br />
 ////////////////
 //REGISTER FORM
 const registerFormCreate = () => {
-    headline.innerText = "Register now";
+    headline.innerText = "Register Now";
     productContainer.innerHTML = `
     <div class="form-container">
         <form action="" method="">
-            <label for="firstName">First name</label>
+            <label for="firstName">First Name</label>
             <input type="text" id="firstName">
             <div class="invalid-feedback"></div>
 
-            <label for="lastName">Last name</label>
+            <label for="lastName">Last Name</label>
             <input type="text" id="lastName">
             <div class="invalid-feedback"></div>
 
@@ -968,7 +968,7 @@ const registerFormCreate = () => {
             <input type="text" id="city">
             <div class="invalid-feedback"></div>
 
-            <label for="phoneNum">Phone number</label>
+            <label for="phoneNum">Phone Number</label>
             <input type="number" id="phoneNum">
             <div class="invalid-feedback"></div>
 
@@ -980,12 +980,12 @@ const registerFormCreate = () => {
             <input type="text" id="password">
             <div class="invalid-feedback"></div>
 
-            <label for="password-again">Password again</label>
+            <label for="password-again">Repeat Password</label>
             <input type="text" id="password-again">
             <div class="invalid-feedback"></div>
 
 
-            <input type="submit" id="registerBtn" class="btn" value="Register">
+            <input type="submit" id="registerBtn" class="btn" value="REGISTER">
             <div class="successOrNot"></div>
         </form>
     </div>
@@ -1077,7 +1077,7 @@ const registerFormCreate = () => {
     const passwordAgain = document.getElementById("password-again");
     passwordAgain.addEventListener("blur", (e) => {
         const pwValue = document.getElementById("password").value.trim();
-        passwordAgainCheck(passwordAgain, pwValue, "Password is not the same");
+        passwordAgainCheck(passwordAgain, pwValue, "Passwords are not the same");
     });
 
     //REGISTER NEW MEMBER TO THE LOCAL STORAGE
