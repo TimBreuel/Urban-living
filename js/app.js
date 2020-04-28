@@ -1030,35 +1030,43 @@ const registerFormCreate = () => {
     //FIRSTNAME
     const firstName = document.getElementById("firstName");
     firstName.addEventListener("blur", (e) => {
+        e.preventDefault()
         const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
-
         validateRegularExpression(
             firstName,
             re,
             "First name must be between 1 and 30 charackters"
         );
-
-
     });
+    firstName.addEventListener('keyup', (e) => {
+        e.preventDefault()
+        if (e.which === 13) {
+            lastName.focus()
+        }
+    })
 
     //LASTNAME
     const lastName = document.getElementById("lastName");
     lastName.addEventListener("blur", (e) => {
+        e.preventDefault()
         const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
-        console.log(e.target)
-
         validateRegularExpression(
             lastName,
             re,
             "Last name must be between 1 and 30 charackters"
         );
-
-
     });
+    lastName.addEventListener('keyup', (e) => {
+        e.preventDefault()
+        if (e.which === 13) {
+            streetNum.focus()
+        }
+    })
 
     //STREETNUMBER
     const streetNum = document.getElementById("street");
     streetNum.addEventListener("blur", (e) => {
+        e.preventDefault()
         const re = /^(([a-zA-ZäöüÄÖÜ]\D*)\s+\d+?\s*.*)$/;
         validateRegularExpression(
             streetNum,
@@ -1066,38 +1074,73 @@ const registerFormCreate = () => {
             "Street or Streetnumber are not valid"
         );
     });
+    streetNum.addEventListener('keyup', (e) => {
+        e.preventDefault()
+        if (e.which === 13) {
+            postcode.focus()
+        }
+    })
 
     //POSTCODE
     const postcode = document.getElementById("postcode");
     postcode.addEventListener("blur", (e) => {
+        e.preventDefault()
         const re = /^(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})$/;
         validateRegularExpression(postcode, re, "Postcode must have 5 numbers");
     });
+    postcode.addEventListener('keyup', (e) => {
+        e.preventDefault()
+        if (e.which === 13) {
+            cityName.focus()
+        }
+    })
 
     //CITY
     const cityName = document.getElementById("city");
     cityName.addEventListener("blur", (e) => {
+        e.preventDefault()
         const re = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
         validateRegularExpression(cityName, re, "Cityname is not valid");
     });
+    cityName.addEventListener('keyup', (e) => {
+        e.preventDefault()
+        if (e.which === 13) {
+            phoneNum.focus()
+        }
+    })
 
     //PHONENUMBER
     const phoneNum = document.getElementById("phoneNum");
     phoneNum.addEventListener("blur", (e) => {
+        e.preventDefault()
         const re = /^(((((((00|\+)49[ \-/]?)|0)[1-9][0-9]{1,4})[ \-/]?)|((((00|\+)49\()|\(0)[1-9][0-9]{1,4}\)[ \-/]?))[0-9]{1,7}([ \-/]?[0-9]{1,5})?)$/;
         validateRegularExpression(phoneNum, re, "Phone number is not valid");
     });
+    phoneNum.addEventListener('keyup', (e) => {
+        e.preventDefault()
+        if (e.which === 13) {
+            email.focus()
+        }
+    })
 
     //EMAIL
     const email = document.getElementById("email");
     email.addEventListener("blur", (e) => {
+        e.preventDefault()
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         validateRegularExpression(email, re, "Email is not valid");
     });
+    email.addEventListener('keyup', (e) => {
+        e.preventDefault()
+        if (e.which === 13) {
+            password.focus()
+        }
+    })
 
     //PASSWORD
     const password = document.getElementById("password");
     password.addEventListener("blur", (e) => {
+        e.preventDefault()
         const re = /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/;
         validateRegularExpression(
             password,
@@ -1105,10 +1148,17 @@ const registerFormCreate = () => {
             "- At least 8 characters long - Include at least 1 lowercase letter - 1 capital letter - 1 number - 1 special character => !@#$%^&*"
         );
     });
+    password.addEventListener('keyup', (e) => {
+        e.preventDefault()
+        if (e.which === 13) {
+            passwordAgain.focus()
+        }
+    })
 
     //PASSWORD AGAIN
     const passwordAgain = document.getElementById("password-again");
     passwordAgain.addEventListener("blur", (e) => {
+        e.preventDefault()
         const pwValue = document.getElementById("password").value.trim();
         passwordAgainCheck(passwordAgain, pwValue, "Passwords are not the same");
     });
@@ -1117,7 +1167,6 @@ const registerFormCreate = () => {
     const registerBtn = document.getElementById("registerBtn");
     registerBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log(firstName)
         if (firstName.value !== '' && firstName.classList.contains('true') && lastName.value !== '' && lastName.classList.contains('true') && streetNum.value !== '' && streetNum.classList.contains('true') && postcode.value !== '' && postcode.classList.contains('true') && cityName.value !== '' && cityName.classList.contains('true') && phoneNum.value !== '' && phoneNum.classList.contains('true') && email.value !== '' && email.classList.contains('true') && password.value !== '' && password.classList.contains('true') && passwordAgain.value !== '' && passwordAgain.classList.contains('true')) {
             const member = new RegisterMember(
                 firstName.value,
