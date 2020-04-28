@@ -241,18 +241,20 @@
 }
 
 #total {
+  position: absolute;
   color: #ffe5db;
   padding: 20px;
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 0px;
   border-top: 1px solid #ffe5db;
-  /* border-bottom: 1px solid #ffe5db; */
+  bottom: 100px;
+  background-color: #4d4954;
+
 }
 
 .buy-now {
-  position: relative;
-  left: 15px;
+  margin-top: 10px;
 }
 
 .btn {
