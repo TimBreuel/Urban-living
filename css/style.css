@@ -366,6 +366,24 @@
 
 }
 
+.btn-add-update {
+  position: absolute;
+  width: 50px;
+  height: 30px;
+  font-size: 17px;
+  right: 10px;
+  bottom: 10px;
+  font-size: 18px;
+}
+
+.btn-success {
+  right: 0 !important;
+  bottom: 0 !important;
+  padding-top: 6px !important;
+  border-radius: 5px;
+}
+
+
 
 .details {
   position: absolute;

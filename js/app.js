@@ -252,7 +252,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
     document.addEventListener("click", (e) => {
         //ADDED TO SHOPPING CART
         if (e.target.classList.contains("btn-add")) {
-            let arrName = Array.from(e.target.parentElement.parentElement.children);
+            //console.log(e.target.parentElement.parentElement.parentElement.children)
+            let arrName = Array.from(e.target.parentElement.parentElement.parentElement.children);
+            //console.log(arrName[1].innerText)
             addToShoppingCard(arrName[1].innerText);
             succesAdded(e.target);
         }
@@ -442,7 +444,7 @@ const printProducts = () => {
             <h4 class="article-name">${product.name}</h4>
             <div class="article-price">
             Price: <span class="article-price-num">${product.price}</span> €
-            <button class="btn-card btn-add">
+            <button class="btn-card btn-add-update">
             <i class="fas fa-cart-plus btn-success"></i>
             </button>
             </div>
@@ -502,7 +504,7 @@ const printProductsPageNum = (pageNumber) => {
             <div class="article-price">
             Price: <span class="article-price-num">${product.price}</span> €
             <button class="btn-card btn-add">
-            <i class="fas fa-cart-plus btn-success"></i>
+            <i class="fas fa-cart-plus btn-success btn-add"></i>
             </button>
             </div>
             <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
