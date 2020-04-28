@@ -275,16 +275,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
             getDetailsProducts(arrName[1].innerText);
         }
 
-        //MENU SLIDE BACK
-        // if (!e.target.classList.contains('slide-back')) {
-        //     navigationMenuSlideBack()
-        // }
-
-        //SHOPPING CART SLIDE BACK
-        // if (!e.target.classList.contains('slide-back-cart')) {
-        //     shoppingCardContainerSlideBack()
-        // }
-
         ////////////////////
         //AMOUNT MINUS
         if (e.target.classList.contains("arrow-minus")) {
@@ -334,12 +324,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
             inputPrice.value.trim()
         );
     });
-
+    //SEARCH ICON ON CLICK FOCUS NAME INPUT
     searchIcon.addEventListener("click", () => {
         navigationMenu();
         inputName.focus();
     });
-
+    //CLEAR ALL SEARCH INPUTS
     const btnClear = document.querySelector('.btn-clear')
     btnClear.addEventListener('click', (e) => {
         e.preventDefault()
@@ -561,7 +551,7 @@ const addToShoppingCard = (name) => {
     products.getProducts().then((product) => {
         product.forEach((product) => {
             if (product.name === name) {
-
+                //CHECK IF PRODUCT EXIST AND THAN UPDATE THE AMOUNT
                 let cardLi = document.querySelectorAll('.cart-li')
                 let listCheckTrigger = false
                 cardLi.forEach(card => {
@@ -574,6 +564,7 @@ const addToShoppingCard = (name) => {
                         totalCostCalc();
                     }
                 })
+                //IF NOT EXIST THAN CREATE THE CARD
                 if (listCheckTrigger === false) {
                     let cartLi = document.createElement("li");
                     cartLi.classList = "cart-li cart-remove";
@@ -582,7 +573,6 @@ const addToShoppingCard = (name) => {
                 <div class="cart-name-num-container">
                 <div class="cart-name">${product.name}<i class="fas fa-times fl-r cart-remove"></i>
                 </div>
-    
                 <div class="cart-price-cost">
                   <i class="fas fa-chevron-left arrow-minus"></i><span class="input-num amount">1</span
                   ><i class="fas fa-chevron-right arrow-plus"></i> Price:
@@ -590,21 +580,18 @@ const addToShoppingCard = (name) => {
                 </div>
                 </div>
                 `;
-
                     shoppingCardList.append(cartLi);
                 }
 
             }
         });
-
         //ADD TOTAL COST CALL
         totalCostCalc();
-
         //SET SOCAL STORAGE
         setLocalStorage();
     });
 };
-//ADD TO SHOPPING CAT FROM LOCAL STORAGE
+//ADD TO SHOPPING CART FROM LOCAL STORAGE
 const addToShoppingCardFromLocalStorage = (name, amount, price) => {
     products.getProducts().then((product) => {
         product.forEach((product) => {
@@ -616,7 +603,6 @@ const addToShoppingCardFromLocalStorage = (name, amount, price) => {
                 <div class="cart-name-num-container">
                 <div class="cart-name">${product.name}<i class="fas fa-times fl-r cart-remove"></i>
                 </div>
-    
                 <div class="cart-price-cost">
                   <i class="fas fa-chevron-left arrow-minus"></i><span class="input-num amount">${amount}</span
                   ><i class="fas fa-chevron-right arrow-plus"></i> Price:
@@ -624,14 +610,11 @@ const addToShoppingCardFromLocalStorage = (name, amount, price) => {
                 </div>
                 </div>
                 `;
-
                 shoppingCardList.append(cartLi);
             }
         });
-
         //ADD TOTAL COST CALL
         totalCostCalc();
-
         //SET SOCAL STORAGE
         setLocalStorage();
     });
@@ -671,12 +654,10 @@ const getDetailsProducts = (name) => {
                     <div class="details-productNum"><span>Product Nr.:</span> ${product.productNumber}</div>
                     <div class="details-color"><span>Color:</span> ${product.color}</div>
                     <div class="details-description"><span>Description:</span> ${product.description}</div>
-
                     <div class="details-price">
                     Price:<span class="fl-r">€</span><span class="fl-r" id="details-price-num">${product.price}</span>
                     </div>
                     <button class="details-add-btn btn">ADD TO CART</button>
-
                     </div>
                     <i id="btn-remove-details" class="far fa-times-circle"></i>
                     </div>
@@ -716,7 +697,6 @@ const printSearchProducts = (name, category, color, price) => {
         price = parseFloat(price);
     }
 
-    //console.log('name: ' + name, 'category: ' + category, 'color: ' + color, 'price: ' + price)
     products
         .getProducts()
         .then((product) => {
@@ -861,7 +841,7 @@ const printSearchProducts = (name, category, color, price) => {
         })
         .catch((err) => console.log("ERROR", err));
 };
-//PRINT AND SEARCH PRODUCTS /PRODUCT CREATER
+//PRINT AND SEARCH PRODUCTS__PRODUCT CREATER__
 const searchProducts = (image, name, price) => {
     let card = document.createElement("div");
     card.classList.add("card");
@@ -934,8 +914,6 @@ const getLocalStorage = () => {
         products = JSON.parse(localStorage.getItem("products"));
 
     }
-    //let products = JSON.parse(localStorage.getItem("products"));
-
     products.forEach((product) => {
         addToShoppingCardFromLocalStorage(
             product.name,
@@ -981,6 +959,7 @@ Osterstraße 133c<br />
 //REGISTER FORM
 const registerFormCreate = () => {
     headline.innerText = "Register Now";
+    //CREATE THE INPUTS
     productContainer.innerHTML = `
     <div class="form-container">
         <form action="" method="">
@@ -1035,12 +1014,9 @@ const registerFormCreate = () => {
     firstName.addEventListener("blur", (e) => {
         e.preventDefault()
         const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
-        validateRegularExpression(
-            firstName,
-            re,
-            "First name must be between 1 and 30 charackters"
-        );
+        validateRegularExpression(firstName, re, "First name must be between 1 and 30 charackters");
     });
+    //FIRSTNAME KEYPRESS EVENT
     firstName.addEventListener('keyup', (e) => {
         e.preventDefault()
         if (e.which === 13) {
@@ -1053,12 +1029,9 @@ const registerFormCreate = () => {
     lastName.addEventListener("blur", (e) => {
         e.preventDefault()
         const re = /^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$/;
-        validateRegularExpression(
-            lastName,
-            re,
-            "Last name must be between 1 and 30 charackters"
-        );
+        validateRegularExpression(lastName, re, "Last name must be between 1 and 30 charackters");
     });
+    //LASTNAME KEYPRESS EVENT
     lastName.addEventListener('keyup', (e) => {
         e.preventDefault()
         if (e.which === 13) {
@@ -1071,12 +1044,9 @@ const registerFormCreate = () => {
     streetNum.addEventListener("blur", (e) => {
         e.preventDefault()
         const re = /^(([a-zA-ZäöüÄÖÜ]\D*)\s+\d+?\s*.*)$/;
-        validateRegularExpression(
-            streetNum,
-            re,
-            "Street or Streetnumber are not valid"
-        );
+        validateRegularExpression(streetNum, re, "Street or Streetnumber are not valid");
     });
+    //STREETNUMBER KEYPRESS EVENT
     streetNum.addEventListener('keyup', (e) => {
         e.preventDefault()
         if (e.which === 13) {
@@ -1091,6 +1061,7 @@ const registerFormCreate = () => {
         const re = /^(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})$/;
         validateRegularExpression(postcode, re, "Postcode must have 5 numbers");
     });
+    //POSTCODE KEYPRESS EVENT
     postcode.addEventListener('keyup', (e) => {
         e.preventDefault()
         if (e.which === 13) {
@@ -1105,6 +1076,7 @@ const registerFormCreate = () => {
         const re = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
         validateRegularExpression(cityName, re, "Cityname is not valid");
     });
+    //CITY KEYPRESS EVENT
     cityName.addEventListener('keyup', (e) => {
         e.preventDefault()
         if (e.which === 13) {
@@ -1119,6 +1091,7 @@ const registerFormCreate = () => {
         const re = /^(((((((00|\+)49[ \-/]?)|0)[1-9][0-9]{1,4})[ \-/]?)|((((00|\+)49\()|\(0)[1-9][0-9]{1,4}\)[ \-/]?))[0-9]{1,7}([ \-/]?[0-9]{1,5})?)$/;
         validateRegularExpression(phoneNum, re, "Phone number is not valid");
     });
+    //PHONENUMBER KEYPRESS EVENT
     phoneNum.addEventListener('keyup', (e) => {
         e.preventDefault()
         if (e.which === 13) {
@@ -1133,6 +1106,7 @@ const registerFormCreate = () => {
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         validateRegularExpression(email, re, "Email is not valid");
     });
+    //EMAIL KEYPRESS EVENT
     email.addEventListener('keyup', (e) => {
         e.preventDefault()
         if (e.which === 13) {
@@ -1145,12 +1119,9 @@ const registerFormCreate = () => {
     password.addEventListener("blur", (e) => {
         e.preventDefault()
         const re = /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/;
-        validateRegularExpression(
-            password,
-            re,
-            "- At least 8 characters long - Include at least 1 lowercase letter - 1 capital letter - 1 number - 1 special character => !@#$%^&*"
-        );
+        validateRegularExpression(password, re, "- At least 8 characters long - Include at least 1 lowercase letter - 1 capital letter - 1 number - 1 special character => !@#$%^&*");
     });
+    //PASSWORD KEYPRESS EVENT
     password.addEventListener('keyup', (e) => {
         e.preventDefault()
         if (e.which === 13) {
@@ -1205,19 +1176,16 @@ const validateRegularExpression = (selectorID, reEx, txt) => {
         selectorID.classList.remove('true')
         selectorID.nextElementSibling.innerText = txt;
         selectorID.nextElementSibling.classList.add("d-block");
-
-
     } else {
         selectorID.classList.add("form-falid");
         selectorID.classList.remove("invalid-feedback-border");
-
         selectorID.classList.add('true')
         selectorID.nextElementSibling.classList.remove("d-block");
         valid = false
     }
 };
 
-//PASSWORD CHECK IF B
+//PASSWORD CHECK IF BOOTH ARE THE SAME
 const passwordAgainCheck = (selectorID, pw, txt) => {
     if (selectorID.value !== pw) {
         selectorID.classList.remove("is-invalid");
