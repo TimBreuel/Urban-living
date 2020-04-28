@@ -201,11 +201,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
     logo.addEventListener("click", (e) => {
         e.preventDefault();
         printProductsPageNum(1, '#ffe5db', '#4d4954', '#4d4954', '#4d4954');
+        navigationMenuSlideBack();
+        shoppingCardContainerSlideBack()
     });
     seeAll.addEventListener("click", (e) => {
         e.preventDefault();
         printProductsPageNum(1, '#ffe5db', '#4d4954', '#4d4954', '#4d4954');
         navigationMenuSlideBack();
+        shoppingCardContainerSlideBack()
     });
     categoryChairs.addEventListener("click", (e) => {
         e.preventDefault();
