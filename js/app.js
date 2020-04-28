@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     shopingCardBtn.addEventListener("click", shoppingCardContainer);
 
     //PRODUCTS CALL
-    printProductsPageNum(1);
+    printProductsPageNum(1, '#ffe5db', '#4d4954', '#4d4954', '#4d4954');
 
     //LOAD LOCAL STORAGE
     getLocalStorage();
@@ -200,11 +200,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
     //CATEGORY PRODUCTS CALL
     logo.addEventListener("click", (e) => {
         e.preventDefault();
-        printProductsPageNum(1);
+        printProductsPageNum(1, '#ffe5db', '#4d4954', '#4d4954', '#4d4954');
     });
     seeAll.addEventListener("click", (e) => {
         e.preventDefault();
-        printProductsPageNum(1);
+        printProductsPageNum(1, '#ffe5db', '#4d4954', '#4d4954', '#4d4954');
         navigationMenuSlideBack();
     });
     categoryChairs.addEventListener("click", (e) => {
@@ -444,8 +444,8 @@ const printProducts = () => {
             <h4 class="article-name">${product.name}</h4>
             <div class="article-price">
             Price: <span class="article-price-num">${product.price}</span> €
-            <button class="btn-card btn-add-update">
-            <i class="fas fa-cart-plus btn-success"></i>
+            <button class="btn-card btn-add">
+            <i class="fas fa-cart-plus btn-success btn-add"></i>
             </button>
             </div>
             <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
@@ -458,10 +458,10 @@ const printProducts = () => {
 
 //////////////////////////////////
 //PRINT PRODUCTS WITH PAGE NUMBER
-const printProductsPageNum = (pageNumber) => {
-    headline.innerHTML = `Our Products <span class="pageNum fl-r" id="page4">4</span>
-    <span class="fl-r pageNum" id="page3">3</span><span class="fl-r pageNum" id="page2">2</span><span
-      class="fl-r pageNum" id="page1">1</span>`;
+const printProductsPageNum = (pageNumber, pagCol1, pagCol2, pagCol3, pagCol4) => {
+    headline.innerHTML = `Our Products <span class="pageNum fl-r" id="page4" style="color:${pagCol4};">4</span>
+    <span class="fl-r pageNum" id="page3" style="color:${pagCol3};">3</span><span class="fl-r pageNum" id="page2" style="color:${pagCol2};">2</span><span
+      class="fl-r pageNum" id="page1" style="color:${pagCol1};">1</span>`;
 
     //BUTTON PAGE NUMBERS
     const page1 = document.querySelector(UIselectors.page1);
@@ -472,19 +472,20 @@ const printProductsPageNum = (pageNumber) => {
     //BUTTON PAGE NUMBERS EVENT CLICK
     page1.addEventListener("click", (e) => {
         e.preventDefault();
-        printProductsPageNum(1);
+        printProductsPageNum(1, '#ffe5db', '#4d4954', '#4d4954', '#4d4954');
+
     });
     page2.addEventListener("click", (e) => {
         e.preventDefault();
-        printProductsPageNum(2);
+        printProductsPageNum(2, '#4d4954', '#ffe5db', '#4d4954', '#4d4954');
     });
     page3.addEventListener("click", (e) => {
         e.preventDefault();
-        printProductsPageNum(3);
+        printProductsPageNum(3, '#4d4954', '#4d4954', '#ffe5db', '#4d4954');
     });
     page4.addEventListener("click", (e) => {
         e.preventDefault();
-        printProductsPageNum(4);
+        printProductsPageNum(4, '#4d4954', '#4d4954', '#4d4954', '#ffe5db');
     });
 
     //CLEAR PRODUCT CONTAINER
@@ -532,7 +533,7 @@ const printProductsCategory = (category) => {
                 <div class="article-price">
                 Price: <span class="article-price-num">${product.price}</span> €
                 <button class="btn-card btn-add">
-                <i class="fas fa-cart-plus"></i>
+                <i class="fas fa-cart-plus btn-success btn-add"></i>
                 </button>
                 </div>
                 <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>
@@ -845,7 +846,7 @@ const searchProducts = (image, name, price) => {
                     <div class="article-price">
                     Price: <span class="article-price-num">${price}</span> €
                     <button class="btn-card btn-add">
-                    <i class="fas fa-cart-plus"></i>
+                    <i class="fas fa-cart-plus btn-success btn-add"></i>
                     </button>
                     </div>
                     <div class="details"><i id="btn-details" class="open-details fas fa-plus"></i></div>

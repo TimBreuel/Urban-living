@@ -42,7 +42,7 @@
         },
         {
             "productNumber": "0005",
-            "name": "Chair HANNA",
+            "name": "Chair JOHN",
             "category": "chair",
             "price": "76",
             "color": "brown",
@@ -81,7 +81,7 @@
         },
         {
             "productNumber": "0009",
-            "name": "Chair FRED",
+            "name": "Chair HANNA",
             "category": "chair",
             "price": "45",
             "color": "brown",
