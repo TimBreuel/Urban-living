@@ -16,8 +16,8 @@
             "category": "chair",
             "price": "83",
             "color": "white",
-            "imageL": "/products/chairs/chair-2-500x500.jpg",
-            "imageS": "/products/chairs/chair-2-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-2-500x500.jpg",
+            "imageS": "./products/chairs/chair-2-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -26,8 +26,8 @@
             "category": "chair",
             "price": "28",
             "color": "white",
-            "imageL": "/products/chairs/chair-3-500x500.jpg",
-            "imageS": "/products/chairs/chair-3-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-3-500x500.jpg",
+            "imageS": "./products/chairs/chair-3-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -36,8 +36,8 @@
             "category": "chair",
             "price": "41",
             "color": "white",
-            "imageL": "/products/chairs/chair-4-500x500.jpg",
-            "imageS": "/products/chairs/chair-4-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-4-500x500.jpg",
+            "imageS": "./products/chairs/chair-4-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -46,8 +46,8 @@
             "category": "chair",
             "price": "76",
             "color": "brown",
-            "imageL": "/products/chairs/chair-5-500x500.jpg",
-            "imageS": "/products/chairs/chair-5-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-5-500x500.jpg",
+            "imageS": "./products/chairs/chair-5-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -56,8 +56,8 @@
             "category": "chair",
             "price": "59",
             "color": "white",
-            "imageL": "/products/chairs/chair-6-500x500.jpg",
-            "imageS": "/products/chairs/chair-6-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-6-500x500.jpg",
+            "imageS": "./products/chairs/chair-6-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -66,8 +66,8 @@
             "category": "chair",
             "price": "23",
             "color": "brown",
-            "imageL": "/products/chairs/chair-7-500x500.jpg",
-            "imageS": "/products/chairs/chair-7-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-7-500x500.jpg",
+            "imageS": "./products/chairs/chair-7-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -76,8 +76,8 @@
             "category": "chair",
             "price": "88",
             "color": "brown",
-            "imageL": "/products/chairs/chair-8-500x500.jpg",
-            "imageS": "/products/chairs/chair-8-s-200x200.jpg"
+            "imageL": "./products/chairs/chair-8-500x500.jpg",
+            "imageS": "./products/chairs/chair-8-s-200x200.jpg"
         },
         {
             "productNumber": "0009",
@@ -85,8 +85,8 @@
             "category": "chair",
             "price": "45",
             "color": "brown",
-            "imageL": "/products/chairs/chair-9-500x500.jpg",
-            "imageS": "/products/chairs/chair-9-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-9-500x500.jpg",
+            "imageS": "./products/chairs/chair-9-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -95,8 +95,8 @@
             "category": "chair",
             "price": "32",
             "color": "orange",
-            "imageL": "/products/chairs/chair-10-500x500.jpg",
-            "imageS": "/products/chairs/chair-10-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-10-500x500.jpg",
+            "imageS": "./products/chairs/chair-10-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -105,8 +105,8 @@
             "category": "chair",
             "price": "39",
             "color": "brown",
-            "imageL": "/products/chairs/chair-11-500x500.jpg",
-            "imageS": "/products/chairs/chair-11-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-11-500x500.jpg",
+            "imageS": "./products/chairs/chair-11-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -115,8 +115,8 @@
             "category": "chair",
             "price": "61",
             "color": "brown",
-            "imageL": "/products/chairs/chair-12-500x500.jpg",
-            "imageS": "/products/chairs/chair-12-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-12-500x500.jpg",
+            "imageS": "./products/chairs/chair-12-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -125,8 +125,8 @@
             "category": "chair",
             "price": "30",
             "color": "black",
-            "imageL": "/products/chairs/chair-13-500x500.jpg",
-            "imageS": "/products/chairs/chair-13-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-13-500x500.jpg",
+            "imageS": "./products/chairs/chair-13-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -135,8 +135,8 @@
             "category": "chair",
             "price": "87",
             "color": "red",
-            "imageL": "/products/chairs/chair-14-500x500.jpg",
-            "imageS": "/products/chairs/chair-14-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-14-500x500.jpg",
+            "imageS": "./products/chairs/chair-14-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -145,8 +145,8 @@
             "category": "chair",
             "price": "37",
             "color": "black",
-            "imageL": "/products/chairs/chair-15-500x500.jpg",
-            "imageS": "/products/chairs/chair-15-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-15-500x500.jpg",
+            "imageS": "./products/chairs/chair-15-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -155,8 +155,8 @@
             "category": "couch",
             "price": "789",
             "color": "black",
-            "imageL": "/products/couches/couch-1-500x500.jpg",
-            "imageS": "/products/couches/couch-1-s-200x200.jpg",
+            "imageL": "./products/couches/couch-1-500x500.jpg",
+            "imageS": "./products/couches/couch-1-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -165,8 +165,8 @@
             "category": "couch",
             "price": "1200",
             "color": "grey",
-            "imageL": "/products/couches/couch-2-500x500.jpg",
-            "imageS": "/products/couches/couch-2-s-200x200.jpg",
+            "imageL": "./products/couches/couch-2-500x500.jpg",
+            "imageS": "./products/couches/couch-2-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -175,8 +175,8 @@
             "category": "couch",
             "price": "1632",
             "color": "brown",
-            "imageL": "/products/couches/couch-3-500x500.jpg",
-            "imageS": "/products/couches/couch-3-s-200x200.jpg",
+            "imageL": "./products/couches/couch-3-500x500.jpg",
+            "imageS": "./products/couches/couch-3-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -185,8 +185,8 @@
             "category": "couch",
             "price": "588",
             "color": "black",
-            "imageL": "/products/couches/couch-4-500x500.jpg",
-            "imageS": "/products/couches/couch-4-s-200x200.jpg",
+            "imageL": "./products/couches/couch-4-500x500.jpg",
+            "imageS": "./products/couches/couch-4-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -195,8 +195,8 @@
             "category": "couch",
             "price": "2300",
             "color": "red",
-            "imageL": "/products/couches/couch-5-500x500.jpg",
-            "imageS": "/products/couches/couch-5-s-200x200.jpg",
+            "imageL": "./products/couches/couch-5-500x500.jpg",
+            "imageS": "./products/couches/couch-5-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -205,8 +205,8 @@
             "category": "couch",
             "price": "1650",
             "color": "brown",
-            "imageL": "/products/couches/couch-6-500x500.jpg",
-            "imageS": "/products/couches/couch-6-s-200x200.jpg",
+            "imageL": "./products/couches/couch-6-500x500.jpg",
+            "imageS": "./products/couches/couch-6-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -215,8 +215,8 @@
             "category": "couch",
             "price": "732",
             "color": "black",
-            "imageL": "/products/couches/couch-7-500x500.jpg",
-            "imageS": "/products/couches/couch-7-s-200x200.jpg",
+            "imageL": "./products/couches/couch-7-500x500.jpg",
+            "imageS": "./products/couches/couch-7-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -225,8 +225,8 @@
             "category": "couch",
             "price": "989",
             "color": "grey",
-            "imageL": "/products/couches/couch-8-500x500.jpg",
-            "imageS": "/products/couches/couch-8-s-200x200.jpg",
+            "imageL": "./products/couches/couch-8-500x500.jpg",
+            "imageS": "./products/couches/couch-8-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -235,8 +235,8 @@
             "category": "couch",
             "price": "1018",
             "color": "grey",
-            "imageL": "/products/couches/couch-9-500x500.jpg",
-            "imageS": "/products/couches/couch-9-s-200x200.jpg",
+            "imageL": "./products/couches/couch-9-500x500.jpg",
+            "imageS": "./products/couches/couch-9-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -245,8 +245,8 @@
             "category": "couch",
             "price": "1369",
             "color": "brown",
-            "imageL": "/products/couches/couch-10-500x500.jpg",
-            "imageS": "/products/couches/couch-10-s-200x200.jpg",
+            "imageL": "./products/couches/couch-10-500x500.jpg",
+            "imageS": "./products/couches/couch-10-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -255,8 +255,8 @@
             "category": "couch",
             "price": "1110",
             "color": "grey",
-            "imageL": "/products/couches/couch-11-500x500.jpg",
-            "imageS": "/products/couches/couch-11-s-200x200.jpg",
+            "imageL": "./products/couches/couch-11-500x500.jpg",
+            "imageS": "./products/couches/couch-11-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -265,8 +265,8 @@
             "category": "couch",
             "price": "599",
             "color": "orange",
-            "imageL": "/products/couches/couch-12-500x500.jpg",
-            "imageS": "/products/couches/couch-12-s-200x200.jpg",
+            "imageL": "./products/couches/couch-12-500x500.jpg",
+            "imageS": "./products/couches/couch-12-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -275,8 +275,8 @@
             "category": "couch",
             "price": "1890",
             "color": "black",
-            "imageL": "/products/couches/couch-13-500x500.jpg",
-            "imageS": "/products/couches/couch-13-s-200x200.jpg",
+            "imageL": "./products/couches/couch-13-500x500.jpg",
+            "imageS": "./products/couches/couch-13-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -285,8 +285,8 @@
             "category": "couch",
             "price": "1340",
             "color": "white",
-            "imageL": "/products/couches/couch-14-500x500.jpg",
-            "imageS": "/products/couches/couch-14-s-200x200.jpg",
+            "imageL": "./products/couches/couch-14-500x500.jpg",
+            "imageS": "./products/couches/couch-14-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -295,8 +295,8 @@
             "category": "couch",
             "price": "850",
             "color": "yellow",
-            "imageL": "/products/couches/couch-15-500x500.jpg",
-            "imageS": "/products/couches/couch-15-s-200x200.jpg",
+            "imageL": "./products/couches/couch-15-500x500.jpg",
+            "imageS": "./products/couches/couch-15-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -305,8 +305,8 @@
             "category": "lamp",
             "price": "55",
             "color": "black",
-            "imageL": "/products/lamps/lamp-1-500x500.jpg",
-            "imageS": "/products/lamps/lamp-1-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-1-500x500.jpg",
+            "imageS": "./products/lamps/lamp-1-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -315,8 +315,8 @@
             "category": "lamp",
             "price": "75",
             "color": "black",
-            "imageL": "/products/lamps/lamp-2-500x500.jpg",
-            "imageS": "/products/lamps/lamp-2-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-2-500x500.jpg",
+            "imageS": "./products/lamps/lamp-2-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -325,8 +325,8 @@
             "category": "lamp",
             "price": "23",
             "color": "black",
-            "imageL": "/products/lamps/lamp-3-500x500.jpg",
-            "imageS": "/products/lamps/lamp-3-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-3-500x500.jpg",
+            "imageS": "./products/lamps/lamp-3-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -335,8 +335,8 @@
             "category": "lamp",
             "price": "88",
             "color": "white",
-            "imageL": "/products/lamps/lamp-4-500x500.jpg",
-            "imageS": "/products/lamps/lamp-4-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-4-500x500.jpg",
+            "imageS": "./products/lamps/lamp-4-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -345,8 +345,8 @@
             "category": "lamp",
             "price": "98",
             "color": "black",
-            "imageL": "/products/lamps/lamp-5-500x500.jpg",
-            "imageS": "/products/lamps/lamp-5-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-5-500x500.jpg",
+            "imageS": "./products/lamps/lamp-5-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -355,8 +355,8 @@
             "category": "lamp",
             "price": "38",
             "color": "black",
-            "imageL": "/products/lamps/lamp-6-500x500.jpg",
-            "imageS": "/products/lamps/lamp-6-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-6-500x500.jpg",
+            "imageS": "./products/lamps/lamp-6-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -365,8 +365,8 @@
             "category": "lamp",
             "price": "78",
             "color": "black",
-            "imageL": "/products/lamps/lamp-7-500x500.jpg",
-            "imageS": "/products/lamps/lamp-7-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-7-500x500.jpg",
+            "imageS": "./products/lamps/lamp-7-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -375,8 +375,8 @@
             "category": "lamp",
             "price": "43",
             "color": "black",
-            "imageL": "/products/lamps/lamp-8-500x500.jpg",
-            "imageS": "/products/lamps/lamp-8-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-8-500x500.jpg",
+            "imageS": "./products/lamps/lamp-8-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -385,8 +385,8 @@
             "category": "lamp",
             "price": "37",
             "color": "black",
-            "imageL": "/products/lamps/lamp-9-500x500.jpg",
-            "imageS": "/products/lamps/lamp-9-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-9-500x500.jpg",
+            "imageS": "./products/lamps/lamp-9-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -395,8 +395,8 @@
             "category": "lamp",
             "price": "67",
             "color": "gold",
-            "imageL": "/products/lamps/lamp-10-500x500.jpg",
-            "imageS": "/products/lamps/lamp-10-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-10-500x500.jpg",
+            "imageS": "./products/lamps/lamp-10-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -405,8 +405,8 @@
             "category": "lamp",
             "price": "33",
             "color": "white",
-            "imageL": "/products/lamps/lamp-11-500x500.jpg",
-            "imageS": "/products/lamps/lamp-11-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-11-500x500.jpg",
+            "imageS": "./products/lamps/lamp-11-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -415,8 +415,8 @@
             "category": "lamp",
             "price": "49",
             "color": "gold",
-            "imageL": "/products/lamps/lamp-12-500x500.jpg",
-            "imageS": "/products/lamps/lamp-12-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-12-500x500.jpg",
+            "imageS": "./products/lamps/lamp-12-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -425,8 +425,8 @@
             "category": "lamp",
             "price": "29",
             "color": "black",
-            "imageL": "/products/lamps/lamp-13-500x500.jpg",
-            "imageS": "/products/lamps/lamp-13-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-13-500x500.jpg",
+            "imageS": "./products/lamps/lamp-13-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -435,8 +435,8 @@
             "category": "lamp",
             "price": "32",
             "color": "black",
-            "imageL": "/products/lamps/lamp-14-500x500.jpg",
-            "imageS": "/products/lamps/lamp-14-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-14-500x500.jpg",
+            "imageS": "./products/lamps/lamp-14-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -445,8 +445,8 @@
             "category": "lamp",
             "price": "26",
             "color": "black",
-            "imageL": "/products/lamps/lamp-15-500x500.jpg",
-            "imageS": "/products/lamps/lamp-15-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-15-500x500.jpg",
+            "imageS": "./products/lamps/lamp-15-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -455,8 +455,8 @@
             "category": "lamp",
             "price": "42",
             "color": "white",
-            "imageL": "/products/lamps/lamp-16-500x500.jpg",
-            "imageS": "/products/lamps/lamp-16-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-16-500x500.jpg",
+            "imageS": "./products/lamps/lamp-16-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -465,8 +465,8 @@
             "category": "lamp",
             "price": "49",
             "color": "white",
-            "imageL": "/products/lamps/lamp-17-500x500.jpg",
-            "imageS": "/products/lamps/lamp-17-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-17-500x500.jpg",
+            "imageS": "./products/lamps/lamp-17-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -475,8 +475,8 @@
             "category": "lamp",
             "price": "57",
             "color": "black",
-            "imageL": "/products/lamps/lamp-18-500x500.jpg",
-            "imageS": "/products/lamps/lamp-18-s-200x200.jpg",
+            "imageL": "./products/lamps/lamp-18-500x500.jpg",
+            "imageS": "./products/lamps/lamp-18-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -485,8 +485,8 @@
             "category": "table",
             "price": "65",
             "color": "grey",
-            "imageL": "/products/tables/table-1-500x500.jpg",
-            "imageS": "/products/tables/table-1-s-200x200.jpg",
+            "imageL": "./products/tables/table-1-500x500.jpg",
+            "imageS": "./products/tables/table-1-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -495,8 +495,8 @@
             "category": "table",
             "price": "88",
             "color": "brown",
-            "imageL": "/products/tables/table-2-500x500.jpg",
-            "imageS": "/products/tables/table-2-s-200x200.jpg",
+            "imageL": "./products/tables/table-2-500x500.jpg",
+            "imageS": "./products/tables/table-2-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -505,8 +505,8 @@
             "category": "table",
             "price": "58",
             "color": "brown",
-            "imageL": "/products/tables/table-3-500x500.jpg",
-            "imageS": "/products/tables/table-3-s-200x200.jpg",
+            "imageL": "./products/tables/table-3-500x500.jpg",
+            "imageS": "./products/tables/table-3-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -515,8 +515,8 @@
             "category": "table",
             "price": "59",
             "color": "white",
-            "imageL": "/products/tables/table-4-500x500.jpg",
-            "imageS": "/products/tables/table-4-s-200x200.jpg",
+            "imageL": "./products/tables/table-4-500x500.jpg",
+            "imageS": "./products/tables/table-4-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -525,8 +525,8 @@
             "category": "table",
             "price": "78",
             "color": "white",
-            "imageL": "/products/tables/table-5-500x500.jpg",
-            "imageS": "/products/tables/table-5-s-200x200.jpg",
+            "imageL": "./products/tables/table-5-500x500.jpg",
+            "imageS": "./products/tables/table-5-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -535,8 +535,8 @@
             "category": "table",
             "price": "65",
             "color": "grey",
-            "imageL": "/products/tables/table-6-500x500.jpg",
-            "imageS": "/products/tables/table-6-s-200x200.jpg",
+            "imageL": "./products/tables/table-6-500x500.jpg",
+            "imageS": "./products/tables/table-6-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -545,8 +545,8 @@
             "category": "table",
             "price": "99",
             "color": "brown",
-            "imageL": "/products/tables/table-7-500x500.jpg",
-            "imageS": "/products/tables/table-7-s-200x200.jpg",
+            "imageL": "./products/tables/table-7-500x500.jpg",
+            "imageS": "./products/tables/table-7-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -555,8 +555,8 @@
             "category": "table",
             "price": "115",
             "color": "black",
-            "imageL": "/products/tables/table-8-500x500.jpg",
-            "imageS": "/products/tables/table-8-s-200x200.jpg",
+            "imageL": "./products/tables/table-8-500x500.jpg",
+            "imageS": "./products/tables/table-8-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -565,8 +565,8 @@
             "category": "table",
             "price": "53",
             "color": "white",
-            "imageL": "/products/tables/table-9-500x500.jpg",
-            "imageS": "/products/tables/table-9-s-200x200.jpg",
+            "imageL": "./products/tables/table-9-500x500.jpg",
+            "imageS": "./products/tables/table-9-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -575,8 +575,8 @@
             "category": "table",
             "price": "87",
             "color": "brown",
-            "imageL": "/products/tables/table-10-500x500.jpg",
-            "imageS": "/products/tables/table-10-s-200x200.jpg",
+            "imageL": "./products/tables/table-10-500x500.jpg",
+            "imageS": "./products/tables/table-10-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -585,8 +585,8 @@
             "category": "table",
             "price": "99",
             "color": "white",
-            "imageL": "/products/tables/table-11-500x500.jpg",
-            "imageS": "/products/tables/table-11-s-200x200.jpg",
+            "imageL": "./products/tables/table-11-500x500.jpg",
+            "imageS": "./products/tables/table-11-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -595,8 +595,8 @@
             "category": "table",
             "price": "130",
             "color": "brown",
-            "imageL": "/products/tables/table-12-500x500.jpg",
-            "imageS": "/products/tables/table-12-s-200x200.jpg",
+            "imageL": "./products/tables/table-12-500x500.jpg",
+            "imageS": "./products/tables/table-12-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         },
         {
@@ -605,8 +605,8 @@
             "category": "table",
             "price": "105",
             "color": "black",
-            "imageL": "/products/tables/table-13-500x500.jpg",
-            "imageS": "/products/tables/table-13-s-200x200.jpg",
+            "imageL": "./products/tables/table-13-500x500.jpg",
+            "imageS": "./products/tables/table-13-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea"
         }
     ]

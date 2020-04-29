@@ -7,22 +7,22 @@
 
 @font-face {
   font-family: "quicksand-bold";
-  src: url("/fonts/Quicksand-Bold.ttf");
+  src: url("./fonts/Quicksand-Bold.ttf");
 }
 
 @font-face {
   font-family: "quicksand-regular";
-  src: url("/fonts/Quicksand-Regular.ttf");
+  src: url("./fonts/Quicksand-Regular.ttf");
 }
 
 @font-face {
   font-family: "quicksand-light";
-  src: url("/fonts/Quicksand-Light.ttf");
+  src: url("./fonts/Quicksand-Light.ttf");
 }
 
 @font-face {
   font-family: "quicksand-medium";
-  src: url("/fonts/Quicksand-Medium.ttf");
+  src: url("./fonts/Quicksand-Medium.ttf");
 }
 
 * {
