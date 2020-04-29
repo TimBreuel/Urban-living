@@ -710,12 +710,30 @@
   }
 
   .form-container div {
-
     width: 400px;
     height: 35px;
     font-size: 15px;
+  }
 
+  .col4 {
+    width: 100%;
+  }
 
+  .col8 {
+    width: 100%;
+  }
+
+  .box1,
+  .box2,
+  .box3 {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  .box1 h3,
+  .box2 h3,
+  .box3 h3 {
+    margin-top: 20px;
   }
 
 }
