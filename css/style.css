@@ -5,7 +5,7 @@
 /* ===== FONTS ===== */
 /* font-family: 'Quicksand', sans-serif; */
 
-@font-face {
+/* @font-face {
   font-family: "quicksand-bold";
   src: url("./fonts/Quicksand-Bold.ttf");
 }
@@ -23,13 +23,14 @@
 @font-face {
   font-family: "quicksand-medium";
   src: url("./fonts/Quicksand-Medium.ttf");
-}
+} */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "quicksand-regular", sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
 }
 
 .fl-r {
@@ -296,7 +297,7 @@
   margin-top: 200px;
   margin-left: 100px;
   margin-right: 100px;
-
+  font-weight: 500;
   color: #4d4954;
   font-size: 40px;
   border-bottom: 1px solid #4d4954;
@@ -326,7 +327,7 @@
 }
 
 .article-name {
-  font-family: quicksand-medium;
+  font-weight: 400;
   padding: 10px 10px;
   font-size: 20px;
   color: #ffe5db;
@@ -351,7 +352,7 @@
   font-size: 12px;
   width: 75px;
   height: 25px;
-  font-family: quicksand-light;
+  font-weight: 300;
 }
 
 .btn-card:hover {
@@ -487,14 +488,14 @@
 }
 
 .details-font>div>span {
-  font-family: "quicksand-medium";
+  font-weight: 400;
   font-size: 20px;
 }
 
 .details-price {
   margin-top: 25px;
   font-size: 22px;
-  font-family: "quicksand-medium";
+  font-weight: 400;
 }
 
 
@@ -624,7 +625,7 @@
 .box1 h3,
 .box2 h3,
 .box3 h3 {
-  font-family: "quicksand-bold";
+  font-weight: 700;
   border-bottom: 1px solid #4d4954;
   font-size: 20px;
   margin-bottom: 5px;
@@ -696,7 +697,7 @@
 .login-container h2 {
   text-align: center;
   font-size: 40px;
-  font-family: "quicksand-medium";
+  font-weight: 400;
   margin-bottom: 30px;
 }
 
