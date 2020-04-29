@@ -368,7 +368,7 @@
   right: 10px;
   bottom: 10px;
   font-size: 18px;
-
+  /* border: 1px solid #ffe5db */
 }
 
 .btn-add-update {
@@ -384,7 +384,8 @@
 .btn-success {
   right: 0 !important;
   bottom: 0 !important;
-  padding-top: 6px !important;
+  padding-top: 8px !important;
+  padding-left: 1px !important;
   border-radius: 5px;
 }
 
@@ -659,6 +660,68 @@
 
 
 /* ===== END ABOUT US ===== */
+
+
+/* ===== LOGIN AREA ===== */
+
+.login-bg {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.login-container {
+  width: 350px;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  border: 1px solid #4d4954;
+  padding: 20px;
+  color: #4d4954;
+}
+
+.login-container>i {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 20px;
+}
+
+.login-container h2 {
+  text-align: center;
+  font-size: 40px;
+  font-family: "quicksand-medium";
+  margin-bottom: 30px;
+}
+
+.login-container label {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 3PX;
+}
+
+.login-container input {
+  display: block;
+  width: 100%;
+  height: 35px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #4d4954
+}
+
+.login-container div {
+  display: block;
+  width: 100%;
+}
+
+/* ===== END LOGIN AREA */
 
 
 /* ===== FOOTER ===== */

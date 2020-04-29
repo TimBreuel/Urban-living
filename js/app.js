@@ -145,7 +145,8 @@ const UIselectors = {
     register: "#register",
     firstName: "#firstName",
     buyNowBtn: ".buy-now",
-    aboutUs: '#about-us'
+    aboutUs: '#about-us',
+    loginBtn: '#login'
 };
 
 /////////////////////
@@ -187,6 +188,9 @@ const buyNowBtn = document.querySelector(UIselectors.buyNowBtn)
 
 //ABOUT US
 const aboutUs = document.querySelector(UIselectors.aboutUs)
+
+//LOGIN
+const loginBtn = document.querySelector(UIselectors.loginBtn)
 
 ///////////////////
 //EVENTS LISTENERS
@@ -264,6 +268,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
         e.preventDefault()
         window.location = 'https://www.paypal.com/de/home'
     })
+
+    //LOGIN
+    // loginBtn.addEventListener('click', (e) => {
+    //     e.preventDefault()
+    //     loginCreater()
+    // })
 
     ///////////////////////////////////////////////////////////////
     //CLICK EVENTS FOR ADD CART AND REMOVE CART FROM SHOPPING CART
@@ -1222,6 +1232,48 @@ const passwordAgainCheck = (selectorID, pw, txt) => {
         selectorID.nextElementSibling.classList.remove("d-block");
     }
 };
+
+////////////////
+//LOGIN CREATER
+// const loginCreater = () => {
+
+//     let loginBg = document.createElement('div')
+//     loginBg.classList.add('login-bg')
+//     loginBg.innerHTML = `
+
+//         <div class="login-container">
+//         <i id="btn-remove-login" class="far fa-times-circle"></i>
+//             <h2>Login</h2>
+//             <form action="" method="">
+
+
+//                 <label for="email">Enter Email</label>
+//                 <input type="email" id="email-login">
+//                 <div class="invalid-feedback"></div>
+
+//                 <label for="password">Enter Password</label>
+//                 <input type="text" id="password-login">
+//                 <div class="invalid-feedback"></div>
+
+//                 <label for="password-again">Repeat Password</label>
+//                 <input type="text" id="password-again-login">
+//                 <div class="invalid-feedback"></div>
+
+
+//                 <input type="submit" id="loginBtn" class="btn" value="LOGIN">
+//                 <div class="successOrNot"></div>
+//             </form>
+//         </div>
+//     `
+
+//     productContainer.append(loginBg)
+//     const btnRemoveLogin = document.querySelector('#btn-remove-login')
+//     btnRemoveLogin.addEventListener('click', (e) => {
+//         e.preventDefault()
+//         loginBg.remove()
+//     })
+
+// }
 
 ///////////////////
 //ABOUT US CREATER
