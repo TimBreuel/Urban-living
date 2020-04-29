@@ -5,6 +5,7 @@
 /* ===== FONTS ===== */
 /* font-family: 'Quicksand', sans-serif; */
 
+
 /* @font-face {
   font-family: "quicksand-bold";
   src: url("./fonts/Quicksand-Bold.ttf");
@@ -23,7 +24,7 @@
 @font-face {
   font-family: "quicksand-medium";
   src: url("./fonts/Quicksand-Medium.ttf");
-} */
+}
 
 * {
   margin: 0;
