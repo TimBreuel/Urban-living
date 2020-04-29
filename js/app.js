@@ -144,6 +144,8 @@ const UIselectors = {
     amount: ".amount",
     register: "#register",
     firstName: "#firstName",
+    buyNowBtn: ".buy-now",
+    aboutUs: '#about-us'
 };
 
 /////////////////////
@@ -179,6 +181,12 @@ const impressum = document.querySelector(UIselectors.impressum);
 //REGISTER
 const register = document.querySelector(UIselectors.register);
 const firstName = document.querySelector(UIselectors.firstName);
+
+//BUY NOW
+const buyNowBtn = document.querySelector(UIselectors.buyNowBtn)
+
+//ABOUT US
+const aboutUs = document.querySelector(UIselectors.aboutUs)
 
 ///////////////////
 //EVENTS LISTENERS
@@ -246,9 +254,16 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     //REGISTER FORM
     register.addEventListener("click", (e) => {
+        e.preventDefault();
         registerFormCreate();
         navigationMenuSlideBack();
     });
+
+    //BUY NOW
+    buyNowBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        window.location = 'https://www.paypal.com/de/home'
+    })
 
     ///////////////////////////////////////////////////////////////
     //CLICK EVENTS FOR ADD CART AND REMOVE CART FROM SHOPPING CART
@@ -334,6 +349,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
     btnClear.addEventListener('click', (e) => {
         e.preventDefault()
         clearSearchInputs()
+    })
+
+    //ABOUT US
+    aboutUs.addEventListener('click', (e) => {
+        e.preventDefault()
+        aboutUsCreater()
+        navigationMenuSlideBack();
     })
 });
 
@@ -1200,3 +1222,60 @@ const passwordAgainCheck = (selectorID, pw, txt) => {
         selectorID.nextElementSibling.classList.remove("d-block");
     }
 };
+
+///////////////////
+//ABOUT US CREATER
+
+const aboutUsCreater = () => {
+    headline.innerText = 'About Us'
+    productContainer.innerHTML = `
+    <div class="box1">
+            <div class="boxImage col4"><img src="./img/WorkingTogether.png" alt=""></div>
+            <div class="boxContent col8">
+                <h3>Our Team</h3>
+
+                <p>Looking for a new a interesting job? We encourage interdiciplinary working and fundamentally
+                    believe in the power of teamwork. Whether you're a Marketing Profession, Programmer or a
+                    Logistics Lover - don't hestiate to get in contact with us about open opportunities.</p>
+                <br>
+                <span>JOBS AT URBAN LIVING: <a href="https://www.linkedin.com/jobs/tracker/saved/">Go to site</a></span>
+                <span>Send us yor Initiave application today. <a href="#">Go to chat</a></span>
+
+            </div>
+        </div>
+
+        <div class="box2">
+
+            <div class="boxContent2 col8">
+                <h3>Contact Us</h3>
+
+                <p>We strive to give the best possible customer service. Should you have any questions or need to
+                    talk to someone about an order, you can get in touch with us the following ways:</p>
+                <br>
+                <span>Phone: 0402 558 33</span>
+                <span>Email: maxmusterman@gmail.com</span>
+                <span>LinkedIn: <a href="https://www.linkedin.com/jobs/tracker/saved/">Go to site</a></span>
+                <span>Chat: <a href="#">Go to chat</a></span>
+
+            </div>
+            <div class="boxImage2 col4"><img src="./img/CustomerService.png" alt=""></div>
+        </div>
+
+        <div class="box3">
+            <div class="boxImage col4"><img src="./img/OfficeHours.png" alt=""></div>
+            <div class="boxContent col8">
+                <h3>Our Office</h3>
+
+                <p>Located in the heart of Hamburg, our dedicated teams with their passion for all things interior,
+                    work to provide you with the best possible online shopping experience.
+                    You can find us here: </p>
+                <br>
+                <span>Urban Living GmbH</span>
+                <span>Landwehr 29</span>
+                <span>22087 Hamburg</span>
+
+            </div>
+
+        </div>
+    `
+}
