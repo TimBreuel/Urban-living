@@ -6,8 +6,8 @@
             "category": "chair",
             "price": "33",
             "color": "black",
-            "imageL": "/products/chairs/chair-1-500x500.jpg",
-            "imageS": "/products/chairs/chair-1-s-200x200.jpg",
+            "imageL": "./products/chairs/chair-1-500x500.jpg",
+            "imageS": "./products/chairs/chair-1-s-200x200.jpg",
             "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et"
         },
         {
