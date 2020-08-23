@@ -1,0 +1,39 @@
+/*===== COLORS =====*/
+/* #4d4954 */
+/* #ffe5db */
+
+/* ===== FONTS ===== */
+/* font-family: 'Quicksand', sans-serif; */
+
+
+@font-face {
+    font-family: "quicksand-bold";
+    src: url("./fonts/Quicksand-Bold.ttf");
+  }
+  
+  @font-face {
+    font-family: "quicksand-regular";
+    src: url("./fonts/Quicksand-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: "quicksand-light";
+    src: url("./fonts/Quicksand-Light.ttf");
+  }
+  
+  @font-face {
+    font-family: "quicksand-medium";
+    src: url("./fonts/Quicksand-Medium.ttf");
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+  }
+  
+  .fl-r {
+    float: right;
+  }
